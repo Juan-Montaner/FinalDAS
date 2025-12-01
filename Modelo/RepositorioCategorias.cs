@@ -39,5 +39,14 @@ namespace Modelo
             context.SaveChanges();
         }
 
+        public Categoria BuscarCategoria(string nombre)
+        {
+            return context.Categorias.FirstOrDefault(c => c.Nombre == nombre);
+        }
+
+        public Categoria BuscarCategoriaID(int id)
+        {
+            return context.Categorias.FirstOrDefault(c => c.IDCategoria == id);
+        }
     }
 }

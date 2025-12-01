@@ -39,5 +39,15 @@ namespace Modelo
             context.SaveChanges();
         }
 
+        public Sucursal BuscarSucursal(string direccion)
+        {
+            return context.Sucursales.FirstOrDefault(c => c.Direccion == direccion);
+        }
+
+        public Sucursal BuscarSucursalID(int id)
+        {
+            return context.Sucursales.FirstOrDefault(c => c.IDSucursal == id);
+        }
+
     }
 }

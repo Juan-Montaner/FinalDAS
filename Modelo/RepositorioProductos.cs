@@ -40,5 +40,16 @@ namespace Modelo
             context.SaveChanges();
         }
 
+        public Producto BuscarProducto(string nombre)
+        {
+            return context.Productos.FirstOrDefault(c => c.Nombre == nombre);
+        }
+
+        public Producto BuscarProductoID(int id)
+        {
+            return context.Productos.FirstOrDefault(c => c.IDProducto == id);
+        }
+
+
     }
 }
