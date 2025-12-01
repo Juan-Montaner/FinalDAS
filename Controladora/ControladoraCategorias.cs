@@ -3,6 +3,7 @@ using Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -82,6 +83,17 @@ namespace Controladora
 
             return "Categoria Modificada con Exito";
         }
+
+        public List<Categoria> ListarCategorias()
+        {
+            return repositorioCategoria.ListarCategorias().ToList();
+        }
+
+        public Categoria BuscarCategoriaId(int id)
+        {
+            return repositorioCategoria.BuscarCategoriaID(id);
+        }
+
 
     }
 }

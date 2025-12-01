@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvGestionProductos = new DataGridView();
+            dgvGestionCategorias = new DataGridView();
             btnVolver = new Button();
             btnEliminar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvGestionProductos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvGestionCategorias).BeginInit();
             SuspendLayout();
             // 
-            // dgvGestionProductos
+            // dgvGestionCategorias
             // 
-            dgvGestionProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvGestionProductos.Location = new Point(12, 21);
-            dgvGestionProductos.Name = "dgvGestionProductos";
-            dgvGestionProductos.Size = new Size(776, 276);
-            dgvGestionProductos.TabIndex = 9;
+            dgvGestionCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvGestionCategorias.Location = new Point(12, 21);
+            dgvGestionCategorias.Name = "dgvGestionCategorias";
+            dgvGestionCategorias.Size = new Size(776, 276);
+            dgvGestionCategorias.TabIndex = 9;
             // 
             // btnVolver
             // 
@@ -62,6 +62,7 @@
             btnEliminar.TabIndex = 7;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
@@ -89,20 +90,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(800, 450);
-            Controls.Add(dgvGestionProductos);
+            Controls.Add(dgvGestionCategorias);
             Controls.Add(btnVolver);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
             Name = "FormGestionDeCategorias";
             Text = "FormGestionDeCategorias";
-            ((System.ComponentModel.ISupportInitialize)dgvGestionProductos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvGestionCategorias).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dgvGestionProductos;
+        private DataGridView dgvGestionCategorias;
         private Button btnVolver;
         private Button btnEliminar;
         private Button btnModificar;
