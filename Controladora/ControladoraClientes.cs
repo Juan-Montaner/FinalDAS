@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,92 @@ using System.Threading.Tasks;
 
 namespace Controladora
 {
-    internal class ControladoraClientes
+    public class ControladoraClientes
     {
+        private RepositorioClientes repositorioCliente = new RepositorioClientes();
+        private static ControladoraClientes instancia;
+
+        public static ControladoraClientes Instancia
+        {
+            get
+            {
+                if (instancia == null)
+                {
+                    instancia = new ControladoraClientes();
+                }
+                return instancia;
+            }
+        }
+
+        public string AgregarCliente(string RazonSocial, double telefono, string mail)
+        {
+            Cliente cliente = repositorioCliente.BuscarCliente(telefono);
+
+            if (cliente != null)
+            {
+                return "Error al AGREGAR Cliente: El Cliente ya existe";
+            }
+
+            if (string.IsNullOrWhiteSpace(RazonSocial) || double.IsNegative(telefono) || string.IsNullOrWhiteSpace(mail))
+            {
+                return "Error al AGREGAR Cliente: Los campos no pueden estar vacios";
+            }
+
+            Cliente nuevoCliente = new Cliente();
+
+            nuevoCliente.RazonSocial = RazonSocial;
+            nuevoCliente.Mail = mail;
+            nuevoCliente.Telefono = telefono;
+            nuevoCliente.ListaCompras = new List<Factura>();
+
+            repositorioCliente.AgregarCliente(nuevoCliente);
+
+            return "Cliente Nuevo Agregado con Exito";
+        }
+
+        public string EliminarCliente(int id)
+        {
+            Cliente cliente = repositorioCliente.BuscarClienteID(id);
+
+            if (cliente == null)
+            {
+                return "Error al ELIMINAR el Cliente: El ID de cliente no existe";
+            }
+
+            repositorioCliente.EliminarCliente(cliente);
+
+            return "Cliente Eliminado con Exito";
+        }
+
+        public string ModificarSucursal(int id, string direccion, string mail, double telefono)
+        {
+            Cliente cliente = repositorioCliente.BuscarClienteID(id);
+
+            if (cliente == null)
+            {
+                return "Error al MODIFICAR el Cliente: El cliente NO existe";
+            }
+
+            if (string.IsNullOrWhiteSpace(direccion))
+            {
+                return "Error al MODIFICAR el CLIENTE: Los campos no pueden estar vacios";
+            }
+
+            cliente.RazonSocial = direccion;
+            cliente.Mail = mail;
+            cliente.Telefono = telefono;
+
+            repositorioCliente.ModificarCliente(cliente);
+
+            return "Cliente Modificado con Exito";
+        }
+
+        public Cliente BuscarClienteId(int id)
+        {
+            return repositorioCliente.BuscarClienteID(id);
+        }
+
+
     }
 }
+

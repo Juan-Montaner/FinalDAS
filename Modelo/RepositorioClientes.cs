@@ -41,7 +41,17 @@ namespace Modelo
             context.SaveChanges();
         }
 
-       
+        public Cliente BuscarCliente(double Telefono)
+        {
+            return context.Clientes.FirstOrDefault(c => c.Telefono == Telefono);
+        }
+
+        public Cliente BuscarClienteID(int id)
+        {
+            return context.Clientes.FirstOrDefault(c => c.IDCliente == id);
+        }
+
+
 
     }
 }
