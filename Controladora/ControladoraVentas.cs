@@ -92,5 +92,9 @@ namespace Controladora
             return repositorioVentas.BuscarVentaID(id);
         }
 
+        public List<Venta> ListarVentas()
+        {
+            return repositorioVentas.ListarVentas().ToList();
+        }
     }
 }

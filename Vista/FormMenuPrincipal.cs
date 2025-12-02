@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vista._2_Modulo_Clientes;
+using Vista._3_Modulo_Ventas;
 
 namespace Vista
 {
@@ -34,30 +35,6 @@ namespace Vista
         {
             InitializeComponent();
         }
-
-        /*
-        private void btnGestionClientes_Click(object sender, EventArgs e)
-        {
-            FormGestionClientes formGestionClientes = new FormGestionClientes();
-            this.Hide();
-            formGestionClientes.ShowDialog();
-        }
-
-        private void btnGestionVentas_Click(object sender, EventArgs e)
-        {
-            FormGestionVentas formGestionVentas = new FormGestionVentas();
-            this.Hide();
-            formGestionVentas.ShowDialog();
-        }
-
-        private void btnRepYCons_Click(object sender, EventArgs e)
-        {
-            FormReportesyConsultas formReportesyConsultas = new FormReportesyConsultas();
-            this.Hide();
-            formReportesyConsultas.ShowDialog();
-        }
-        */
-
         private void btnGestionProductos_Click_1(object sender, EventArgs e)
         {
             FormModuloProductos formGestionProductos = new FormModuloProductos();
@@ -75,6 +52,13 @@ namespace Vista
             FormModuloClientes formModuloClientes = new FormModuloClientes();
             this.Hide();
             formModuloClientes.ShowDialog();
+        }
+
+        private void btnGestionVentas_Click(object sender, EventArgs e)
+        {
+            FormModuloVentas formModuloVentas = new FormModuloVentas();
+            this.Hide();
+            formModuloVentas.ShowDialog();
         }
     }
 }

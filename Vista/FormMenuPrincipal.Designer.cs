@@ -67,6 +67,7 @@
             btnGestionVentas.TabIndex = 7;
             btnGestionVentas.Text = "Gestion de Ventas";
             btnGestionVentas.UseVisualStyleBackColor = true;
+            btnGestionVentas.Click += btnGestionVentas_Click;
             // 
             // btnGestionClientes
             // 
