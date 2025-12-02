@@ -22,7 +22,14 @@ namespace Vista._2_Modulo_Clientes
             FormGestionClientes formGestionClientes = new FormGestionClientes();
             this.Hide();
             formGestionClientes.ShowDialog();
-            
+
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            FormMenuPrincipal formMenuPrincipal = new FormMenuPrincipal();
+            this.Hide();
+            formMenuPrincipal.ShowDialog();
         }
     }
 }

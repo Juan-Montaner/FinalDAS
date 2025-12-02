@@ -30,11 +30,13 @@
         {
             gbClientes = new GroupBox();
             btnGestionClientes = new Button();
+            btnVolver = new Button();
             gbClientes.SuspendLayout();
             SuspendLayout();
             // 
             // gbClientes
             // 
+            gbClientes.Controls.Add(btnVolver);
             gbClientes.Controls.Add(btnGestionClientes);
             gbClientes.Location = new Point(12, 12);
             gbClientes.Name = "gbClientes";
@@ -51,6 +53,16 @@
             btnGestionClientes.Text = "Gestion Clientes";
             btnGestionClientes.UseVisualStyleBackColor = true;
             btnGestionClientes.Click += btnGestionClientes_Click;
+            // 
+            // btnVolver
+            // 
+            btnVolver.Location = new Point(47, 310);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(134, 30);
+            btnVolver.TabIndex = 1;
+            btnVolver.Text = "Volver";
+            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.Click += btnVolver_Click;
             // 
             // FormModuloClientes
             // 
@@ -69,5 +81,6 @@
 
         private GroupBox gbClientes;
         private Button btnGestionClientes;
+        private Button btnVolver;
     }
 }

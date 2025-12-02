@@ -78,14 +78,16 @@ namespace Vista._2_Modulo_Clientes
             }
             else
             {
-                MessageBox.Show("Seleccione un cliente para modificar");
+                MessageBox.Show("Seleccione un cliente para eliminar");
             }
             Refrescar();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormModuloClientes formModuloClientes = new FormModuloClientes();
+            this.Hide();
+            formModuloClientes.ShowDialog();
         }
     }
 }
