@@ -33,12 +33,16 @@
             btnEliminar = new Button();
             btnVolver = new Button();
             dgvGestionProductos = new DataGridView();
+            grpListaProductos = new GroupBox();
+            grpProductos = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)dgvGestionProductos).BeginInit();
+            grpListaProductos.SuspendLayout();
+            grpProductos.SuspendLayout();
             SuspendLayout();
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(12, 317);
+            btnAgregar.Location = new Point(21, 431);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(100, 36);
             btnAgregar.TabIndex = 0;
@@ -48,7 +52,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(134, 317);
+            btnModificar.Location = new Point(143, 431);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(100, 36);
             btnModificar.TabIndex = 1;
@@ -58,7 +62,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(256, 317);
+            btnEliminar.Location = new Point(265, 431);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(100, 36);
             btnEliminar.TabIndex = 2;
@@ -67,7 +71,7 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(691, 317);
+            btnVolver.Location = new Point(700, 431);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(97, 41);
             btnVolver.TabIndex = 3;
@@ -78,25 +82,48 @@
             // dgvGestionProductos
             // 
             dgvGestionProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvGestionProductos.Location = new Point(12, 24);
+            dgvGestionProductos.Location = new Point(6, 21);
             dgvGestionProductos.Name = "dgvGestionProductos";
-            dgvGestionProductos.Size = new Size(776, 276);
+            dgvGestionProductos.Size = new Size(776, 321);
             dgvGestionProductos.TabIndex = 4;
+            // 
+            // grpListaProductos
+            // 
+            grpListaProductos.Controls.Add(dgvGestionProductos);
+            grpListaProductos.Location = new Point(15, 22);
+            grpListaProductos.Name = "grpListaProductos";
+            grpListaProductos.Size = new Size(791, 361);
+            grpListaProductos.TabIndex = 5;
+            grpListaProductos.TabStop = false;
+            grpListaProductos.Text = "Lista De Productos";
+            // 
+            // grpProductos
+            // 
+            grpProductos.Controls.Add(grpListaProductos);
+            grpProductos.Controls.Add(btnAgregar);
+            grpProductos.Controls.Add(btnModificar);
+            grpProductos.Controls.Add(btnVolver);
+            grpProductos.Controls.Add(btnEliminar);
+            grpProductos.Location = new Point(5, 2);
+            grpProductos.Name = "grpProductos";
+            grpProductos.Size = new Size(815, 486);
+            grpProductos.TabIndex = 6;
+            grpProductos.TabStop = false;
+            grpProductos.Text = "Productos";
             // 
             // FormGestionDeProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(800, 450);
-            Controls.Add(dgvGestionProductos);
-            Controls.Add(btnVolver);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnModificar);
-            Controls.Add(btnAgregar);
+            ClientSize = new Size(827, 500);
+            Controls.Add(grpProductos);
             Name = "FormGestionDeProductos";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormGestionDeProductos";
             ((System.ComponentModel.ISupportInitialize)dgvGestionProductos).EndInit();
+            grpListaProductos.ResumeLayout(false);
+            grpProductos.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -107,5 +134,7 @@
         private Button btnEliminar;
         private Button btnVolver;
         private DataGridView dgvGestionProductos;
+        private GroupBox grpListaProductos;
+        private GroupBox grpProductos;
     }
 }

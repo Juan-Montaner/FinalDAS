@@ -32,11 +32,14 @@
             btnGestionarCategorias = new Button();
             btnGestionarProductos = new Button();
             btnVolver = new Button();
+            groupBox1 = new GroupBox();
+            lblModulo = new Label();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // btnGestionarSucursales
             // 
-            btnGestionarSucursales.Location = new Point(22, 139);
+            btnGestionarSucursales.Location = new Point(26, 188);
             btnGestionarSucursales.Name = "btnGestionarSucursales";
             btnGestionarSucursales.Size = new Size(149, 48);
             btnGestionarSucursales.TabIndex = 7;
@@ -46,7 +49,7 @@
             // 
             // btnGestionarCategorias
             // 
-            btnGestionarCategorias.Location = new Point(22, 77);
+            btnGestionarCategorias.Location = new Point(26, 126);
             btnGestionarCategorias.Name = "btnGestionarCategorias";
             btnGestionarCategorias.Size = new Size(149, 48);
             btnGestionarCategorias.TabIndex = 6;
@@ -56,7 +59,7 @@
             // 
             // btnGestionarProductos
             // 
-            btnGestionarProductos.Location = new Point(22, 19);
+            btnGestionarProductos.Location = new Point(26, 68);
             btnGestionarProductos.Name = "btnGestionarProductos";
             btnGestionarProductos.Size = new Size(149, 48);
             btnGestionarProductos.TabIndex = 5;
@@ -66,7 +69,7 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(671, 383);
+            btnVolver.Location = new Point(47, 258);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(107, 48);
             btnVolver.TabIndex = 4;
@@ -74,18 +77,41 @@
             btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += btnVolver_Click_1;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(lblModulo);
+            groupBox1.Controls.Add(btnGestionarProductos);
+            groupBox1.Controls.Add(btnGestionarSucursales);
+            groupBox1.Controls.Add(btnVolver);
+            groupBox1.Controls.Add(btnGestionarCategorias);
+            groupBox1.Location = new Point(12, 2);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(200, 323);
+            groupBox1.TabIndex = 8;
+            groupBox1.TabStop = false;
+            // 
+            // lblModulo
+            // 
+            lblModulo.AutoSize = true;
+            lblModulo.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblModulo.Location = new Point(17, 29);
+            lblModulo.Name = "lblModulo";
+            lblModulo.Size = new Size(168, 25);
+            lblModulo.TabIndex = 8;
+            lblModulo.Text = "Modulo Productos";
+            // 
             // FormModuloProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(800, 450);
-            Controls.Add(btnGestionarSucursales);
-            Controls.Add(btnGestionarCategorias);
-            Controls.Add(btnGestionarProductos);
-            Controls.Add(btnVolver);
+            ClientSize = new Size(223, 336);
+            Controls.Add(groupBox1);
             Name = "FormModuloProductos";
-            Text = "FormProductos";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Productos";
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -95,5 +121,7 @@
         private Button btnGestionarCategorias;
         private Button btnGestionarProductos;
         private Button btnVolver;
+        private GroupBox groupBox1;
+        private Label lblModulo;
     }
 }

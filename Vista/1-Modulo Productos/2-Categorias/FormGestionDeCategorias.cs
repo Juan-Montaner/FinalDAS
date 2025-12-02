@@ -47,6 +47,7 @@ namespace Vista.Gestion_de_Productos
         {
             FormABMCategorias formABMCategorias = new FormABMCategorias();
             formABMCategorias.Show();
+            Refrescar();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -62,7 +63,7 @@ namespace Vista.Gestion_de_Productos
             {
                 MessageBox.Show("Seleccione una categoria para modificar");
             }
-
+            Refrescar();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -70,7 +71,7 @@ namespace Vista.Gestion_de_Productos
             int? id = GetId();
             if (id != null)
             {
-                Controladora.ControladoraCategorias controladora = Controladora.ControladoraCategorias.Instancia
+                Controladora.ControladoraCategorias controladora = Controladora.ControladoraCategorias.Instancia;
                 controladora.EliminarCategoria((int)id);
                 Refrescar();
             }
@@ -78,6 +79,7 @@ namespace Vista.Gestion_de_Productos
             {
                 MessageBox.Show("Seleccione una categoria para modificar");
             }
+            Refrescar();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -87,6 +89,9 @@ namespace Vista.Gestion_de_Productos
             formModuloProductos.ShowDialog();
         }
 
-        
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            Refrescar();
+        }
     }
 }

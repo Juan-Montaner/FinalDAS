@@ -33,6 +33,7 @@
             btnEliminar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
+            btnRefrescar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvGestionCategorias).BeginInit();
             SuspendLayout();
             // 
@@ -84,12 +85,23 @@
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 
+            // btnRefrescar
+            // 
+            btnRefrescar.Location = new Point(378, 314);
+            btnRefrescar.Name = "btnRefrescar";
+            btnRefrescar.Size = new Size(100, 36);
+            btnRefrescar.TabIndex = 10;
+            btnRefrescar.Text = "Refrescar";
+            btnRefrescar.UseVisualStyleBackColor = true;
+            btnRefrescar.Click += btnRefrescar_Click;
+            // 
             // FormGestionDeCategorias
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnRefrescar);
             Controls.Add(dgvGestionCategorias);
             Controls.Add(btnVolver);
             Controls.Add(btnEliminar);
@@ -108,5 +120,6 @@
         private Button btnEliminar;
         private Button btnModificar;
         private Button btnAgregar;
+        private Button btnRefrescar;
     }
 }

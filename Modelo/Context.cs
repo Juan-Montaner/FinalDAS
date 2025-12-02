@@ -11,7 +11,7 @@ namespace Modelo
 {
     public class Context : DbContext
     {
-        public string conexion = "";
+        public string conexion = "Data Source=MAXI\\SQLEXPRESS;Initial Catalog=TrabajoFinalADS;Integrated Security=True;Persist Security Info=False;Pooling=False;Encrypt=False;";
 
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
