@@ -41,6 +41,8 @@
             lblDescripcion = new Label();
             lblNombre = new Label();
             grpAgregarMod = new GroupBox();
+            label1 = new Label();
+            cmbSucursal = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)numUdStock).BeginInit();
             grpAgregarMod.SuspendLayout();
             SuspendLayout();
@@ -58,7 +60,7 @@
             // 
             // numUdStock
             // 
-            numUdStock.Location = new Point(95, 272);
+            numUdStock.Location = new Point(96, 304);
             numUdStock.Margin = new Padding(3, 4, 3, 4);
             numUdStock.Name = "numUdStock";
             numUdStock.Size = new Size(187, 27);
@@ -66,7 +68,7 @@
             // 
             // txtPrecio
             // 
-            txtPrecio.Location = new Point(99, 209);
+            txtPrecio.Location = new Point(100, 241);
             txtPrecio.Margin = new Padding(3, 4, 3, 4);
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Size = new Size(182, 27);
@@ -111,7 +113,7 @@
             // lblStock
             // 
             lblStock.AutoSize = true;
-            lblStock.Location = new Point(43, 275);
+            lblStock.Location = new Point(44, 307);
             lblStock.Name = "lblStock";
             lblStock.Size = new Size(48, 20);
             lblStock.TabIndex = 22;
@@ -120,7 +122,7 @@
             // lblPrecio
             // 
             lblPrecio.AutoSize = true;
-            lblPrecio.Location = new Point(43, 213);
+            lblPrecio.Location = new Point(44, 245);
             lblPrecio.Name = "lblPrecio";
             lblPrecio.Size = new Size(53, 20);
             lblPrecio.TabIndex = 21;
@@ -155,6 +157,8 @@
             // 
             // grpAgregarMod
             // 
+            grpAgregarMod.Controls.Add(cmbSucursal);
+            grpAgregarMod.Controls.Add(label1);
             grpAgregarMod.Controls.Add(lblNombre);
             grpAgregarMod.Controls.Add(btnGuardar);
             grpAgregarMod.Controls.Add(lblDescripcion);
@@ -174,6 +178,23 @@
             grpAgregarMod.Size = new Size(328, 435);
             grpAgregarMod.TabIndex = 30;
             grpAgregarMod.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(46, 198);
+            label1.Name = "label1";
+            label1.Size = new Size(66, 20);
+            label1.TabIndex = 30;
+            label1.Text = "Sucursal:";
+            // 
+            // cmbSucursal
+            // 
+            cmbSucursal.FormattingEnabled = true;
+            cmbSucursal.Location = new Point(124, 199);
+            cmbSucursal.Name = "cmbSucursal";
+            cmbSucursal.Size = new Size(151, 28);
+            cmbSucursal.TabIndex = 31;
             // 
             // FormABMProductos
             // 
@@ -207,5 +228,7 @@
         private Label lblDescripcion;
         private Label lblNombre;
         private GroupBox grpAgregarMod;
+        private Label label1;
+        private ComboBox cmbSucursal;
     }
 }

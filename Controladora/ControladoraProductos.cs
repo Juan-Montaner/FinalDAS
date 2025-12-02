@@ -25,7 +25,7 @@ namespace Controladora
             }
         }
 
-        public string AgregarProducto(string nombre, string descripcion, string categoria, decimal precio, int stock)
+        public string AgregarProducto(string nombre, string descripcion, string categoria, int idsucursal, decimal precio, int stock)
         {
             Producto producto = repositorioProductos.BuscarProducto(nombre);
 
@@ -47,6 +47,7 @@ namespace Controladora
             nuevoProducto.Nombre = nombre;
             nuevoProducto.Descripcion = descripcion;
             nuevoProducto.Categoria = categoria;
+            nuevoProducto.IDSucursal = idsucursal;
             nuevoProducto.Precio = precio;
             nuevoProducto.Stock =  stock;
 
@@ -69,7 +70,7 @@ namespace Controladora
             return "Producto ELIMINADO con Exito";
         }
 
-        public string ModificarProducto(int id, string nombre, string descripcion, string categoria, decimal precio, int stock)
+        public string ModificarProducto(int id, string nombre, string descripcion, string categoria,int idsucursal, decimal precio, int stock)
         {
             Producto producto = repositorioProductos.BuscarProductoID(id);
 
@@ -86,6 +87,7 @@ namespace Controladora
             producto.Nombre = nombre;
             producto.Descripcion = descripcion;
             producto.Categoria = categoria;
+            producto.IDSucursal = idsucursal;
             producto.Precio = precio;
             producto.Stock = stock;
 

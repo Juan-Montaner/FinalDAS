@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Vista._1_Modulo_Productos._3_Sucursales
+namespace Vista._2_Modulo_Clientes
 {
-    public partial class FormGestionProductosSucursal : Form
+    public partial class FormABMClientes : Form
     {
-        public FormGestionProductosSucursal()
+        public FormABMClientes()
         {
             InitializeComponent();
         }

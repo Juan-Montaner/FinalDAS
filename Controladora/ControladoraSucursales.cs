@@ -97,6 +97,11 @@ namespace Controladora
             return repositorioSucursal.ListarSucursal().ToList();
         }
 
+        public List<Sucursal> ListarSucursales()
+        {
+            return repositorioSucursal.ListarSucursal().ToList();
+        }
+
 
     }
 }

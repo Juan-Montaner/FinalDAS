@@ -18,6 +18,7 @@ namespace Vista.Gestion_de_Productos
             InitializeComponent();
             this.Id = id;
             CargarCategorias();
+            CargarSucursales();
 
             if (id != null)
             {
@@ -37,8 +38,24 @@ namespace Vista.Gestion_de_Productos
                 txtDescripcion.Text = producto.Descripcion;
                 txtPrecio.Text = producto.Precio.ToString();
                 cmbCategoria.Text = producto.Categoria;
+                cmbSucursal.Text = producto.IDSucursal.ToString();
                 numUdStock.Value = producto.Stock;
             }
+        }
+
+        private void CargarSucursales()
+        {
+            Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
+
+            var sucursales = controladora.ListarSucursales();
+
+            if (sucursales != null)
+            {
+                cmbSucursal.DataSource = sucursales;
+                cmbSucursal.DisplayMember = "Direccion";
+                cmbSucursal.ValueMember = "IDSucursal";
+            }
+
         }
 
         private void CargarCategorias()
@@ -74,9 +91,10 @@ namespace Vista.Gestion_de_Productos
                         string Descripcion = txtDescripcion.Text;
                         decimal Precio = decimal.Parse(txtPrecio.Text);
                         string Categoria = cmbCategoria.Text.ToString();
+                        int IDSucursal = (int)cmbSucursal.SelectedValue;
                         int Stock = Convert.ToInt32(numUdStock.Value);
 
-                        controladora.AgregarProducto(Nombre, Descripcion, Categoria, Precio, Stock);
+                        controladora.AgregarProducto(Nombre, Descripcion, Categoria, IDSucursal, Precio, Stock);
                     }
                     catch
                     {
@@ -92,9 +110,10 @@ namespace Vista.Gestion_de_Productos
                         string Descripcion = txtDescripcion.Text;
                         decimal Precio = decimal.Parse(txtPrecio.Text);
                         string Categoria = cmbCategoria.SelectedIndex.ToString();
+                        int IDSucursal = (int)cmbSucursal.SelectedValue;
                         int Stock = Convert.ToInt32(numUdStock.Value);
 
-                        controladora.ModificarProducto(id, Nombre, Descripcion, Categoria, Precio, Stock);
+                        controladora.ModificarProducto(id, Nombre, Descripcion, Categoria, IDSucursal, Precio, Stock);
                     }
                     catch
                     {
@@ -109,6 +128,8 @@ namespace Vista.Gestion_de_Productos
 
             this.Close();
         }
+
+
     }
-    
+
 }

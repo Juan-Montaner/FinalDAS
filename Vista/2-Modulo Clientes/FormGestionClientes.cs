@@ -7,31 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Gestion_de_Productos;
 
-namespace Vista.Gestion_de_Productos
+namespace Vista._2_Modulo_Clientes
 {
-    public partial class FormGestionDeSucursales : Form
+    public partial class FormGestionClientes : Form
     {
-        public FormGestionDeSucursales()
+        public FormGestionClientes()
         {
             InitializeComponent();
             Refrescar();
+
         }
 
         private void Refrescar()
         {
-            Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
-            dgvGestionProductos.DataSource = controladora.ListarProductos();
+            Controladora.ControladoraClientes controladora = Controladora.ControladoraClientes.Instancia;
+            dgvClientes.DataSource = controladora.ListarClientes();
         }
         private int? GetId()
         {
-            if (dgvGestionProductos.Rows.Count == 0)
+            if (dgvClientes.Rows.Count == 0)
                 return null;
 
-            if (dgvGestionProductos.CurrentRow == null)
+            if (dgvClientes.CurrentRow == null)
                 return null;
 
-            var valor = dgvGestionProductos.CurrentRow.Cells[0].Value;
+            var valor = dgvClientes.CurrentRow.Cells[0].Value;
 
             if (valor == null)
                 return null;
@@ -41,10 +43,11 @@ namespace Vista.Gestion_de_Productos
 
             return null;
         }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            FormABMSucursales formABMSucursales = new FormABMSucursales();
-            formABMSucursales.ShowDialog();
+            FormABMClientes formABMClientes = new FormABMClientes();
+            formABMClientes.ShowDialog();
             Refrescar();
         }
 
@@ -53,22 +56,15 @@ namespace Vista.Gestion_de_Productos
             int? id = GetId();
             if (id != null)
             {
-                FormABMSucursales formABMSucursales = new FormABMSucursales(id);
-                formABMSucursales.ShowDialog();
+                FormABMClientes formABMClientes = new FormABMClientes(id);
+                formABMClientes.ShowDialog();
                 Refrescar();
             }
             else
             {
-                MessageBox.Show("Seleccione una sucursal para modificar");
+                MessageBox.Show("Seleccione un cliente para modificar");
             }
             Refrescar();
-        }
-
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-            FormModuloProductos formModuloProductos = new FormModuloProductos();
-            this.Hide();
-            formModuloProductos.ShowDialog();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -76,16 +72,20 @@ namespace Vista.Gestion_de_Productos
             int? id = GetId();
             if (id != null)
             {
-                Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
-                controladora.EliminarSucursal((int)id);
+                Controladora.ControladoraClientes controladora = Controladora.ControladoraClientes.Instancia;
+                controladora.EliminarCliente((int)id);
                 Refrescar();
             }
             else
             {
-                MessageBox.Show("Seleccione una sucursal para eliminar");
+                MessageBox.Show("Seleccione un cliente para modificar");
             }
             Refrescar();
         }
 
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace Vista.Gestion_de_Productos
+﻿namespace Vista._2_Modulo_Clientes
 {
-    partial class FormGestionDeSucursales
+    partial class FormGestionClientes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,92 +28,99 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvGestionProductos = new DataGridView();
+            gbGestionClientes = new GroupBox();
             btnVolver = new Button();
             btnEliminar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvGestionProductos).BeginInit();
+            dgvClientes = new DataGridView();
+            gbGestionClientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
-            // dgvGestionProductos
+            // gbGestionClientes
             // 
-            dgvGestionProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvGestionProductos.Location = new Point(14, 16);
-            dgvGestionProductos.Margin = new Padding(3, 4, 3, 4);
-            dgvGestionProductos.Name = "dgvGestionProductos";
-            dgvGestionProductos.RowHeadersWidth = 51;
-            dgvGestionProductos.Size = new Size(887, 368);
-            dgvGestionProductos.TabIndex = 14;
+            gbGestionClientes.Controls.Add(btnVolver);
+            gbGestionClientes.Controls.Add(btnEliminar);
+            gbGestionClientes.Controls.Add(btnModificar);
+            gbGestionClientes.Controls.Add(btnAgregar);
+            gbGestionClientes.Controls.Add(dgvClientes);
+            gbGestionClientes.Location = new Point(17, 19);
+            gbGestionClientes.Name = "gbGestionClientes";
+            gbGestionClientes.Size = new Size(917, 475);
+            gbGestionClientes.TabIndex = 0;
+            gbGestionClientes.TabStop = false;
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(790, 407);
-            btnVolver.Margin = new Padding(3, 4, 3, 4);
+            btnVolver.Location = new Point(457, 401);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(111, 55);
-            btnVolver.TabIndex = 13;
+            btnVolver.Size = new Size(94, 29);
+            btnVolver.TabIndex = 4;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += btnVolver_Click;
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(293, 407);
-            btnEliminar.Margin = new Padding(3, 4, 3, 4);
+            btnEliminar.Location = new Point(323, 402);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(114, 48);
-            btnEliminar.TabIndex = 12;
+            btnEliminar.Size = new Size(94, 29);
+            btnEliminar.TabIndex = 3;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(153, 407);
-            btnModificar.Margin = new Padding(3, 4, 3, 4);
+            btnModificar.Location = new Point(176, 400);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(114, 48);
-            btnModificar.TabIndex = 11;
+            btnModificar.Size = new Size(94, 29);
+            btnModificar.TabIndex = 2;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
             btnModificar.Click += btnModificar_Click;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(14, 407);
-            btnAgregar.Margin = new Padding(3, 4, 3, 4);
+            btnAgregar.Location = new Point(29, 400);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(114, 48);
-            btnAgregar.TabIndex = 10;
+            btnAgregar.Size = new Size(94, 29);
+            btnAgregar.TabIndex = 1;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 
-            // FormGestionDeSucursales
+            // dgvClientes
+            // 
+            dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClientes.Location = new Point(18, 28);
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.RowHeadersWidth = 51;
+            dgvClientes.Size = new Size(878, 345);
+            dgvClientes.TabIndex = 0;
+            // 
+            // FormGestionClientes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(914, 476);
-            Controls.Add(dgvGestionProductos);
-            Controls.Add(btnVolver);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnModificar);
-            Controls.Add(btnAgregar);
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "FormGestionDeSucursales";
-            Text = "FormGestionDeSucursales";
-            ((System.ComponentModel.ISupportInitialize)dgvGestionProductos).EndInit();
+            ClientSize = new Size(948, 502);
+            Controls.Add(gbGestionClientes);
+            Name = "FormGestionClientes";
+            Text = "FormGestionClientes";
+            gbGestionClientes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dgvGestionProductos;
+        private GroupBox gbGestionClientes;
         private Button btnVolver;
         private Button btnEliminar;
         private Button btnModificar;
         private Button btnAgregar;
+        private DataGridView dgvClientes;
     }
 }
