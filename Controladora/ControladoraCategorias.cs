@@ -94,6 +94,10 @@ namespace Controladora
             return repositorioCategoria.BuscarCategoriaID(id);
         }
 
-
+        public bool ContadorDeCategorias()
+        {
+            int cantidad = repositorioCategoria.ListarCategorias().Count();
+            return cantidad > 0;
+        }
     }
 }

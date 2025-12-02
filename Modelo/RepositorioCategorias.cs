@@ -48,5 +48,7 @@ namespace Modelo
         {
             return context.Categorias.FirstOrDefault(c => c.IDCategoria == id);
         }
+        
+        
     }
 }

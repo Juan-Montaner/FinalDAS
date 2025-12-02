@@ -45,8 +45,26 @@ namespace Vista.Gestion_de_Productos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            var controladoraCate = Controladora.ControladoraCategorias.Instancia;
+
+       
+            if (!controladoraCate.ContadorDeCategorias())
+            {
+                MessageBox.Show("Debe crear al menos una categoría antes de agregar productos.");
+                return;
+            }
+
+            var controladoraSucu = Controladora.ControladoraSucursales.Instancia;
+
+            if (!controladoraSucu.ContadorDeSucursales())
+            {
+                MessageBox.Show("Debe crear al menos una categoría antes de agregar productos.");
+                return;
+            }
+
             FormABMProductos formABMProductos = new FormABMProductos();
             formABMProductos.ShowDialog();
+
             Refrescar();
         }
 

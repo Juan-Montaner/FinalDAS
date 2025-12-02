@@ -102,6 +102,10 @@ namespace Controladora
             return repositorioSucursal.ListarSucursal().ToList();
         }
 
-
+        public bool ContadorDeSucursales()
+        {
+            int cantidad = repositorioSucursal.ListarSucursal().Count();
+            return cantidad > 0;
+        }
     }
 }

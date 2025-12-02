@@ -32,7 +32,8 @@ namespace Modelo.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RazonSocial = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Telefono = table.Column<double>(type: "float", nullable: false),
-                    Mail = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Mail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TipoCliente = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -79,6 +80,7 @@ namespace Modelo.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RazonSocialCliente = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    MetodoDePago = table.Column<int>(type: "int", nullable: false),
                     Total = table.Column<long>(type: "bigint", nullable: false),
                     ClienteIDCliente = table.Column<int>(type: "int", nullable: true)
                 },
@@ -102,6 +104,7 @@ namespace Modelo.Migrations
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Categoria = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    IDSucursal = table.Column<int>(type: "int", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
                     FacturaIDFactura = table.Column<int>(type: "int", nullable: true),
                     SucursalIDSucursal = table.Column<int>(type: "int", nullable: true),

@@ -12,12 +12,19 @@ namespace Vista._3_Modulo_Ventas
 {
     public partial class FormABMVentas : Form
     {
-        public FormABMVentas()
+        private int? id;
+        public FormABMVentas(int? id = null)
         {
             InitializeComponent();
+            this.id = id;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbVentas_Enter(object sender, EventArgs e)
         {
 
         }
