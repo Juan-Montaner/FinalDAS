@@ -33,7 +33,7 @@ namespace Modelo
             context.SaveChanges();
         }
 
-        public void EliminarCategoria(Sucursal sucursal)
+        public void EliminarSucursal(Sucursal sucursal)
         {
             context.Sucursales.Remove(sucursal);
             context.SaveChanges();

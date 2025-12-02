@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <Folder Include="3-Modulo Ventas\" />
-    <Folder Include="2-Modulo Clientes\" />
     <Folder Include="4-Modulo Reportes y Consultas\" />
   </ItemGroup>
 

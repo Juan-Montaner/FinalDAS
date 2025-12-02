@@ -11,6 +11,7 @@ namespace Entidades
         public ClienteMinorista()
         {
             Descuento = 0.025m;
+            TipoCliente = false;
         }
 
         public decimal Descuento { get; set; }

@@ -16,5 +16,13 @@ namespace Vista._2_Modulo_Clientes
         {
             InitializeComponent();
         }
+
+        private void btnGestionClientes_Click(object sender, EventArgs e)
+        {
+            FormGestionClientes formGestionClientes = new FormGestionClientes();
+            this.Hide();
+            formGestionClientes.ShowDialog();
+            
+        }
     }
 }

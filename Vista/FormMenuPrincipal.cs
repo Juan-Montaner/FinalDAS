@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista._2_Modulo_Clientes;
 
 namespace Vista
 {
@@ -67,6 +68,13 @@ namespace Vista
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnGestionClientes_Click(object sender, EventArgs e)
+        {
+            FormModuloClientes formModuloClientes = new FormModuloClientes();
+            this.Hide();
+            formModuloClientes.ShowDialog();
         }
     }
 }

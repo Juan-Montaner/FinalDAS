@@ -20,6 +20,8 @@ namespace Entidades
 
         public string Mail { get; set; }
 
+        public bool TipoCliente { get; set; }
+
         public List<Factura> ListaCompras { get; set; }
     }
 }

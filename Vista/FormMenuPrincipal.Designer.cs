@@ -39,9 +39,10 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(40, 292);
+            btnSalir.Location = new Point(46, 389);
+            btnSalir.Margin = new Padding(3, 4, 3, 4);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(142, 53);
+            btnSalir.Size = new Size(162, 71);
             btnSalir.TabIndex = 9;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -49,36 +50,41 @@
             // 
             // btnRepYCons
             // 
-            btnRepYCons.Location = new Point(40, 227);
+            btnRepYCons.Location = new Point(46, 303);
+            btnRepYCons.Margin = new Padding(3, 4, 3, 4);
             btnRepYCons.Name = "btnRepYCons";
-            btnRepYCons.Size = new Size(142, 53);
+            btnRepYCons.Size = new Size(162, 71);
             btnRepYCons.TabIndex = 8;
             btnRepYCons.Text = "Reportes y Consultas";
             btnRepYCons.UseVisualStyleBackColor = true;
             // 
             // btnGestionVentas
             // 
-            btnGestionVentas.Location = new Point(40, 162);
+            btnGestionVentas.Location = new Point(46, 216);
+            btnGestionVentas.Margin = new Padding(3, 4, 3, 4);
             btnGestionVentas.Name = "btnGestionVentas";
-            btnGestionVentas.Size = new Size(142, 53);
+            btnGestionVentas.Size = new Size(162, 71);
             btnGestionVentas.TabIndex = 7;
             btnGestionVentas.Text = "Gestion de Ventas";
             btnGestionVentas.UseVisualStyleBackColor = true;
             // 
             // btnGestionClientes
             // 
-            btnGestionClientes.Location = new Point(40, 97);
+            btnGestionClientes.Location = new Point(46, 129);
+            btnGestionClientes.Margin = new Padding(3, 4, 3, 4);
             btnGestionClientes.Name = "btnGestionClientes";
-            btnGestionClientes.Size = new Size(142, 53);
+            btnGestionClientes.Size = new Size(162, 71);
             btnGestionClientes.TabIndex = 6;
             btnGestionClientes.Text = "Gestion de Clientes";
             btnGestionClientes.UseVisualStyleBackColor = true;
+            btnGestionClientes.Click += btnGestionClientes_Click;
             // 
             // btnGestionProductos
             // 
-            btnGestionProductos.Location = new Point(40, 32);
+            btnGestionProductos.Location = new Point(46, 43);
+            btnGestionProductos.Margin = new Padding(3, 4, 3, 4);
             btnGestionProductos.Name = "btnGestionProductos";
-            btnGestionProductos.Size = new Size(142, 53);
+            btnGestionProductos.Size = new Size(162, 71);
             btnGestionProductos.TabIndex = 5;
             btnGestionProductos.Text = "Gestion de Productos y Sucursales";
             btnGestionProductos.UseVisualStyleBackColor = true;
@@ -91,20 +97,21 @@
             groupBox1.Controls.Add(btnGestionClientes);
             groupBox1.Controls.Add(btnRepYCons);
             groupBox1.Controls.Add(btnGestionVentas);
-            groupBox1.Location = new Point(12, 10);
+            groupBox1.Location = new Point(14, 13);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(228, 367);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(261, 489);
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
             // 
             // FormMenuPrincipal
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(249, 389);
+            ClientSize = new Size(285, 519);
             Controls.Add(groupBox1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormMenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuPrincipal";

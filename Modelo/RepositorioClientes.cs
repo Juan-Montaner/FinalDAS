@@ -51,7 +51,5 @@ namespace Modelo
             return context.Clientes.FirstOrDefault(c => c.IDCliente == id);
         }
 
-
-
     }
 }

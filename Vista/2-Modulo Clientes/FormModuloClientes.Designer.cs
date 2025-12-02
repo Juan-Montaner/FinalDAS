@@ -28,12 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormModuloClientes";
+            gbClientes = new GroupBox();
+            btnGestionClientes = new Button();
+            gbClientes.SuspendLayout();
+            SuspendLayout();
+            // 
+            // gbClientes
+            // 
+            gbClientes.Controls.Add(btnGestionClientes);
+            gbClientes.Location = new Point(12, 12);
+            gbClientes.Name = "gbClientes";
+            gbClientes.Size = new Size(238, 373);
+            gbClientes.TabIndex = 0;
+            gbClientes.TabStop = false;
+            // 
+            // btnGestionClientes
+            // 
+            btnGestionClientes.Location = new Point(29, 26);
+            btnGestionClientes.Name = "btnGestionClientes";
+            btnGestionClientes.Size = new Size(152, 29);
+            btnGestionClientes.TabIndex = 0;
+            btnGestionClientes.Text = "Gestion Clientes";
+            btnGestionClientes.UseVisualStyleBackColor = true;
+            btnGestionClientes.Click += btnGestionClientes_Click;
+            // 
+            // FormModuloClientes
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.AppWorkspace;
+            ClientSize = new Size(262, 397);
+            Controls.Add(gbClientes);
+            Name = "FormModuloClientes";
+            Text = "FormModuloClientes";
+            gbClientes.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private GroupBox gbClientes;
+        private Button btnGestionClientes;
     }
 }

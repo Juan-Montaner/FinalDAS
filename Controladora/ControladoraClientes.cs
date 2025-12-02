@@ -25,7 +25,7 @@ namespace Controladora
             }
         }
 
-        public string AgregarCliente(string RazonSocial, double telefono, string mail)
+        public string AgregarCliente(string RazonSocial, string mail, double telefono, bool tipo)
         {
             Cliente cliente = repositorioCliente.BuscarCliente(telefono);
 
@@ -39,14 +39,28 @@ namespace Controladora
                 return "Error al AGREGAR Cliente: Los campos no pueden estar vacios";
             }
 
-            Cliente nuevoCliente = new Cliente();
+            if (tipo == true)
+            {
+                ClienteMayorista nuevoCliente = new ClienteMayorista();
 
-            nuevoCliente.RazonSocial = RazonSocial;
-            nuevoCliente.Mail = mail;
-            nuevoCliente.Telefono = telefono;
-            nuevoCliente.ListaCompras = new List<Factura>();
+                nuevoCliente.RazonSocial = RazonSocial;
+                nuevoCliente.Mail = mail;
+                nuevoCliente.Telefono = telefono;
+                nuevoCliente.ListaCompras = new List<Factura>();
+                nuevoCliente.TipoCliente = tipo;
+                repositorioCliente.AgregarCliente(nuevoCliente);
+            }
+            else
+            {
+                ClienteMinorista nuevoCliente = new ClienteMinorista();
 
-            repositorioCliente.AgregarCliente(nuevoCliente);
+                nuevoCliente.RazonSocial = RazonSocial;
+                nuevoCliente.Mail = mail;
+                nuevoCliente.Telefono = telefono;
+                nuevoCliente.ListaCompras = new List<Factura>();
+                nuevoCliente.TipoCliente = tipo;
+                repositorioCliente.AgregarCliente(nuevoCliente);
+            }
 
             return "Cliente Nuevo Agregado con Exito";
         }
@@ -65,7 +79,7 @@ namespace Controladora
             return "Cliente Eliminado con Exito";
         }
 
-        public string ModificarSucursal(int id, string direccion, string mail, double telefono)
+        public string ModificarCliente(int id, string direccion, string mail, double telefono, bool tipo)
         {
             Cliente cliente = repositorioCliente.BuscarClienteID(id);
 
@@ -82,6 +96,8 @@ namespace Controladora
             cliente.RazonSocial = direccion;
             cliente.Mail = mail;
             cliente.Telefono = telefono;
+            cliente.TipoCliente = tipo;
+            
 
             repositorioCliente.ModificarCliente(cliente);
 
@@ -93,6 +109,10 @@ namespace Controladora
             return repositorioCliente.BuscarClienteID(id);
         }
 
+        public List<Cliente> ListarClientes()
+        {
+            return repositorioCliente.ListarCLiente().ToList();
+        }
 
     }
 }

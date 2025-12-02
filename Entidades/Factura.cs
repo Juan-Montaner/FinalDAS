@@ -17,6 +17,7 @@ namespace Entidades
         public DateTime Fecha { get; set; }
         public List<Producto> Productos { get; set; }
 
+        public MetodoPago MetodoDePago { get; set; }
         public enum MetodoPago
         {
             Efectivo = 1,

@@ -59,7 +59,7 @@ namespace Controladora
                 return "Error al ELIMINAR LA Sucursal: La categoria no existe";
             }
 
-            repositorioSucursal.EliminarCategoria(sucursal);
+            repositorioSucursal.EliminarSucursal(sucursal);
 
             return "Sucursal Eliminada con Exito";
         }
