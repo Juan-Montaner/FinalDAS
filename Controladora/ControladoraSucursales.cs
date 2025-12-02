@@ -25,7 +25,7 @@ namespace Controladora
             }
         }
 
-        public string AgregarSucursal(string direccion)
+        public string AgregarSucursal(string direccion, string mail, double telefono)
         {
             Sucursal sucursal = repositorioSucursal.BuscarSucursal(direccion);
 
@@ -42,6 +42,8 @@ namespace Controladora
             Sucursal nuevaSucursal = new Sucursal();
 
             nuevaSucursal.Direccion = direccion;
+            nuevaSucursal.Mail = mail;
+            nuevaSucursal.Telefono = telefono;
 
             repositorioSucursal.AgregarSucursal(nuevaSucursal);
 
@@ -62,7 +64,7 @@ namespace Controladora
             return "Sucursal Eliminada con Exito";
         }
 
-        public string ModificarSucursal(int id, string direccion)
+        public string ModificarSucursal(int id, string direccion, string mail, double telefono)
         {
             Sucursal sucursal = repositorioSucursal.BuscarSucursalID(id);
 
@@ -77,6 +79,8 @@ namespace Controladora
             }
 
             sucursal.Direccion = direccion;
+            sucursal.Mail = mail;
+            sucursal.Telefono = telefono;
 
             repositorioSucursal.ModificarSucursal(sucursal);
 
@@ -87,5 +91,12 @@ namespace Controladora
         {
             return repositorioSucursal.BuscarSucursalID(id);
         }
+
+        public List<Sucursal> ListarProductos()
+        {
+            return repositorioSucursal.ListarSucursal().ToList();
+        }
+
+
     }
 }

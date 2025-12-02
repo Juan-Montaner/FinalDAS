@@ -33,6 +33,8 @@ namespace Vista.Gestion_de_Productos
             if (Id != null)
             {
                 txtDireccion.Text = sucursal.Direccion;
+                txtMail.Text = sucursal.Mail;
+                txtTelefono.Text = sucursal.Telefono.ToString();
             }
         }
         private void btnVolver_Click(object sender, EventArgs e)
@@ -42,7 +44,49 @@ namespace Vista.Gestion_de_Productos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
 
+            try
+            {
+                if (Id == null)
+                {
+                    try
+                    {
+                        string Direccion = txtDireccion.Text;
+                        string Mail = txtMail.Text;
+                        double Telefono = double.Parse(txtTelefono.Text);
+
+                        controladora.AgregarSucursal(Direccion, Mail, Telefono);
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        int id = Id.Value;
+                        string Direccion = txtDireccion.Text;
+                        string Mail = txtMail.Text;
+                        double Telefono = double.Parse(txtTelefono.Text);
+
+                        controladora.ModificarSucursal(id, Direccion, Mail, Telefono);
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            }
+            catch (FormatException Ex)
+            {
+                MessageBox.Show("Error en el Formato de los datos -- Intente NUEVAMENTE");
+            }
+
+            this.Close();
         }
     }
+    
 }

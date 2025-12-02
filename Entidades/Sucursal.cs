@@ -17,6 +17,10 @@ namespace Entidades
 
         public string Direccion { get; set; }
 
+        public double Telefono { get; set; }
+
+        public string Mail { get; set; }
+
         public List<Producto> ListaProductos { get; set; }
     }
 }

@@ -32,11 +32,17 @@
             btnVolver = new Button();
             txtDireccion = new TextBox();
             lblDireccion = new Label();
+            lblMail = new Label();
+            lblTelefono = new Label();
+            txtTelefono = new TextBox();
+            txtMail = new TextBox();
+            gbSucursal = new GroupBox();
+            gbSucursal.SuspendLayout();
             SuspendLayout();
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(18, 99);
+            btnGuardar.Location = new Point(18, 197);
             btnGuardar.Margin = new Padding(3, 4, 3, 4);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(95, 51);
@@ -47,7 +53,7 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(162, 99);
+            btnVolver.Location = new Point(162, 197);
             btnVolver.Margin = new Padding(3, 4, 3, 4);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(95, 51);
@@ -58,7 +64,7 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(87, 31);
+            txtDireccion.Location = new Point(99, 32);
             txtDireccion.Margin = new Padding(3, 4, 3, 4);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(170, 27);
@@ -73,19 +79,66 @@
             lblDireccion.TabIndex = 32;
             lblDireccion.Text = "Direccion:";
             // 
+            // lblMail
+            // 
+            lblMail.AutoSize = true;
+            lblMail.Location = new Point(10, 63);
+            lblMail.Name = "lblMail";
+            lblMail.Size = new Size(41, 20);
+            lblMail.TabIndex = 36;
+            lblMail.Text = "Mail:";
+            // 
+            // lblTelefono
+            // 
+            lblTelefono.AutoSize = true;
+            lblTelefono.Location = new Point(6, 101);
+            lblTelefono.Name = "lblTelefono";
+            lblTelefono.Size = new Size(70, 20);
+            lblTelefono.TabIndex = 37;
+            lblTelefono.Text = "Telefono:";
+            // 
+            // txtTelefono
+            // 
+            txtTelefono.Location = new Point(99, 113);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(177, 27);
+            txtTelefono.TabIndex = 38;
+            // 
+            // txtMail
+            // 
+            txtMail.Location = new Point(99, 72);
+            txtMail.Name = "txtMail";
+            txtMail.Size = new Size(170, 27);
+            txtMail.TabIndex = 39;
+            // 
+            // gbSucursal
+            // 
+            gbSucursal.Controls.Add(lblMail);
+            gbSucursal.Controls.Add(lblTelefono);
+            gbSucursal.Location = new Point(12, 12);
+            gbSucursal.Name = "gbSucursal";
+            gbSucursal.Size = new Size(286, 263);
+            gbSucursal.TabIndex = 40;
+            gbSucursal.TabStop = false;
+            // 
             // FormABMSucursales
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(914, 600);
+            Controls.Add(txtMail);
+            Controls.Add(txtTelefono);
             Controls.Add(btnGuardar);
             Controls.Add(btnVolver);
             Controls.Add(txtDireccion);
             Controls.Add(lblDireccion);
+            Controls.Add(gbSucursal);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormABMSucursales";
             Text = "FormABMSucursales";
+            gbSucursal.ResumeLayout(false);
+            gbSucursal.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -96,5 +149,10 @@
         private Button btnVolver;
         private TextBox txtDireccion;
         private Label lblDireccion;
+        private Label lblMail;
+        private Label lblTelefono;
+        private TextBox txtTelefono;
+        private TextBox txtMail;
+        private GroupBox gbSucursal;
     }
 }

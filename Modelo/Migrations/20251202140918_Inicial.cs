@@ -45,7 +45,9 @@ namespace Modelo.Migrations
                 {
                     IDSucursal = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Direccion = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Direccion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telefono = table.Column<double>(type: "float", nullable: false),
+                    Mail = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

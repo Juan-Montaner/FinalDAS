@@ -12,7 +12,7 @@ using Modelo;
 namespace Modelo.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20251202130949_Inicial")]
+    [Migration("20251202140918_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
@@ -151,6 +151,13 @@ namespace Modelo.Migrations
                     b.Property<string>("Direccion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Telefono")
+                        .HasColumnType("float");
 
                     b.HasKey("IDSucursal");
 

@@ -20,7 +20,7 @@ namespace Vista.Gestion_de_Productos
 
         private void Refrescar()
         {
-            Controladora.ControladoraProductos controladora = Controladora.ControladoraProductos.Instancia;
+            Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
             dgvGestionProductos.DataSource = controladora.ListarProductos();
         }
         private int? GetId()
@@ -69,6 +69,27 @@ namespace Vista.Gestion_de_Productos
             FormModuloProductos formModuloProductos = new FormModuloProductos();
             this.Hide();
             formModuloProductos.ShowDialog();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int? id = GetId();
+            if (id != null)
+            {
+                Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
+                controladora.EliminarSucursal((int)id);
+                Refrescar();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una sucursal para eliminar");
+            }
+            Refrescar();
+        }
+
+        private void btnGestionSucursal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

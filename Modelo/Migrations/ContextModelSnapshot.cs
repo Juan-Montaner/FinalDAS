@@ -149,6 +149,13 @@ namespace Modelo.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Mail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Telefono")
+                        .HasColumnType("float");
+
                     b.HasKey("IDSucursal");
 
                     b.ToTable("Sucursales");
