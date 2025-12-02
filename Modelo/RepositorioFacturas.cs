@@ -39,5 +39,14 @@ namespace Modelo
             context.SaveChanges();
         }
 
+        public Factura BuscarFactura(string RazonSocialCliente)
+        {
+            return context.Facturas.FirstOrDefault(c => c.RazonSocialCliente == RazonSocialCliente);
+        }
+
+        public Factura BuscarFacturaID(int id)
+        {
+            return context.Facturas.FirstOrDefault(c => c.IDFactura == id);
+        }
     }
 }

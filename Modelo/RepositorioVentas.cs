@@ -38,5 +38,11 @@ namespace Modelo
             context.Ventas.Remove(venta);
             context.SaveChanges();
         }
+
+        public Venta BuscarVentaID(int id)
+        {
+            return context.Ventas.FirstOrDefault(c => c.IDVenta == id);
+        }
+
     }
 }
