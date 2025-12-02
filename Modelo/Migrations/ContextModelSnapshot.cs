@@ -99,8 +99,9 @@ namespace Modelo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IDProducto"));
 
-                    b.Property<int>("CategoriaIDCategoria")
-                        .HasColumnType("int");
+                    b.Property<string>("Categoria")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
@@ -126,8 +127,6 @@ namespace Modelo.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("IDProducto");
-
-                    b.HasIndex("CategoriaIDCategoria");
 
                     b.HasIndex("FacturaIDFactura");
 
@@ -194,12 +193,6 @@ namespace Modelo.Migrations
 
             modelBuilder.Entity("Entidades.Producto", b =>
                 {
-                    b.HasOne("Entidades.Categoria", "Categoria")
-                        .WithMany()
-                        .HasForeignKey("CategoriaIDCategoria")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Entidades.Factura", null)
                         .WithMany("Productos")
                         .HasForeignKey("FacturaIDFactura");
@@ -211,8 +204,6 @@ namespace Modelo.Migrations
                     b.HasOne("Entidades.Venta", null)
                         .WithMany("Productos")
                         .HasForeignKey("VentaIDVenta");
-
-                    b.Navigation("Categoria");
                 });
 
             modelBuilder.Entity("Entidades.Cliente", b =>

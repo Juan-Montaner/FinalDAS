@@ -25,7 +25,7 @@ namespace Controladora
             }
         }
 
-        public string AgregarProducto(string nombre, string descripcion, Categoria categoria, decimal precio, int stock)
+        public string AgregarProducto(string nombre, string descripcion, string categoria, decimal precio, int stock)
         {
             Producto producto = repositorioProductos.BuscarProducto(nombre);
 
@@ -40,13 +40,15 @@ namespace Controladora
                 return "Error al AGREGAR Producto: Los campos no pueden estar vacios";
             }
 
+
+
             Producto nuevoProducto = new Producto();
 
             nuevoProducto.Nombre = nombre;
             nuevoProducto.Descripcion = descripcion;
             nuevoProducto.Categoria = categoria;
             nuevoProducto.Precio = precio;
-            nuevoProducto.Stock = stock;
+            nuevoProducto.Stock =  stock;
 
             repositorioProductos.AgregarProducto(nuevoProducto);
 
@@ -67,7 +69,7 @@ namespace Controladora
             return "Producto ELIMINADO con Exito";
         }
 
-        public string ModificarProducto(int id, string nombre, string descripcion, Categoria categoria, decimal precio, int stock)
+        public string ModificarProducto(int id, string nombre, string descripcion, string categoria, decimal precio, int stock)
         {
             Producto producto = repositorioProductos.BuscarProductoID(id);
 
@@ -92,5 +94,17 @@ namespace Controladora
 
             return "Producto Modificada con Exito";
         }
+
+        public List<Producto> ListarProductos()
+        {
+            return repositorioProductos.ListarProducto().ToList();
+        }
+
+        public Producto BuscarProductoId(int id)
+        {
+            return repositorioProductos.BuscarProductoID(id);
+        }
+
+
     }
 }

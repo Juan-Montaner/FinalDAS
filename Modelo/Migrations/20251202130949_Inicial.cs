@@ -98,7 +98,7 @@ namespace Modelo.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CategoriaIDCategoria = table.Column<int>(type: "int", nullable: false),
+                    Categoria = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
                     FacturaIDFactura = table.Column<int>(type: "int", nullable: true),
@@ -108,12 +108,6 @@ namespace Modelo.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Productos", x => x.IDProducto);
-                    table.ForeignKey(
-                        name: "FK_Productos_Categorias_CategoriaIDCategoria",
-                        column: x => x.CategoriaIDCategoria,
-                        principalTable: "Categorias",
-                        principalColumn: "IDCategoria",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Productos_Facturas_FacturaIDFactura",
                         column: x => x.FacturaIDFactura,
@@ -137,11 +131,6 @@ namespace Modelo.Migrations
                 column: "ClienteIDCliente");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Productos_CategoriaIDCategoria",
-                table: "Productos",
-                column: "CategoriaIDCategoria");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Productos_FacturaIDFactura",
                 table: "Productos",
                 column: "FacturaIDFactura");
@@ -161,10 +150,10 @@ namespace Modelo.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Productos");
+                name: "Categorias");
 
             migrationBuilder.DropTable(
-                name: "Categorias");
+                name: "Productos");
 
             migrationBuilder.DropTable(
                 name: "Facturas");

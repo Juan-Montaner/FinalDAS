@@ -82,5 +82,10 @@ namespace Controladora
 
             return "Sucursal Modificada con Exito";
         }
+
+        public Sucursal BuscarSucursalId(int id)
+        {
+            return repositorioSucursal.BuscarSucursalID(id);
+        }
     }
 }

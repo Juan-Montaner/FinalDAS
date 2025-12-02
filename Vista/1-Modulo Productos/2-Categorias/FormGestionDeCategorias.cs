@@ -46,7 +46,7 @@ namespace Vista.Gestion_de_Productos
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             FormABMCategorias formABMCategorias = new FormABMCategorias();
-            formABMCategorias.Show();
+            formABMCategorias.ShowDialog();
             Refrescar();
         }
 
@@ -56,7 +56,7 @@ namespace Vista.Gestion_de_Productos
             if (id != null)
             {
                 FormABMCategorias formABMCategorias = new FormABMCategorias(id);
-                formABMCategorias.Show();
+                formABMCategorias.ShowDialog();
                 Refrescar();
             }
             else
@@ -89,9 +89,6 @@ namespace Vista.Gestion_de_Productos
             formModuloProductos.ShowDialog();
         }
 
-        private void btnRefrescar_Click(object sender, EventArgs e)
-        {
-            Refrescar();
-        }
+
     }
 }

@@ -12,14 +12,103 @@ namespace Vista.Gestion_de_Productos
 {
     public partial class FormABMProductos : Form
     {
-        public FormABMProductos()
+        private int? Id;
+        public FormABMProductos(int? id = null)
         {
             InitializeComponent();
+            this.Id = id;
+            CargarCategorias();
+
+            if (id != null)
+            {
+                CargarDatos();
+            }
         }
 
+        private void CargarDatos()
+        {
+            Controladora.ControladoraProductos controladora = Controladora.ControladoraProductos.Instancia;
+
+            var producto = controladora.BuscarProductoId((int)Id);
+
+            if (Id != null)
+            {
+                txtNombre.Text = producto.Nombre;
+                txtDescripcion.Text = producto.Descripcion;
+                txtPrecio.Text = producto.Precio.ToString();
+                cmbCategoria.Text = producto.Categoria;
+                numUdStock.Value = producto.Stock;
+            }
+        }
+
+        private void CargarCategorias()
+        {
+            Controladora.ControladoraCategorias controladora = Controladora.ControladoraCategorias.Instancia;
+
+            var categorias = controladora.ListarCategorias();
+
+            if (categorias != null)
+            {
+                cmbCategoria.DataSource = categorias;
+                cmbCategoria.DisplayMember = "Nombre";
+
+            }
+
+        }
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Controladora.ControladoraProductos controladora = Controladora.ControladoraProductos.Instancia;
+
+            try
+            {
+                if (Id == null)
+                {
+                    try
+                    {
+                        string Nombre = txtNombre.Text;
+                        string Descripcion = txtDescripcion.Text;
+                        decimal Precio = decimal.Parse(txtPrecio.Text);
+                        string Categoria = cmbCategoria.Text.ToString();
+                        int Stock = Convert.ToInt32(numUdStock.Value);
+
+                        controladora.AgregarProducto(Nombre, Descripcion, Categoria, Precio, Stock);
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        int id = Id.Value;
+                        string Nombre = txtNombre.Text;
+                        string Descripcion = txtDescripcion.Text;
+                        decimal Precio = decimal.Parse(txtPrecio.Text);
+                        string Categoria = cmbCategoria.SelectedIndex.ToString();
+                        int Stock = Convert.ToInt32(numUdStock.Value);
+
+                        controladora.ModificarProducto(id, Nombre, Descripcion, Categoria, Precio, Stock);
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            }
+            catch (FormatException Ex)
+            {
+                MessageBox.Show("Error en el Formato de los datos -- Intente NUEVAMENTE");
+            }
+
+            this.Close();
+        }
     }
+    
 }
