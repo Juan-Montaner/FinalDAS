@@ -32,11 +32,13 @@
             lblNombre = new Label();
             btnGuardar = new Button();
             btnVolver = new Button();
+            grpAbm = new GroupBox();
+            grpAbm.SuspendLayout();
             SuspendLayout();
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(74, 12);
+            txtNombre.Location = new Point(94, 54);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(149, 23);
             txtNombre.TabIndex = 26;
@@ -44,7 +46,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(14, 15);
+            lblNombre.Location = new Point(34, 57);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(54, 15);
             lblNombre.TabIndex = 25;
@@ -52,7 +54,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(14, 63);
+            btnGuardar.Location = new Point(34, 105);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(83, 38);
             btnGuardar.TabIndex = 31;
@@ -62,7 +64,7 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(140, 63);
+            btnVolver.Location = new Point(160, 105);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(83, 38);
             btnVolver.TabIndex = 30;
@@ -70,20 +72,30 @@
             btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += btnVolver_Click;
             // 
+            // grpAbm
+            // 
+            grpAbm.Controls.Add(lblNombre);
+            grpAbm.Controls.Add(btnGuardar);
+            grpAbm.Controls.Add(txtNombre);
+            grpAbm.Controls.Add(btnVolver);
+            grpAbm.Location = new Point(10, 1);
+            grpAbm.Name = "grpAbm";
+            grpAbm.Size = new Size(286, 180);
+            grpAbm.TabIndex = 32;
+            grpAbm.TabStop = false;
+            // 
             // FormABMCategorias
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(800, 450);
-            Controls.Add(btnGuardar);
-            Controls.Add(btnVolver);
-            Controls.Add(txtNombre);
-            Controls.Add(lblNombre);
+            ClientSize = new Size(306, 190);
+            Controls.Add(grpAbm);
             Name = "FormABMCategorias";
-            Text = "FormABMCategorias";
+            Text = "ABMCategorias";
+            grpAbm.ResumeLayout(false);
+            grpAbm.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -92,5 +104,6 @@
         private Label lblNombre;
         private Button btnGuardar;
         private Button btnVolver;
+        private GroupBox grpAbm;
     }
 }
