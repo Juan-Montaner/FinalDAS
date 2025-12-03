@@ -17,6 +17,9 @@ namespace Vista._3_Modulo_Ventas
         public FormGestionVentas()
         {
             InitializeComponent();
+            cmbSucursales.SelectedIndexChanged -= cmbSucursales_SelectedIndexChanged;
+            CargarComboBox();
+            cmbSucursales.SelectedIndexChanged += cmbSucursales_SelectedIndexChanged;
             Refrescar();
         }
 
@@ -44,26 +47,81 @@ namespace Vista._3_Modulo_Ventas
                 return null;
             }
         }
-        private void btnAgregar_Click(object sender, EventArgs e)
+
+        private void CargarComboBox()
         {
-            FormABMVentas formABMVentas = new FormABMVentas();
-            formABMVentas.ShowDialog();
-            Refrescar();
+            Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
+
+            var sucursales = controladora.ListarSucursales();
+
+            if (sucursales != null)
+            {
+                cmbSucursales.DataSource = sucursales;
+                cmbSucursales.DisplayMember = "Direccion";
+                cmbSucursales.ValueMember = "IDSucursal";
+            }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void FiltrarVentas()
         {
-            int? id = GetId();
-            if (id != null)
+            if (cmbSucursales.SelectedValue == null)
+                return;
+
+            if (!(cmbSucursales.SelectedValue is int))
+                return;
+
+            int idSucursal = (int)cmbSucursales.SelectedValue;
+
+            var controladora = Controladora.ControladoraVentas.Instancia;
+            var ventas = controladora.ListarVentas().Where(p => p.IDSucursal == idSucursal).ToList();
+
+            dgvVentas.DataSource = ventas;
+        }
+
+        private int? IDSucursal()
+        {
+            if (cmbSucursales.SelectedItem == null)
+                return null;
+
+            if (cmbSucursales.SelectedValue == null)
+                return null;
+
+            int id;
+
+            if (int.TryParse(cmbSucursales.SelectedValue.ToString(), out id))
+                return id;
+
+            return null;
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            int? idSucursal = IDSucursal();
+
+            if (idSucursal == null)
             {
-                FormABMVentas formABMVentas = new FormABMVentas(id);
-                formABMVentas.ShowDialog();
-                Refrescar();
+                MessageBox.Show("Seleccione una sucursal.");
+                return;
             }
-            else
+
+            var controladora = Controladora.ControladoraSucursales.Instancia;
+            var sucursal = controladora.ListarSucursales()
+                                       .FirstOrDefault(s => s.IDSucursal == idSucursal);
+
+            if (sucursal == null)
             {
-                MessageBox.Show("Seleccione una venta para modificar");
+                MessageBox.Show("Sucursal no encontrada.");
+                return;
             }
+
+            if (sucursal.ListaProductos == null || !sucursal.ListaProductos.Any())
+            {
+                MessageBox.Show("La sucursal no tiene productos cargados.");
+                return;
+            }
+
+            FormABMVentas formABMVentas = new FormABMVentas(idSucursal);
+            formABMVentas.ShowDialog();
             Refrescar();
         }
 
@@ -87,6 +145,12 @@ namespace Vista._3_Modulo_Ventas
             FormModuloVentas formModuloVentas = new FormModuloVentas();
             this.Hide();
             formModuloVentas.ShowDialog();
+        }
+
+        private void cmbSucursales_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FiltrarVentas();
+
         }
     }
 }

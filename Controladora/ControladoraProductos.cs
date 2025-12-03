@@ -11,6 +11,7 @@ namespace Controladora
     public class ControladoraProductos
     {
         private RepositorioProductos repositorioProductos = new RepositorioProductos();
+        private RepositorioSucursales repositorioSucursales = new RepositorioSucursales();
         private static ControladoraProductos instancia;
 
         public static ControladoraProductos Instancia
@@ -39,8 +40,6 @@ namespace Controladora
             {
                 return "Error al AGREGAR Producto: Los campos no pueden estar vacios";
             }
-
-
 
             Producto nuevoProducto = new Producto();
 

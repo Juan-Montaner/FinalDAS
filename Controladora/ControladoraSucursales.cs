@@ -92,9 +92,9 @@ namespace Controladora
             return repositorioSucursal.BuscarSucursalID(id);
         }
 
-        public List<Sucursal> ListarProductos()
+        public List<Producto> ListarProductos()
         {
-            return repositorioSucursal.ListarSucursal().ToList();
+            return repositorioSucursal.ListarProductos().ToList();
         }
 
         public List<Sucursal> ListarSucursales()

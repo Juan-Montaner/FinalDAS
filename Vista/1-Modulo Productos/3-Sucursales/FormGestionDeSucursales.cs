@@ -21,7 +21,7 @@ namespace Vista.Gestion_de_Productos
         private void Refrescar()
         {
             Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
-            dgvGestionProductos.DataSource = controladora.ListarProductos();
+            dgvGestionProductos.DataSource = controladora.ListarSucursales();
         }
         private int? GetId()
         {

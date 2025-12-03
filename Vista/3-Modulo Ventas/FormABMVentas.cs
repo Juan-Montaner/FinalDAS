@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +13,34 @@ namespace Vista._3_Modulo_Ventas
 {
     public partial class FormABMVentas : Form
     {
-        private int? id;
-        public FormABMVentas(int? id = null)
+        private int iDSucursal;
+        public FormABMVentas(int? iDSucursal = null)
         {
             InitializeComponent();
-            this.id = id;
+
+            if (iDSucursal == null)
+            {
+                this.Close();
+            }
+
+            this.iDSucursal = iDSucursal.Value;
+
         }
+
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
+            FormGestionVentas formGestionVentas = new FormGestionVentas();
+            this.Hide();
+            formGestionVentas.ShowDialog();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
 
         }
 
-        private void gbVentas_Enter(object sender, EventArgs e)
+        private void btnFinalizar_Click(object sender, EventArgs e)
         {
 
         }

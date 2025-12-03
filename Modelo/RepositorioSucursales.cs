@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,11 @@ namespace Modelo
         public IReadOnlyCollection<Sucursal> ListarSucursal()
         {
             return context.Sucursales.ToList().AsReadOnly();
+        }
+
+        public IReadOnlyCollection<Producto> ListarProductos()
+        {
+            return context.Productos.ToList().AsReadOnly();
         }
 
         public void AgregarSucursal(Sucursal sucursal)
