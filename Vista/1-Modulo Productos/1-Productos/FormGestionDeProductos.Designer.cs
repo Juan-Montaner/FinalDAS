@@ -35,17 +35,24 @@
             dgvGestionProductos = new DataGridView();
             grpListaProductos = new GroupBox();
             grpProductos = new GroupBox();
+            groupBox1 = new GroupBox();
+            btnFiltrarSucursal = new Button();
+            cmbSucursales = new ComboBox();
+            grpFiltrarCategoria = new GroupBox();
+            btnFiltrarCategoria = new Button();
+            cmbCategorias = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvGestionProductos).BeginInit();
             grpListaProductos.SuspendLayout();
             grpProductos.SuspendLayout();
+            groupBox1.SuspendLayout();
+            grpFiltrarCategoria.SuspendLayout();
             SuspendLayout();
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(24, 575);
-            btnAgregar.Margin = new Padding(3, 4, 3, 4);
+            btnAgregar.Location = new Point(21, 399);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(114, 48);
+            btnAgregar.Size = new Size(100, 36);
             btnAgregar.TabIndex = 0;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -53,10 +60,9 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(163, 575);
-            btnModificar.Margin = new Padding(3, 4, 3, 4);
+            btnModificar.Location = new Point(127, 399);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(114, 48);
+            btnModificar.Size = new Size(100, 36);
             btnModificar.TabIndex = 1;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
@@ -64,10 +70,9 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(303, 575);
-            btnEliminar.Margin = new Padding(3, 4, 3, 4);
+            btnEliminar.Location = new Point(233, 399);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(114, 48);
+            btnEliminar.Size = new Size(100, 36);
             btnEliminar.TabIndex = 2;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -75,10 +80,9 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(800, 575);
-            btnVolver.Margin = new Padding(3, 4, 3, 4);
+            btnVolver.Location = new Point(674, 439);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(111, 55);
+            btnVolver.Size = new Size(97, 41);
             btnVolver.TabIndex = 3;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -87,55 +91,111 @@
             // dgvGestionProductos
             // 
             dgvGestionProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvGestionProductos.Location = new Point(7, 28);
-            dgvGestionProductos.Margin = new Padding(3, 4, 3, 4);
+            dgvGestionProductos.Location = new Point(6, 21);
             dgvGestionProductos.Name = "dgvGestionProductos";
             dgvGestionProductos.RowHeadersWidth = 51;
-            dgvGestionProductos.Size = new Size(887, 428);
+            dgvGestionProductos.Size = new Size(737, 321);
             dgvGestionProductos.TabIndex = 4;
             // 
             // grpListaProductos
             // 
             grpListaProductos.Controls.Add(dgvGestionProductos);
-            grpListaProductos.Location = new Point(17, 29);
-            grpListaProductos.Margin = new Padding(3, 4, 3, 4);
+            grpListaProductos.Location = new Point(15, 22);
             grpListaProductos.Name = "grpListaProductos";
-            grpListaProductos.Padding = new Padding(3, 4, 3, 4);
-            grpListaProductos.Size = new Size(904, 481);
+            grpListaProductos.Size = new Size(756, 361);
             grpListaProductos.TabIndex = 5;
             grpListaProductos.TabStop = false;
             grpListaProductos.Text = "Lista De Productos";
             // 
             // grpProductos
             // 
+            grpProductos.Controls.Add(groupBox1);
+            grpProductos.Controls.Add(grpFiltrarCategoria);
             grpProductos.Controls.Add(grpListaProductos);
             grpProductos.Controls.Add(btnAgregar);
             grpProductos.Controls.Add(btnModificar);
             grpProductos.Controls.Add(btnVolver);
             grpProductos.Controls.Add(btnEliminar);
-            grpProductos.Location = new Point(6, 3);
-            grpProductos.Margin = new Padding(3, 4, 3, 4);
+            grpProductos.Location = new Point(5, 2);
             grpProductos.Name = "grpProductos";
-            grpProductos.Padding = new Padding(3, 4, 3, 4);
-            grpProductos.Size = new Size(931, 648);
+            grpProductos.Size = new Size(779, 488);
             grpProductos.TabIndex = 6;
             grpProductos.TabStop = false;
             grpProductos.Text = "Productos";
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(btnFiltrarSucursal);
+            groupBox1.Controls.Add(cmbSucursales);
+            groupBox1.Location = new Point(500, 386);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(155, 94);
+            groupBox1.TabIndex = 8;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Filtrar Por Sucursal";
+            // 
+            // btnFiltrarSucursal
+            // 
+            btnFiltrarSucursal.Location = new Point(82, 55);
+            btnFiltrarSucursal.Name = "btnFiltrarSucursal";
+            btnFiltrarSucursal.Size = new Size(56, 24);
+            btnFiltrarSucursal.TabIndex = 7;
+            btnFiltrarSucursal.Text = "Filtrar";
+            btnFiltrarSucursal.UseVisualStyleBackColor = true;
+            btnFiltrarSucursal.Click += btnFiltrarSucursal_Click;
+            // 
+            // cmbSucursales
+            // 
+            cmbSucursales.FormattingEnabled = true;
+            cmbSucursales.Location = new Point(17, 26);
+            cmbSucursales.Name = "cmbSucursales";
+            cmbSucursales.Size = new Size(121, 23);
+            cmbSucursales.TabIndex = 0;
+            // 
+            // grpFiltrarCategoria
+            // 
+            grpFiltrarCategoria.Controls.Add(btnFiltrarCategoria);
+            grpFiltrarCategoria.Controls.Add(cmbCategorias);
+            grpFiltrarCategoria.Location = new Point(339, 386);
+            grpFiltrarCategoria.Name = "grpFiltrarCategoria";
+            grpFiltrarCategoria.Size = new Size(155, 94);
+            grpFiltrarCategoria.TabIndex = 6;
+            grpFiltrarCategoria.TabStop = false;
+            grpFiltrarCategoria.Text = "Filtrar Por Categoria";
+            // 
+            // btnFiltrarCategoria
+            // 
+            btnFiltrarCategoria.Location = new Point(82, 55);
+            btnFiltrarCategoria.Name = "btnFiltrarCategoria";
+            btnFiltrarCategoria.Size = new Size(56, 24);
+            btnFiltrarCategoria.TabIndex = 7;
+            btnFiltrarCategoria.Text = "Filtrar";
+            btnFiltrarCategoria.UseVisualStyleBackColor = true;
+            btnFiltrarCategoria.Click += btnFiltrarCategoria_Click;
+            // 
+            // cmbCategorias
+            // 
+            cmbCategorias.FormattingEnabled = true;
+            cmbCategorias.Location = new Point(17, 26);
+            cmbCategorias.Name = "cmbCategorias";
+            cmbCategorias.Size = new Size(121, 23);
+            cmbCategorias.TabIndex = 0;
+            // 
             // FormGestionDeProductos
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(945, 667);
+            ClientSize = new Size(794, 498);
             Controls.Add(grpProductos);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FormGestionDeProductos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormGestionDeProductos";
             ((System.ComponentModel.ISupportInitialize)dgvGestionProductos).EndInit();
             grpListaProductos.ResumeLayout(false);
             grpProductos.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            grpFiltrarCategoria.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -148,5 +208,11 @@
         private DataGridView dgvGestionProductos;
         private GroupBox grpListaProductos;
         private GroupBox grpProductos;
+        private GroupBox grpFiltrarCategoria;
+        private ComboBox cmbCategorias;
+        private Button btnFiltrarCategoria;
+        private GroupBox groupBox1;
+        private Button btnFiltrarSucursal;
+        private ComboBox cmbSucursales;
     }
 }

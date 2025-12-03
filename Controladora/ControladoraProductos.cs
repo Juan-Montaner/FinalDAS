@@ -107,6 +107,14 @@ namespace Controladora
             return repositorioProductos.BuscarProductoID(id);
         }
 
+        public List<Producto> FiltrarPorCategoria(string categoria)
+        {
+            return repositorioProductos.ListarProducto().Where(c => c.Categoria == categoria).ToList();
+        }
 
+        public List<Producto> FiltrarPorSucursales(int IdSucursal)
+        {
+            return repositorioProductos.ListarProducto().Where(c => c.IDSucursal == IdSucursal).ToList();
+        }
     }
 }

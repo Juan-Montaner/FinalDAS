@@ -107,5 +107,7 @@ namespace Controladora
             int cantidad = repositorioSucursal.ListarSucursal().Count();
             return cantidad > 0;
         }
+
+        
     }
 }

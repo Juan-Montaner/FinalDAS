@@ -16,6 +16,8 @@ namespace Vista.Gestion_de_Productos
         {
             InitializeComponent();
             Refrescar();
+            CargarCategorias();
+            CargarSucursales();
         }
 
         private void Refrescar()
@@ -23,6 +25,37 @@ namespace Vista.Gestion_de_Productos
             Controladora.ControladoraProductos controladora = Controladora.ControladoraProductos.Instancia;
             dgvGestionProductos.DataSource = controladora.ListarProductos();
         }
+
+        private void CargarSucursales()
+        {
+            Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
+
+            var sucursales = controladora.ListarSucursales();
+
+            if (sucursales != null)
+            {
+                cmbSucursales.DataSource = sucursales;
+                cmbSucursales.DisplayMember = "Direccion";
+                cmbSucursales.ValueMember = "IDSucursal";
+            }
+
+        }
+
+        private void CargarCategorias()
+        {
+            Controladora.ControladoraCategorias controladora = Controladora.ControladoraCategorias.Instancia;
+
+            var categorias = controladora.ListarCategorias();
+
+            if (categorias != null)
+            {
+                cmbCategorias.DataSource = categorias;
+                cmbCategorias.DisplayMember = "Nombre";
+
+            }
+
+        }
+
         private int? GetId()
         {
             if (dgvGestionProductos.Rows.Count == 0)
@@ -47,7 +80,7 @@ namespace Vista.Gestion_de_Productos
         {
             var controladoraCate = Controladora.ControladoraCategorias.Instancia;
 
-       
+
             if (!controladoraCate.ContadorDeCategorias())
             {
                 MessageBox.Show("Debe crear al menos una categoría antes de agregar productos.");
@@ -58,7 +91,7 @@ namespace Vista.Gestion_de_Productos
 
             if (!controladoraSucu.ContadorDeSucursales())
             {
-                MessageBox.Show("Debe crear al menos una categoría antes de agregar productos.");
+                MessageBox.Show("Debe crear al menos una Sucursal antes de agregar productos.");
                 return;
             }
 
@@ -104,6 +137,19 @@ namespace Vista.Gestion_de_Productos
             FormModuloProductos formModuloProductos = new FormModuloProductos();
             this.Hide();
             formModuloProductos.ShowDialog();
+        }
+
+        private void btnFiltrarCategoria_Click(object sender, EventArgs e)
+        {
+            Controladora.ControladoraProductos controladora = Controladora.ControladoraProductos.Instancia;
+            dgvGestionProductos.DataSource = controladora.FiltrarPorCategoria(cmbCategorias.Text);
+
+        }
+
+        private void btnFiltrarSucursal_Click(object sender, EventArgs e)
+        {
+            Controladora.ControladoraProductos controladora = Controladora.ControladoraProductos.Instancia;
+            dgvGestionProductos.DataSource = controladora.FiltrarPorSucursales(Convert.ToInt32(cmbSucursales.SelectedValue));
         }
     }
 }
