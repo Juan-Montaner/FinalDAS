@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Modelo.Migrations
 {
     /// <inheritdoc />
-    public partial class Jun : Migration
+    public partial class Inicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -65,7 +65,8 @@ namespace Modelo.Migrations
                     Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IDSucursal = table.Column<int>(type: "int", nullable: false),
                     Vendedor = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Total = table.Column<long>(type: "bigint", nullable: false)
+                    MetodoDePago = table.Column<int>(type: "int", nullable: false),
+                    Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -107,7 +108,6 @@ namespace Modelo.Migrations
                     IDSucursal = table.Column<int>(type: "int", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
                     FacturaIDFactura = table.Column<int>(type: "int", nullable: true),
-                    SucursalIDSucursal = table.Column<int>(type: "int", nullable: true),
                     VentaIDVenta = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -118,11 +118,6 @@ namespace Modelo.Migrations
                         column: x => x.FacturaIDFactura,
                         principalTable: "Facturas",
                         principalColumn: "IDFactura");
-                    table.ForeignKey(
-                        name: "FK_Productos_Sucursales_SucursalIDSucursal",
-                        column: x => x.SucursalIDSucursal,
-                        principalTable: "Sucursales",
-                        principalColumn: "IDSucursal");
                     table.ForeignKey(
                         name: "FK_Productos_Ventas_VentaIDVenta",
                         column: x => x.VentaIDVenta,
@@ -141,11 +136,6 @@ namespace Modelo.Migrations
                 column: "FacturaIDFactura");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Productos_SucursalIDSucursal",
-                table: "Productos",
-                column: "SucursalIDSucursal");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Productos_VentaIDVenta",
                 table: "Productos",
                 column: "VentaIDVenta");
@@ -161,10 +151,10 @@ namespace Modelo.Migrations
                 name: "Productos");
 
             migrationBuilder.DropTable(
-                name: "Facturas");
+                name: "Sucursales");
 
             migrationBuilder.DropTable(
-                name: "Sucursales");
+                name: "Facturas");
 
             migrationBuilder.DropTable(
                 name: "Ventas");

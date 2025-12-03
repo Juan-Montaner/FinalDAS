@@ -25,7 +25,7 @@ namespace Controladora
             }
         }
 
-        public string AgregarVentas(string RazonSocialCliente, DateTime Fecha, List<Producto> ListaProductos, int IdSucursal, string Vendedor, int MetodoPago, long Total)
+        public string AgregarVentas(string RazonSocialCliente, DateTime Fecha, List<Producto> ListaProductos, int IdSucursal, string Vendedor, int MetodoPago, decimal Total)
         {
 
             if (string.IsNullOrWhiteSpace(RazonSocialCliente) || int.IsNegative(IdSucursal) || int.IsNegative(MetodoPago) || string.IsNullOrWhiteSpace(Vendedor))
@@ -41,6 +41,8 @@ namespace Controladora
             nuevaVenta.IDSucursal = IdSucursal;
             nuevaVenta.Vendedor = Vendedor;
             nuevaVenta.Total = Total;
+
+            nuevaVenta.MetodoDePago = (Venta.MetodoPago)MetodoPago;
 
             repositorioVentas.AgregarVenta(nuevaVenta);
 
@@ -61,7 +63,7 @@ namespace Controladora
             return "VENTA Eliminada con Exito";
         }
 
-        public string ModificarVenta(int id, string RazonSocialCliente, DateTime Fecha, List<Producto> ListaProductos, int IdSucursal, string Vendedor, int MetodoPago, long Total)
+        public string ModificarVenta(int id, string RazonSocialCliente, DateTime Fecha, List<Producto> ListaProductos, int IdSucursal, string Vendedor, int MetodoPago, decimal Total)
         {
             Venta venta = repositorioVentas.BuscarVentaID(id);
 

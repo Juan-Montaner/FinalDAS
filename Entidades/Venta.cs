@@ -19,13 +19,14 @@ namespace Entidades
         public List<Producto> Productos { get; set; }
         public int IDSucursal { get; set; }        
         public string Vendedor { get; set; }
+        public MetodoPago MetodoDePago { get; set; }
         public enum MetodoPago
         {
             Efectivo = 1,
             Tarjeta = 2,
             Transferencia = 3
         }
-        public long Total { get; set; }
+        public decimal Total { get; set; }
 
     }
 }

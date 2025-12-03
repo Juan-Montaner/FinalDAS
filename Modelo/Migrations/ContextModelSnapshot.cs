@@ -129,17 +129,12 @@ namespace Modelo.Migrations
                     b.Property<int>("Stock")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SucursalIDSucursal")
-                        .HasColumnType("int");
-
                     b.Property<int?>("VentaIDVenta")
                         .HasColumnType("int");
 
                     b.HasKey("IDProducto");
 
                     b.HasIndex("FacturaIDFactura");
-
-                    b.HasIndex("SucursalIDSucursal");
 
                     b.HasIndex("VentaIDVenta");
 
@@ -184,12 +179,15 @@ namespace Modelo.Migrations
                     b.Property<int>("IDSucursal")
                         .HasColumnType("int");
 
+                    b.Property<int>("MetodoDePago")
+                        .HasColumnType("int");
+
                     b.Property<string>("RazonSocialCliente")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Total")
-                        .HasColumnType("bigint");
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Vendedor")
                         .IsRequired()
@@ -213,10 +211,6 @@ namespace Modelo.Migrations
                         .WithMany("Productos")
                         .HasForeignKey("FacturaIDFactura");
 
-                    b.HasOne("Entidades.Sucursal", null)
-                        .WithMany("ListaProductos")
-                        .HasForeignKey("SucursalIDSucursal");
-
                     b.HasOne("Entidades.Venta", null)
                         .WithMany("Productos")
                         .HasForeignKey("VentaIDVenta");
@@ -230,11 +224,6 @@ namespace Modelo.Migrations
             modelBuilder.Entity("Entidades.Factura", b =>
                 {
                     b.Navigation("Productos");
-                });
-
-            modelBuilder.Entity("Entidades.Sucursal", b =>
-                {
-                    b.Navigation("ListaProductos");
                 });
 
             modelBuilder.Entity("Entidades.Venta", b =>

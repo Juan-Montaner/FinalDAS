@@ -116,5 +116,21 @@ namespace Controladora
         {
             return repositorioProductos.ListarProducto().Where(c => c.IDSucursal == IdSucursal).ToList();
         }
+
+        public Producto AgregarProductoCarrito(Producto producto, int cantidad)
+        {
+            
+            Producto nuevoProductoCarrito = new Producto();
+
+            nuevoProductoCarrito.IDProducto = producto.IDProducto;
+            nuevoProductoCarrito.Nombre = producto.Nombre;
+            nuevoProductoCarrito.Descripcion = producto.Descripcion;
+            nuevoProductoCarrito.Categoria = producto.Categoria;
+            nuevoProductoCarrito.IDSucursal = producto.IDSucursal;
+            nuevoProductoCarrito.Precio = producto.Precio;
+            nuevoProductoCarrito.Stock = cantidad;
+
+            return nuevoProductoCarrito;
+        }
     }
 }

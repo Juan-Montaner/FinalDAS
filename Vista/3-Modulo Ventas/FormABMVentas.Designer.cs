@@ -29,124 +29,211 @@
         private void InitializeComponent()
         {
             grpVentas = new GroupBox();
-            btnFinalizar = new Button();
-            btnVolver = new Button();
-            btnAgregar = new Button();
-            txtVendedor = new TextBox();
-            dtpFechaVenta = new DateTimePicker();
-            lblVendedor = new Label();
-            lblFecha = new Label();
+            groupBox2 = new GroupBox();
+            rbTransferencia = new RadioButton();
+            rbEfectivo = new RadioButton();
+            rbTarjeta = new RadioButton();
+            cmbRazonSocial = new ComboBox();
             lblRazon = new Label();
+            lblFecha = new Label();
+            lblVendedor = new Label();
+            dtpFechaVenta = new DateTimePicker();
+            txtVendedor = new TextBox();
+            lblSucursalID = new Label();
+            lblSucursal = new Label();
+            btnVolver = new Button();
+            btnFinalizar = new Button();
+            btnAgregarACarrito = new Button();
             dgvProductosSucursal = new DataGridView();
             dgvProductosCompra = new DataGridView();
             groupBox1 = new GroupBox();
             grpCarritoDeCompras = new GroupBox();
-            lblSucursalID = new Label();
-            lblSucursal = new Label();
+            lblTotal = new Label();
+            label1 = new Label();
+            btnBorrar = new Button();
             grpProductos = new GroupBox();
-            cmbRazonSocial = new ComboBox();
+            btnSeleccionar = new Button();
+            nudCantidad = new NumericUpDown();
             grpVentas.SuspendLayout();
+            groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProductosSucursal).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductosCompra).BeginInit();
             groupBox1.SuspendLayout();
             grpCarritoDeCompras.SuspendLayout();
             grpProductos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
             SuspendLayout();
             // 
             // grpVentas
             // 
-            grpVentas.Controls.Add(cmbRazonSocial);
-            grpVentas.Controls.Add(btnFinalizar);
+            grpVentas.Controls.Add(groupBox2);
+            grpVentas.Controls.Add(lblSucursalID);
+            grpVentas.Controls.Add(lblSucursal);
             grpVentas.Controls.Add(btnVolver);
-            grpVentas.Controls.Add(btnAgregar);
-            grpVentas.Controls.Add(txtVendedor);
-            grpVentas.Controls.Add(dtpFechaVenta);
-            grpVentas.Controls.Add(lblVendedor);
-            grpVentas.Controls.Add(lblFecha);
-            grpVentas.Controls.Add(lblRazon);
-            grpVentas.Location = new Point(14, 89);
+            grpVentas.Location = new Point(14, 16);
             grpVentas.Margin = new Padding(3, 2, 3, 2);
             grpVentas.Name = "grpVentas";
             grpVentas.Padding = new Padding(3, 2, 3, 2);
-            grpVentas.Size = new Size(300, 397);
+            grpVentas.Size = new Size(277, 535);
             grpVentas.TabIndex = 0;
             grpVentas.TabStop = false;
             // 
-            // btnFinalizar
+            // groupBox2
             // 
-            btnFinalizar.Location = new Point(194, 199);
-            btnFinalizar.Margin = new Padding(3, 2, 3, 2);
-            btnFinalizar.Name = "btnFinalizar";
-            btnFinalizar.Size = new Size(82, 28);
-            btnFinalizar.TabIndex = 10;
-            btnFinalizar.Text = "Finalizar";
-            btnFinalizar.UseVisualStyleBackColor = true;
-            btnFinalizar.Click += btnFinalizar_Click;
+            groupBox2.Controls.Add(rbTransferencia);
+            groupBox2.Controls.Add(rbEfectivo);
+            groupBox2.Controls.Add(rbTarjeta);
+            groupBox2.Controls.Add(cmbRazonSocial);
+            groupBox2.Controls.Add(lblRazon);
+            groupBox2.Controls.Add(lblFecha);
+            groupBox2.Controls.Add(lblVendedor);
+            groupBox2.Controls.Add(dtpFechaVenta);
+            groupBox2.Controls.Add(txtVendedor);
+            groupBox2.Location = new Point(6, 127);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(262, 308);
+            groupBox2.TabIndex = 12;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Datos de la Venta";
             // 
-            // btnVolver
+            // rbTransferencia
             // 
-            btnVolver.Location = new Point(6, 359);
-            btnVolver.Margin = new Padding(3, 2, 3, 2);
-            btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(92, 33);
-            btnVolver.TabIndex = 3;
-            btnVolver.Text = "Volver";
-            btnVolver.UseVisualStyleBackColor = true;
-            btnVolver.Click += btnVolver_Click;
+            rbTransferencia.AutoSize = true;
+            rbTransferencia.Location = new Point(152, 170);
+            rbTransferencia.Name = "rbTransferencia";
+            rbTransferencia.Size = new Size(88, 19);
+            rbTransferencia.TabIndex = 13;
+            rbTransferencia.TabStop = true;
+            rbTransferencia.Text = "Trasferencia";
+            rbTransferencia.UseVisualStyleBackColor = true;
             // 
-            // btnAgregar
+            // rbEfectivo
             // 
-            btnAgregar.Location = new Point(15, 199);
-            btnAgregar.Margin = new Padding(3, 2, 3, 2);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(83, 28);
-            btnAgregar.TabIndex = 9;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
+            rbEfectivo.AutoSize = true;
+            rbEfectivo.Location = new Point(21, 170);
+            rbEfectivo.Name = "rbEfectivo";
+            rbEfectivo.Size = new Size(67, 19);
+            rbEfectivo.TabIndex = 12;
+            rbEfectivo.TabStop = true;
+            rbEfectivo.Text = "Efectivo";
+            rbEfectivo.UseVisualStyleBackColor = true;
             // 
-            // txtVendedor
+            // rbTarjeta
             // 
-            txtVendedor.Location = new Point(90, 143);
-            txtVendedor.Margin = new Padding(3, 2, 3, 2);
-            txtVendedor.Name = "txtVendedor";
-            txtVendedor.Size = new Size(186, 23);
-            txtVendedor.TabIndex = 8;
+            rbTarjeta.AutoSize = true;
+            rbTarjeta.Location = new Point(91, 210);
+            rbTarjeta.Name = "rbTarjeta";
+            rbTarjeta.Size = new Size(60, 19);
+            rbTarjeta.TabIndex = 12;
+            rbTarjeta.TabStop = true;
+            rbTarjeta.Text = "Tarjeta";
+            rbTarjeta.UseVisualStyleBackColor = true;
             // 
-            // dtpFechaVenta
+            // cmbRazonSocial
             // 
-            dtpFechaVenta.Location = new Point(71, 104);
-            dtpFechaVenta.Margin = new Padding(3, 2, 3, 2);
-            dtpFechaVenta.Name = "dtpFechaVenta";
-            dtpFechaVenta.Size = new Size(205, 23);
-            dtpFechaVenta.TabIndex = 6;
+            cmbRazonSocial.FormattingEnabled = true;
+            cmbRazonSocial.Location = new Point(94, 45);
+            cmbRazonSocial.Name = "cmbRazonSocial";
+            cmbRazonSocial.Size = new Size(161, 23);
+            cmbRazonSocial.TabIndex = 11;
             // 
-            // lblVendedor
+            // lblRazon
             // 
-            lblVendedor.AutoSize = true;
-            lblVendedor.Location = new Point(10, 143);
-            lblVendedor.Name = "lblVendedor";
-            lblVendedor.Size = new Size(60, 15);
-            lblVendedor.TabIndex = 2;
-            lblVendedor.Text = "Vendedor:";
+            lblRazon.AutoSize = true;
+            lblRazon.Location = new Point(12, 53);
+            lblRazon.Name = "lblRazon";
+            lblRazon.Size = new Size(76, 15);
+            lblRazon.TabIndex = 0;
+            lblRazon.Text = "Razon Social:";
             // 
             // lblFecha
             // 
             lblFecha.AutoSize = true;
-            lblFecha.Location = new Point(10, 104);
+            lblFecha.Location = new Point(12, 89);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(41, 15);
             lblFecha.TabIndex = 1;
             lblFecha.Text = "Fecha:";
             // 
-            // lblRazon
+            // lblVendedor
             // 
-            lblRazon.AutoSize = true;
-            lblRazon.Location = new Point(10, 60);
-            lblRazon.Name = "lblRazon";
-            lblRazon.Size = new Size(76, 15);
-            lblRazon.TabIndex = 0;
-            lblRazon.Text = "Razon Social:";
+            lblVendedor.AutoSize = true;
+            lblVendedor.Location = new Point(12, 120);
+            lblVendedor.Name = "lblVendedor";
+            lblVendedor.Size = new Size(60, 15);
+            lblVendedor.TabIndex = 2;
+            lblVendedor.Text = "Vendedor:";
+            // 
+            // dtpFechaVenta
+            // 
+            dtpFechaVenta.Format = DateTimePickerFormat.Short;
+            dtpFechaVenta.Location = new Point(59, 83);
+            dtpFechaVenta.Margin = new Padding(3, 2, 3, 2);
+            dtpFechaVenta.Name = "dtpFechaVenta";
+            dtpFechaVenta.Size = new Size(196, 23);
+            dtpFechaVenta.TabIndex = 6;
+            dtpFechaVenta.ValueChanged += dtpFechaVenta_ValueChanged;
+            // 
+            // txtVendedor
+            // 
+            txtVendedor.Location = new Point(78, 117);
+            txtVendedor.Margin = new Padding(3, 2, 3, 2);
+            txtVendedor.Name = "txtVendedor";
+            txtVendedor.Size = new Size(177, 23);
+            txtVendedor.TabIndex = 8;
+            // 
+            // lblSucursalID
+            // 
+            lblSucursalID.AutoSize = true;
+            lblSucursalID.Font = new Font("Segoe UI", 32.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSucursalID.Location = new Point(195, 43);
+            lblSucursalID.Name = "lblSucursalID";
+            lblSucursalID.Size = new Size(66, 59);
+            lblSucursalID.TabIndex = 5;
+            lblSucursalID.Text = "ID";
+            // 
+            // lblSucursal
+            // 
+            lblSucursal.AutoSize = true;
+            lblSucursal.Font = new Font("Segoe UI", 32.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSucursal.Location = new Point(12, 43);
+            lblSucursal.Name = "lblSucursal";
+            lblSucursal.Size = new Size(190, 59);
+            lblSucursal.TabIndex = 4;
+            lblSucursal.Text = "Sucursal:";
+            // 
+            // btnVolver
+            // 
+            btnVolver.Location = new Point(36, 496);
+            btnVolver.Margin = new Padding(3, 2, 3, 2);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(177, 33);
+            btnVolver.TabIndex = 3;
+            btnVolver.Text = "Cancelar Compra";
+            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.Click += btnVolver_Click;
+            // 
+            // btnFinalizar
+            // 
+            btnFinalizar.Location = new Point(465, 237);
+            btnFinalizar.Margin = new Padding(3, 2, 3, 2);
+            btnFinalizar.Name = "btnFinalizar";
+            btnFinalizar.Size = new Size(195, 28);
+            btnFinalizar.TabIndex = 10;
+            btnFinalizar.Text = "Finalizar Compra";
+            btnFinalizar.UseVisualStyleBackColor = true;
+            btnFinalizar.Click += btnFinalizar_Click;
+            // 
+            // btnAgregarACarrito
+            // 
+            btnAgregarACarrito.Location = new Point(465, 228);
+            btnAgregarACarrito.Margin = new Padding(3, 2, 3, 2);
+            btnAgregarACarrito.Name = "btnAgregarACarrito";
+            btnAgregarACarrito.Size = new Size(195, 28);
+            btnAgregarACarrito.TabIndex = 9;
+            btnAgregarACarrito.Text = "Agregar A Carrito";
+            btnAgregarACarrito.UseVisualStyleBackColor = true;
+            btnAgregarACarrito.Click += btnAgregar_Click;
             // 
             // dgvProductosSucursal
             // 
@@ -155,100 +242,132 @@
             dgvProductosSucursal.Margin = new Padding(3, 2, 3, 2);
             dgvProductosSucursal.Name = "dgvProductosSucursal";
             dgvProductosSucursal.RowHeadersWidth = 51;
-            dgvProductosSucursal.Size = new Size(577, 201);
+            dgvProductosSucursal.Size = new Size(654, 201);
             dgvProductosSucursal.TabIndex = 1;
             // 
             // dgvProductosCompra
             // 
             dgvProductosCompra.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductosCompra.Location = new Point(6, 21);
+            dgvProductosCompra.Location = new Point(6, 16);
             dgvProductosCompra.Margin = new Padding(3, 2, 3, 2);
             dgvProductosCompra.Name = "dgvProductosCompra";
             dgvProductosCompra.RowHeadersWidth = 51;
-            dgvProductosCompra.Size = new Size(577, 206);
+            dgvProductosCompra.Size = new Size(654, 216);
             dgvProductosCompra.TabIndex = 2;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(grpCarritoDeCompras);
-            groupBox1.Controls.Add(lblSucursalID);
-            groupBox1.Controls.Add(lblSucursal);
             groupBox1.Controls.Add(grpProductos);
             groupBox1.Controls.Add(grpVentas);
             groupBox1.Location = new Point(11, 0);
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(926, 496);
+            groupBox1.Size = new Size(969, 560);
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
             // 
             // grpCarritoDeCompras
             // 
+            grpCarritoDeCompras.Controls.Add(lblTotal);
+            grpCarritoDeCompras.Controls.Add(label1);
+            grpCarritoDeCompras.Controls.Add(btnBorrar);
             grpCarritoDeCompras.Controls.Add(dgvProductosCompra);
-            grpCarritoDeCompras.Location = new Point(320, 254);
+            grpCarritoDeCompras.Controls.Add(btnFinalizar);
+            grpCarritoDeCompras.Location = new Point(297, 281);
             grpCarritoDeCompras.Name = "grpCarritoDeCompras";
-            grpCarritoDeCompras.Size = new Size(596, 232);
+            grpCarritoDeCompras.Size = new Size(666, 270);
             grpCarritoDeCompras.TabIndex = 6;
             grpCarritoDeCompras.TabStop = false;
             grpCarritoDeCompras.Text = "Carrito De Compras";
             // 
-            // lblSucursalID
+            // lblTotal
             // 
-            lblSucursalID.AutoSize = true;
-            lblSucursalID.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSucursalID.Location = new Point(208, 16);
-            lblSucursalID.Name = "lblSucursalID";
-            lblSucursalID.Size = new Size(75, 65);
-            lblSucursalID.TabIndex = 5;
-            lblSucursalID.Text = "ID";
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotal.ImageAlign = ContentAlignment.MiddleLeft;
+            lblTotal.Location = new Point(280, 240);
+            lblTotal.Name = "lblTotal";
+            lblTotal.RightToLeft = RightToLeft.No;
+            lblTotal.Size = new Size(17, 20);
+            lblTotal.TabIndex = 13;
+            lblTotal.Text = "0";
             // 
-            // lblSucursal
+            // label1
             // 
-            lblSucursal.AutoSize = true;
-            lblSucursal.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSucursal.Location = new Point(6, 16);
-            lblSucursal.Name = "lblSucursal";
-            lblSucursal.Size = new Size(213, 65);
-            lblSucursal.TabIndex = 4;
-            lblSucursal.Text = "Sucursal:";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(238, 240);
+            label1.Name = "label1";
+            label1.Size = new Size(45, 20);
+            label1.TabIndex = 12;
+            label1.Text = "Total:";
+            // 
+            // btnBorrar
+            // 
+            btnBorrar.Location = new Point(6, 236);
+            btnBorrar.Margin = new Padding(3, 2, 3, 2);
+            btnBorrar.Name = "btnBorrar";
+            btnBorrar.Size = new Size(195, 28);
+            btnBorrar.TabIndex = 11;
+            btnBorrar.Text = "Sacar Del Carrito";
+            btnBorrar.UseVisualStyleBackColor = true;
+            btnBorrar.Click += btnBorrar_Click;
             // 
             // grpProductos
             // 
+            grpProductos.Controls.Add(btnSeleccionar);
+            grpProductos.Controls.Add(nudCantidad);
             grpProductos.Controls.Add(dgvProductosSucursal);
-            grpProductos.Location = new Point(320, 16);
+            grpProductos.Controls.Add(btnAgregarACarrito);
+            grpProductos.Location = new Point(297, 16);
             grpProductos.Name = "grpProductos";
-            grpProductos.Size = new Size(596, 232);
+            grpProductos.Size = new Size(666, 263);
             grpProductos.TabIndex = 3;
             grpProductos.TabStop = false;
             grpProductos.Text = "Productos";
             // 
-            // cmbRazonSocial
+            // btnSeleccionar
             // 
-            cmbRazonSocial.FormattingEnabled = true;
-            cmbRazonSocial.Location = new Point(92, 60);
-            cmbRazonSocial.Name = "cmbRazonSocial";
-            cmbRazonSocial.Size = new Size(184, 23);
-            cmbRazonSocial.TabIndex = 11;
+            btnSeleccionar.Location = new Point(6, 227);
+            btnSeleccionar.Margin = new Padding(3, 2, 3, 2);
+            btnSeleccionar.Name = "btnSeleccionar";
+            btnSeleccionar.Size = new Size(85, 28);
+            btnSeleccionar.TabIndex = 13;
+            btnSeleccionar.Text = "Seleccionar";
+            btnSeleccionar.UseVisualStyleBackColor = true;
+            btnSeleccionar.Click += btnSeleccionar_Click;
+            // 
+            // nudCantidad
+            // 
+            nudCantidad.Location = new Point(339, 232);
+            nudCantidad.Name = "nudCantidad";
+            nudCantidad.Size = new Size(120, 23);
+            nudCantidad.TabIndex = 12;
+            nudCantidad.ValueChanged += nudCantidad_ValueChanged;
             // 
             // FormABMVentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(949, 504);
+            ClientSize = new Size(986, 564);
             Controls.Add(groupBox1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormABMVentas";
             Text = "FormABMVentas";
             grpVentas.ResumeLayout(false);
             grpVentas.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProductosSucursal).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductosCompra).EndInit();
             groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             grpCarritoDeCompras.ResumeLayout(false);
+            grpCarritoDeCompras.PerformLayout();
             grpProductos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
             ResumeLayout(false);
         }
 
@@ -263,7 +382,7 @@
         private DataGridView dgvProductosSucursal;
         private DataGridView dgvProductosCompra;
         private Button btnFinalizar;
-        private Button btnAgregar;
+        private Button btnAgregarACarrito;
         private Button btnVolver;
         private GroupBox groupBox1;
         private GroupBox grpCarritoDeCompras;
@@ -271,5 +390,14 @@
         private Label lblSucursal;
         private GroupBox grpProductos;
         private ComboBox cmbRazonSocial;
+        private GroupBox groupBox2;
+        private NumericUpDown nudCantidad;
+        private Button btnBorrar;
+        private Button btnSeleccionar;
+        private RadioButton rbTransferencia;
+        private RadioButton rbEfectivo;
+        private RadioButton rbTarjeta;
+        private Label lblTotal;
+        private Label label1;
     }
 }
