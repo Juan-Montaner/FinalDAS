@@ -105,18 +105,11 @@ namespace Vista._3_Modulo_Ventas
             }
 
             var controladora = Controladora.ControladoraSucursales.Instancia;
-            var sucursal = controladora.ListarSucursales()
-                                       .FirstOrDefault(s => s.IDSucursal == idSucursal);
+            var sucursal = controladora.ListarSucursales().FirstOrDefault(s => s.IDSucursal == idSucursal);
 
             if (sucursal == null)
             {
                 MessageBox.Show("Sucursal no encontrada.");
-                return;
-            }
-
-            if (sucursal.ListaProductos == null || !sucursal.ListaProductos.Any())
-            {
-                MessageBox.Show("La sucursal no tiene productos cargados.");
                 return;
             }
 
@@ -140,6 +133,7 @@ namespace Vista._3_Modulo_Ventas
             }
             Refrescar();
         }
+
         private void btnVolver_Click(object sender, EventArgs e)
         {
             FormModuloVentas formModuloVentas = new FormModuloVentas();

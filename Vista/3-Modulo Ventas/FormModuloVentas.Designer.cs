@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             gbVentas = new GroupBox();
-            btnGestionVentas = new Button();
             btnVolver = new Button();
+            btnGestionVentas = new Button();
             gbVentas.SuspendLayout();
             SuspendLayout();
             // 
@@ -38,39 +38,44 @@
             // 
             gbVentas.Controls.Add(btnVolver);
             gbVentas.Controls.Add(btnGestionVentas);
-            gbVentas.Location = new Point(12, 12);
+            gbVentas.Location = new Point(10, 9);
+            gbVentas.Margin = new Padding(3, 2, 3, 2);
             gbVentas.Name = "gbVentas";
-            gbVentas.Size = new Size(313, 319);
+            gbVentas.Padding = new Padding(3, 2, 3, 2);
+            gbVentas.Size = new Size(274, 239);
             gbVentas.TabIndex = 0;
             gbVentas.TabStop = false;
             // 
-            // btnGestionVentas
-            // 
-            btnGestionVentas.Location = new Point(75, 26);
-            btnGestionVentas.Name = "btnGestionVentas";
-            btnGestionVentas.Size = new Size(130, 29);
-            btnGestionVentas.TabIndex = 0;
-            btnGestionVentas.Text = "Gestion Ventas";
-            btnGestionVentas.UseVisualStyleBackColor = true;
-            btnGestionVentas.Click += btnGestionVentas_Click;
-            // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(90, 237);
+            btnVolver.Location = new Point(80, 186);
+            btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(94, 29);
+            btnVolver.Size = new Size(106, 35);
             btnVolver.TabIndex = 1;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += btnVolver_Click;
             // 
+            // btnGestionVentas
+            // 
+            btnGestionVentas.Location = new Point(66, 20);
+            btnGestionVentas.Margin = new Padding(3, 2, 3, 2);
+            btnGestionVentas.Name = "btnGestionVentas";
+            btnGestionVentas.Size = new Size(135, 35);
+            btnGestionVentas.TabIndex = 0;
+            btnGestionVentas.Text = "Gestion Ventas";
+            btnGestionVentas.UseVisualStyleBackColor = true;
+            btnGestionVentas.Click += btnGestionVentas_Click;
+            // 
             // FormModuloVentas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(338, 345);
+            ClientSize = new Size(296, 259);
             Controls.Add(gbVentas);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormModuloVentas";
             Text = "FormModuloVentas";
             gbVentas.ResumeLayout(false);

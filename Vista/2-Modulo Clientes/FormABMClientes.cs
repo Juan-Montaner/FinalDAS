@@ -18,6 +18,7 @@ namespace Vista._2_Modulo_Clientes
         public FormABMClientes(int? id = null)
         {
             InitializeComponent();
+
             this.Id = id;
 
             if (id != null)

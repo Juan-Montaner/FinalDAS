@@ -41,6 +41,7 @@
             grpFiltrarCategoria = new GroupBox();
             btnFiltrarCategoria = new Button();
             cmbCategorias = new ComboBox();
+            btnDesfiltrar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvGestionProductos).BeginInit();
             grpListaProductos.SuspendLayout();
             grpProductos.SuspendLayout();
@@ -109,6 +110,7 @@
             // 
             // grpProductos
             // 
+            grpProductos.Controls.Add(btnDesfiltrar);
             grpProductos.Controls.Add(groupBox1);
             grpProductos.Controls.Add(grpFiltrarCategoria);
             grpProductos.Controls.Add(grpListaProductos);
@@ -181,6 +183,16 @@
             cmbCategorias.Size = new Size(121, 23);
             cmbCategorias.TabIndex = 0;
             // 
+            // btnDesfiltrar
+            // 
+            btnDesfiltrar.Location = new Point(671, 397);
+            btnDesfiltrar.Name = "btnDesfiltrar";
+            btnDesfiltrar.Size = new Size(100, 36);
+            btnDesfiltrar.TabIndex = 9;
+            btnDesfiltrar.Text = "Refrescar Lista";
+            btnDesfiltrar.UseVisualStyleBackColor = true;
+            btnDesfiltrar.Click += btnDesfiltrar_Click;
+            // 
             // FormGestionDeProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -214,5 +226,6 @@
         private GroupBox groupBox1;
         private Button btnFiltrarSucursal;
         private ComboBox cmbSucursales;
+        private Button btnDesfiltrar;
     }
 }

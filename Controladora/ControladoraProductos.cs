@@ -12,6 +12,7 @@ namespace Controladora
     {
         private RepositorioProductos repositorioProductos = new RepositorioProductos();
         private RepositorioSucursales repositorioSucursales = new RepositorioSucursales();
+
         private static ControladoraProductos instancia;
 
         public static ControladoraProductos Instancia
@@ -32,7 +33,7 @@ namespace Controladora
 
             if (producto != null)
             {
-                return "Error al AGREGAR PRODUCTRO: El producto ya existe";
+                return "Error al AGREGAR PRODUCTO: El producto ya existe";
             }
 
             // NO PUDE HACER LO DE LA CATEGORIA QUE SE AGREGUE SI O SI, FALTARIA AGREGARLO
@@ -111,7 +112,7 @@ namespace Controladora
             return repositorioProductos.ListarProducto().Where(c => c.Categoria == categoria).ToList();
         }
 
-        public List<Producto> FiltrarPorSucursales(int IdSucursal)
+        public List<Producto> FiltrarPorSucursales(int? IdSucursal)
         {
             return repositorioProductos.ListarProducto().Where(c => c.IDSucursal == IdSucursal).ToList();
         }

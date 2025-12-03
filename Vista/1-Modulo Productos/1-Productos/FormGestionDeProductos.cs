@@ -151,5 +151,10 @@ namespace Vista.Gestion_de_Productos
             Controladora.ControladoraProductos controladora = Controladora.ControladoraProductos.Instancia;
             dgvGestionProductos.DataSource = controladora.FiltrarPorSucursales(Convert.ToInt32(cmbSucursales.SelectedValue));
         }
+
+        private void btnDesfiltrar_Click(object sender, EventArgs e)
+        {
+            Refrescar();
+        }
     }
 }

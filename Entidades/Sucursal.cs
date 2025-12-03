@@ -21,11 +21,5 @@ namespace Entidades
 
         public string Mail { get; set; }
 
-        public List<Producto> ListaProductos { get; set; }
-
-        public Sucursal()
-        {
-            ListaProductos = new List<Producto>();
-        }
     }
 }
