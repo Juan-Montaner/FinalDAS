@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Modelo.Migrations
 {
     /// <inheritdoc />
-    public partial class prrpr : Migration
+    public partial class llgkk : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -38,6 +38,24 @@ namespace Modelo.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Clientes", x => x.IDCliente);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Productos",
+                columns: table => new
+                {
+                    IDProducto = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Categoria = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    IDSucursal = table.Column<int>(type: "int", nullable: false),
+                    Stock = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Productos", x => x.IDProducto);
                 });
 
             migrationBuilder.CreateTable(
@@ -79,10 +97,11 @@ namespace Modelo.Migrations
                 {
                     IDFactura = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    IDVenta = table.Column<int>(type: "int", nullable: false),
                     RazonSocialCliente = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MetodoDePago = table.Column<int>(type: "int", nullable: false),
-                    Total = table.Column<long>(type: "bigint", nullable: false),
+                    Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ClienteIDCliente = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -93,30 +112,6 @@ namespace Modelo.Migrations
                         column: x => x.ClienteIDCliente,
                         principalTable: "Clientes",
                         principalColumn: "IDCliente");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Productos",
-                columns: table => new
-                {
-                    IDProducto = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Categoria = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    IDSucursal = table.Column<int>(type: "int", nullable: false),
-                    Stock = table.Column<int>(type: "int", nullable: false),
-                    FacturaIDFactura = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Productos", x => x.IDProducto);
-                    table.ForeignKey(
-                        name: "FK_Productos_Facturas_FacturaIDFactura",
-                        column: x => x.FacturaIDFactura,
-                        principalTable: "Facturas",
-                        principalColumn: "IDFactura");
                 });
 
             migrationBuilder.CreateTable(
@@ -172,11 +167,6 @@ namespace Modelo.Migrations
                 name: "IX_Facturas_ClienteIDCliente",
                 table: "Facturas",
                 column: "ClienteIDCliente");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Productos_FacturaIDFactura",
-                table: "Productos",
-                column: "FacturaIDFactura");
         }
 
         /// <inheritdoc />
@@ -189,6 +179,9 @@ namespace Modelo.Migrations
                 name: "DetalleVenta");
 
             migrationBuilder.DropTable(
+                name: "Facturas");
+
+            migrationBuilder.DropTable(
                 name: "Sucursales");
 
             migrationBuilder.DropTable(
@@ -196,9 +189,6 @@ namespace Modelo.Migrations
 
             migrationBuilder.DropTable(
                 name: "Ventas");
-
-            migrationBuilder.DropTable(
-                name: "Facturas");
 
             migrationBuilder.DropTable(
                 name: "Clientes");

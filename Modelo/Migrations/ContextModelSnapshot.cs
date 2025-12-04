@@ -114,6 +114,9 @@ namespace Modelo.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("IDVenta")
+                        .HasColumnType("int");
+
                     b.Property<int>("MetodoDePago")
                         .HasColumnType("int");
 
@@ -121,8 +124,8 @@ namespace Modelo.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Total")
-                        .HasColumnType("bigint");
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("IDFactura");
 
@@ -147,9 +150,6 @@ namespace Modelo.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("FacturaIDFactura")
-                        .HasColumnType("int");
-
                     b.Property<int>("IDSucursal")
                         .HasColumnType("int");
 
@@ -164,8 +164,6 @@ namespace Modelo.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("IDProducto");
-
-                    b.HasIndex("FacturaIDFactura");
 
                     b.ToTable("Productos");
                 });
@@ -257,21 +255,9 @@ namespace Modelo.Migrations
                         .HasForeignKey("ClienteIDCliente");
                 });
 
-            modelBuilder.Entity("Entidades.Producto", b =>
-                {
-                    b.HasOne("Entidades.Factura", null)
-                        .WithMany("Productos")
-                        .HasForeignKey("FacturaIDFactura");
-                });
-
             modelBuilder.Entity("Entidades.Cliente", b =>
                 {
                     b.Navigation("ListaCompras");
-                });
-
-            modelBuilder.Entity("Entidades.Factura", b =>
-                {
-                    b.Navigation("Productos");
                 });
 
             modelBuilder.Entity("Entidades.Venta", b =>

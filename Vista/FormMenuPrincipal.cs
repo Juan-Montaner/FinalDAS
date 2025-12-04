@@ -49,16 +49,16 @@ namespace Vista
 
         private void btnGestionClientes_Click(object sender, EventArgs e)
         {
-            FormModuloClientes formModuloClientes = new FormModuloClientes();
+            FormGestionClientes formGestionClientes = new FormGestionClientes();
             this.Hide();
-            formModuloClientes.ShowDialog();
+            formGestionClientes.ShowDialog();
         }
 
         private void btnGestionVentas_Click(object sender, EventArgs e)
         {
-            FormModuloVentas formModuloVentas = new FormModuloVentas();
+            FormGestionVentas formGestionVentas = new FormGestionVentas();
             this.Hide();
-            formModuloVentas.ShowDialog();
+            formGestionVentas.ShowDialog();
         }
     }
 }

@@ -76,6 +76,11 @@ namespace Controladora
             return repositorioVentas.BuscarVentaID(id);
         }
 
+        public Venta BuscarVenta(DateTime fecha)
+        {
+            return repositorioVentas.BuscarVenta(fecha);
+        }
+
         public List<Venta> ListarVentas()
         {
             return repositorioVentas.ListarVentas().ToList();

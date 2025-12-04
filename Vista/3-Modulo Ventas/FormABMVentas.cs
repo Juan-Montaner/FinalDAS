@@ -20,6 +20,8 @@ namespace Vista._3_Modulo_Ventas
         Controladora.ControladoraVentas controladoraVentas = Controladora.ControladoraVentas.Instancia;
         Controladora.ControladoraProductos controladoraProductos = Controladora.ControladoraProductos.Instancia;
         Controladora.ControladoraClientes controladoraClientes = Controladora.ControladoraClientes.Instancia;
+        Controladora.ControladoraFacturas controladoraFacturas = Controladora.ControladoraFacturas.Instancia;
+
 
         private List<Producto> productosCarrito = new List<Producto>();
         private List<Producto> ProductoDisponibles = new List<Producto>();
@@ -103,6 +105,7 @@ namespace Vista._3_Modulo_Ventas
                     dgvProductosSucursal.DataSource = ProductoDisponibles;
 
                     CalcularTotal(Total);
+                    
                 }
             }
             else
@@ -147,6 +150,10 @@ namespace Vista._3_Modulo_Ventas
             }
 
             controladoraVentas.AgregarVentas(razonSocial, Fecha, productosVenta, (int)iDSucursal, vendedor, MetodoDePago, Total);
+
+            var ventaRecien = controladoraVentas.BuscarVenta(Fecha);
+
+            controladoraFacturas.AgregarFacturas(razonSocial, Fecha, MetodoDePago, Total, ventaRecien.IDVenta);
 
             MessageBox.Show("Venta realizada con exito.");
             this.Close();
@@ -303,6 +310,8 @@ namespace Vista._3_Modulo_Ventas
             }
 
         }
+
+        
 
         private void btnComenzar_Click(object sender, EventArgs e)
         {

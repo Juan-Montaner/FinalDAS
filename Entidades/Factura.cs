@@ -13,10 +13,11 @@ namespace Entidades
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IDFactura { get; set; }
+
+        [ForeignKey("Venta")]
+        public int IDVenta { get; set; }
         public string RazonSocialCliente { get; set; }
         public DateTime Fecha { get; set; }
-        public List<Producto> Productos { get; set; }
-
         public MetodoPago MetodoDePago { get; set; }
         public enum MetodoPago
         {
@@ -24,6 +25,6 @@ namespace Entidades
             Tarjeta = 2,
             Transferencia = 3
         }
-        public long Total { get; set; }
+        public decimal Total { get; set; }
     }
 }

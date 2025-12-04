@@ -136,14 +136,19 @@ namespace Vista._3_Modulo_Ventas
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            FormModuloVentas formModuloVentas = new FormModuloVentas();
+            FormMenuPrincipal FormMenuPrincipal = new FormMenuPrincipal();
             this.Hide();
-            formModuloVentas.ShowDialog();
+            FormMenuPrincipal.ShowDialog();
         }
 
         private void cmbSucursales_SelectedIndexChanged(object sender, EventArgs e)
         {
             FiltrarVentas();
+
+        }
+
+        private void btnFactura_Click(object sender, EventArgs e)
+        {
 
         }
     }

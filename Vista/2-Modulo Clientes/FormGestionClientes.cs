@@ -85,9 +85,9 @@ namespace Vista._2_Modulo_Clientes
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            FormModuloClientes formModuloClientes = new FormModuloClientes();
+            FormMenuPrincipal formMenuPrincipal = new FormMenuPrincipal();
             this.Hide();
-            formModuloClientes.ShowDialog();
+            formMenuPrincipal.ShowDialog();
         }
     }
 }

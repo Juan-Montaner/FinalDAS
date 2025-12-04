@@ -25,7 +25,7 @@ namespace Controladora
             }
         }
 
-        public string AgregarFacturas(string RazonSocialCliente, DateTime Fecha, List<Producto> ListaProductos, int MetodoPago, long Total)
+        public string AgregarFacturas(string RazonSocialCliente, DateTime Fecha, int MetodoPago, decimal Total, int IDVenta)
         {
 
 
@@ -38,9 +38,9 @@ namespace Controladora
 
             nuevaFactura.RazonSocialCliente = RazonSocialCliente;
             nuevaFactura.Fecha = Fecha;
-            nuevaFactura.Productos = ListaProductos;
-            
+            nuevaFactura.MetodoDePago = (Factura.MetodoPago)MetodoPago;
             nuevaFactura.Total = Total;
+            nuevaFactura.IDVenta = IDVenta;
 
             repositorioFactura.AgregarFactura(nuevaFactura);
 
@@ -77,7 +77,6 @@ namespace Controladora
 
             factura.RazonSocialCliente = RazonSocialCliente;
             factura.Fecha = Fecha;
-            factura.Productos = ListaProductos;
             factura.Total = Total;
 
             repositorioFactura.ModificarFactura(factura);

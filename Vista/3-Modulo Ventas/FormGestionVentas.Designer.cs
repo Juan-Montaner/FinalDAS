@@ -36,6 +36,7 @@
             gbModYEl = new GroupBox();
             dgvVentas = new DataGridView();
             groupBox1 = new GroupBox();
+            btnFactura = new Button();
             gbVentas.SuspendLayout();
             gbModYEl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvVentas).BeginInit();
@@ -85,7 +86,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(17, 313);
+            btnEliminar.Location = new Point(380, 313);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(94, 43);
             btnEliminar.TabIndex = 3;
@@ -95,6 +96,7 @@
             // 
             // gbModYEl
             // 
+            gbModYEl.Controls.Add(btnFactura);
             gbModYEl.Controls.Add(dgvVentas);
             gbModYEl.Controls.Add(btnEliminar);
             gbModYEl.Location = new Point(221, 28);
@@ -126,6 +128,16 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Ventas";
             // 
+            // btnFactura
+            // 
+            btnFactura.Location = new Point(17, 313);
+            btnFactura.Name = "btnFactura";
+            btnFactura.Size = new Size(120, 41);
+            btnFactura.TabIndex = 5;
+            btnFactura.Text = "Generar Factura";
+            btnFactura.UseVisualStyleBackColor = true;
+            btnFactura.Click += btnFactura_Click;
+            // 
             // FormGestionVentas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -152,5 +164,6 @@
         private GroupBox gbModYEl;
         private DataGridView dgvVentas;
         private GroupBox groupBox1;
+        private Button btnFactura;
     }
 }

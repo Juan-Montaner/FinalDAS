@@ -38,7 +38,10 @@ namespace Modelo
             return context.Ventas.FirstOrDefault(c => c.IDVenta == id);
         }
 
-
+        public Venta BuscarVenta(DateTime fecha)
+        {
+            return context.Ventas.FirstOrDefault(c => c.Fecha == fecha);
+        }
 
     }
 }
