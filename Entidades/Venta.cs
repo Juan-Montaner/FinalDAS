@@ -16,7 +16,7 @@ namespace Entidades
         public int IDVenta { get; set; }
         public string RazonSocialCliente { get; set; }
         public DateTime Fecha { get; set; }
-        public List<Producto> Productos { get; set; }
+        public List<DetalleVenta> Detalles { get; set; }         
         public int IDSucursal { get; set; }        
         public string Vendedor { get; set; }
         public MetodoPago MetodoDePago { get; set; }

@@ -25,7 +25,7 @@ namespace Controladora
             }
         }
 
-        public string AgregarVentas(string RazonSocialCliente, DateTime Fecha, List<Producto> ListaProductos, int IdSucursal, string Vendedor, int MetodoPago, decimal Total)
+        public string AgregarVentas(string RazonSocialCliente, DateTime Fecha, List<DetalleVenta> ListaProductos, int IdSucursal, string Vendedor, int MetodoPago, decimal Total)
         {
 
             if (string.IsNullOrWhiteSpace(RazonSocialCliente) || int.IsNegative(IdSucursal) || int.IsNegative(MetodoPago) || string.IsNullOrWhiteSpace(Vendedor))
@@ -37,10 +37,16 @@ namespace Controladora
 
             nuevaVenta.RazonSocialCliente = RazonSocialCliente;
             nuevaVenta.Fecha = Fecha;
-            nuevaVenta.Productos = ListaProductos;
             nuevaVenta.IDSucursal = IdSucursal;
             nuevaVenta.Vendedor = Vendedor;
             nuevaVenta.Total = Total;
+
+            nuevaVenta.Detalles = ListaProductos;
+
+            foreach (var det in nuevaVenta.Detalles)
+            {
+                det.Venta = nuevaVenta; // <-- CORRECCIÓN CLAVE
+            }
 
             nuevaVenta.MetodoDePago = (Venta.MetodoPago)MetodoPago;
 
@@ -63,31 +69,7 @@ namespace Controladora
             return "VENTA Eliminada con Exito";
         }
 
-        public string ModificarVenta(int id, string RazonSocialCliente, DateTime Fecha, List<Producto> ListaProductos, int IdSucursal, string Vendedor, int MetodoPago, decimal Total)
-        {
-            Venta venta = repositorioVentas.BuscarVentaID(id);
-
-            if (venta == null)
-            {
-                return "Error al MODIFICAR LA VENTA: La VENTA NO existe";
-            }
-
-            if (string.IsNullOrWhiteSpace(RazonSocialCliente) || int.IsNegative(IdSucursal) || int.IsNegative(MetodoPago) || string.IsNullOrWhiteSpace(Vendedor))
-            {
-                return "Error al MODIFICAR LA VENTA: Los campos no pueden estar vacios";
-            }
-
-            venta.RazonSocialCliente = RazonSocialCliente;
-            venta.Fecha = Fecha;
-            venta.Productos = ListaProductos;
-            venta.IDSucursal = IdSucursal;
-            venta.Vendedor = Vendedor;
-            venta.Total = Total;
-
-            repositorioVentas.ModificarVenta(venta);
-
-            return "Venta Modificada con Exito";
-        }
+        
 
         public Venta BuscarVentaId(int id)
         {

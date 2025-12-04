@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Modelo.Migrations
 {
     /// <inheritdoc />
-    public partial class Inicial : Migration
+    public partial class prrpr : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -107,8 +107,7 @@ namespace Modelo.Migrations
                     Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     IDSucursal = table.Column<int>(type: "int", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
-                    FacturaIDFactura = table.Column<int>(type: "int", nullable: true),
-                    VentaIDVenta = table.Column<int>(type: "int", nullable: true)
+                    FacturaIDFactura = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -118,12 +117,56 @@ namespace Modelo.Migrations
                         column: x => x.FacturaIDFactura,
                         principalTable: "Facturas",
                         principalColumn: "IDFactura");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DetalleVenta",
+                columns: table => new
+                {
+                    IDDetalleVenta = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IDVenta = table.Column<int>(type: "int", nullable: false),
+                    IDProducto = table.Column<int>(type: "int", nullable: false),
+                    Cantidad = table.Column<int>(type: "int", nullable: false),
+                    PrecioUnitario = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    VentaIDVenta = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DetalleVenta", x => x.IDDetalleVenta);
                     table.ForeignKey(
-                        name: "FK_Productos_Ventas_VentaIDVenta",
+                        name: "FK_DetalleVenta_Productos_IDProducto",
+                        column: x => x.IDProducto,
+                        principalTable: "Productos",
+                        principalColumn: "IDProducto",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DetalleVenta_Ventas_IDVenta",
+                        column: x => x.IDVenta,
+                        principalTable: "Ventas",
+                        principalColumn: "IDVenta",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DetalleVenta_Ventas_VentaIDVenta",
                         column: x => x.VentaIDVenta,
                         principalTable: "Ventas",
                         principalColumn: "IDVenta");
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DetalleVenta_IDProducto",
+                table: "DetalleVenta",
+                column: "IDProducto");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DetalleVenta_IDVenta",
+                table: "DetalleVenta",
+                column: "IDVenta");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DetalleVenta_VentaIDVenta",
+                table: "DetalleVenta",
+                column: "VentaIDVenta");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Facturas_ClienteIDCliente",
@@ -134,11 +177,6 @@ namespace Modelo.Migrations
                 name: "IX_Productos_FacturaIDFactura",
                 table: "Productos",
                 column: "FacturaIDFactura");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Productos_VentaIDVenta",
-                table: "Productos",
-                column: "VentaIDVenta");
         }
 
         /// <inheritdoc />
@@ -148,16 +186,19 @@ namespace Modelo.Migrations
                 name: "Categorias");
 
             migrationBuilder.DropTable(
-                name: "Productos");
+                name: "DetalleVenta");
 
             migrationBuilder.DropTable(
                 name: "Sucursales");
 
             migrationBuilder.DropTable(
-                name: "Facturas");
+                name: "Productos");
 
             migrationBuilder.DropTable(
                 name: "Ventas");
+
+            migrationBuilder.DropTable(
+                name: "Facturas");
 
             migrationBuilder.DropTable(
                 name: "Clientes");

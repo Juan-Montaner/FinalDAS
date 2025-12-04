@@ -27,12 +27,6 @@ namespace Modelo
             context.SaveChanges();
         }
 
-        public void ModificarVenta(Venta venta)
-        {
-            context.Ventas.Update(venta);
-            context.SaveChanges();
-        }
-
         public void EliminarVentas(Venta venta)
         {
             context.Ventas.Remove(venta);
@@ -43,6 +37,8 @@ namespace Modelo
         {
             return context.Ventas.FirstOrDefault(c => c.IDVenta == id);
         }
+
+
 
     }
 }

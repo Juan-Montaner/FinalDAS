@@ -41,9 +41,9 @@ namespace Modelo
             context.SaveChanges();
         }
 
-        public Cliente BuscarCliente(double Telefono)
+        public Cliente BuscarCliente(string RazonSocial)
         {
-            return context.Clientes.FirstOrDefault(c => c.Telefono == Telefono);
+            return context.Clientes.FirstOrDefault(c => c.RazonSocial == RazonSocial);
         }
 
         public Cliente BuscarClienteID(int id)

@@ -27,7 +27,7 @@ namespace Controladora
 
         public string AgregarCliente(string RazonSocial, string mail, double telefono, bool tipo)
         {
-            Cliente cliente = repositorioCliente.BuscarCliente(telefono);
+            Cliente cliente = repositorioCliente.BuscarCliente(RazonSocial);
 
             if (cliente != null)
             {
@@ -107,6 +107,11 @@ namespace Controladora
         public Cliente BuscarClienteId(int id)
         {
             return repositorioCliente.BuscarClienteID(id);
+        }
+
+        public Cliente BuscarCliente(string RazonSocial)
+        {
+            return repositorioCliente.BuscarCliente(RazonSocial);
         }
 
         public List<Cliente> ListarClientes()

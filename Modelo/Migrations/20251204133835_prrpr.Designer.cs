@@ -12,8 +12,8 @@ using Modelo;
 namespace Modelo.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20251203203036_Inicial")]
-    partial class Inicial
+    [Migration("20251204133835_prrpr")]
+    partial class prrpr
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,6 +67,40 @@ namespace Modelo.Migrations
                     b.HasKey("IDCliente");
 
                     b.ToTable("Clientes");
+                });
+
+            modelBuilder.Entity("Entidades.DetalleVenta", b =>
+                {
+                    b.Property<int>("IDDetalleVenta")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IDDetalleVenta"));
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IDProducto")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IDVenta")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PrecioUnitario")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("VentaIDVenta")
+                        .HasColumnType("int");
+
+                    b.HasKey("IDDetalleVenta");
+
+                    b.HasIndex("IDProducto");
+
+                    b.HasIndex("IDVenta");
+
+                    b.HasIndex("VentaIDVenta");
+
+                    b.ToTable("DetalleVenta");
                 });
 
             modelBuilder.Entity("Entidades.Factura", b =>
@@ -132,14 +166,9 @@ namespace Modelo.Migrations
                     b.Property<int>("Stock")
                         .HasColumnType("int");
 
-                    b.Property<int?>("VentaIDVenta")
-                        .HasColumnType("int");
-
                     b.HasKey("IDProducto");
 
                     b.HasIndex("FacturaIDFactura");
-
-                    b.HasIndex("VentaIDVenta");
 
                     b.ToTable("Productos");
                 });
@@ -201,6 +230,29 @@ namespace Modelo.Migrations
                     b.ToTable("Ventas");
                 });
 
+            modelBuilder.Entity("Entidades.DetalleVenta", b =>
+                {
+                    b.HasOne("Entidades.Producto", "Producto")
+                        .WithMany()
+                        .HasForeignKey("IDProducto")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entidades.Venta", "Venta")
+                        .WithMany()
+                        .HasForeignKey("IDVenta")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entidades.Venta", null)
+                        .WithMany("Detalles")
+                        .HasForeignKey("VentaIDVenta");
+
+                    b.Navigation("Producto");
+
+                    b.Navigation("Venta");
+                });
+
             modelBuilder.Entity("Entidades.Factura", b =>
                 {
                     b.HasOne("Entidades.Cliente", null)
@@ -213,10 +265,6 @@ namespace Modelo.Migrations
                     b.HasOne("Entidades.Factura", null)
                         .WithMany("Productos")
                         .HasForeignKey("FacturaIDFactura");
-
-                    b.HasOne("Entidades.Venta", null)
-                        .WithMany("Productos")
-                        .HasForeignKey("VentaIDVenta");
                 });
 
             modelBuilder.Entity("Entidades.Cliente", b =>
@@ -231,7 +279,7 @@ namespace Modelo.Migrations
 
             modelBuilder.Entity("Entidades.Venta", b =>
                 {
-                    b.Navigation("Productos");
+                    b.Navigation("Detalles");
                 });
 #pragma warning restore 612, 618
         }

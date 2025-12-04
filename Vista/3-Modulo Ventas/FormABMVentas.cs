@@ -19,14 +19,19 @@ namespace Vista._3_Modulo_Ventas
         private int? iDSucursal;
         Controladora.ControladoraVentas controladoraVentas = Controladora.ControladoraVentas.Instancia;
         Controladora.ControladoraProductos controladoraProductos = Controladora.ControladoraProductos.Instancia;
+        Controladora.ControladoraClientes controladoraClientes = Controladora.ControladoraClientes.Instancia;
+
         private List<Producto> productosCarrito = new List<Producto>();
         private List<Producto> ProductoDisponibles = new List<Producto>();
+        private List<DetalleVenta> productosVenta = new List<DetalleVenta>();
+        private Venta venta = new Venta();
+
         private decimal Total;
 
-        public FormABMVentas(int? iDSucursal, decimal Total= 0)
+        public FormABMVentas(int? iDSucursal, decimal Total = 0)
         {
             InitializeComponent();
-            
+
             this.iDSucursal = iDSucursal;
             this.Total = Total;
 
@@ -37,6 +42,9 @@ namespace Vista._3_Modulo_Ventas
 
             nudCantidad.Enabled = false;
             btnAgregarACarrito.Enabled = false;
+
+            grpCarritoDeCompras.Enabled = false;
+            grpProductos.Enabled = false;
         }
 
         private void LimitarCantidad(int idProducto)
@@ -78,14 +86,23 @@ namespace Vista._3_Modulo_Ventas
 
                     var productoCarrito = controladoraProductos.AgregarProductoCarrito(producto, cantidad);
 
+                    var detalle = new DetalleVenta
+                    {
+                        IDProducto = productoCarrito.IDProducto,
+                        Cantidad = cantidad,
+                        PrecioUnitario = productoCarrito.Precio,
+                        IDVenta = venta.IDVenta,
+                    };
+
+                    productosVenta.Add(detalle);
                     productosCarrito.Add(productoCarrito);
                     dgvProductosCompra.DataSource = null;
                     dgvProductosCompra.DataSource = productosCarrito;
                     ProductoDisponibles.Remove(producto);
+                    dgvProductosSucursal.DataSource = null;
                     dgvProductosSucursal.DataSource = ProductoDisponibles;
 
                     CalcularTotal(Total);
-
                 }
             }
             else
@@ -119,17 +136,44 @@ namespace Vista._3_Modulo_Ventas
                 MetodoDePago = 3;
             }
 
-             controladoraVentas.AgregarVentas(razonSocial, Fecha, productosCarrito, (int)iDSucursal, vendedor, MetodoDePago, Total);
+            foreach (var detalle in productosVenta)
+            {
+                var producto = controladoraProductos.BuscarProductoId(detalle.IDProducto);
+
+                
+                producto.Stock = producto.Stock - detalle.Cantidad;
+
+                controladoraProductos.ModificarProducto(producto.IDProducto, producto.Nombre, producto.Descripcion, producto.Categoria, producto.IDSucursal, producto.Precio, producto.Stock);
+            }
+
+            controladoraVentas.AgregarVentas(razonSocial, Fecha, productosVenta, (int)iDSucursal, vendedor, MetodoDePago, Total);
+
+            MessageBox.Show("Venta realizada con exito.");
+            this.Close();
         }
 
         private void CalcularTotal(decimal Total)
         {
-            foreach (Producto producto in productosCarrito)
-            {
-                Total += Convert.ToDecimal(producto.Stock) * Convert.ToDecimal(producto.Precio);
-            } 
+            var cliente = controladoraClientes.BuscarCliente(cmbRazonSocial.Text);
 
-            lblTotal.Text = "$ " + Total.ToString();
+            this.Total = 0;  // Reinicio el total REAL de la clase
+
+            foreach (var det in productosVenta)
+            {
+                this.Total += det.Cantidad * det.PrecioUnitario;
+            }
+
+            if (cliente.TipoCliente == true)
+            {
+                this.Total = this.Total * (1 - 0.10m); 
+            }
+            else
+            {
+                this.Total = this.Total * (1 - 0.025m); 
+
+            }
+            lblTotal.Text = "$ " + this.Total.ToString("0.00");
+
         }
 
         private int? GetId()
@@ -191,7 +235,9 @@ namespace Vista._3_Modulo_Ventas
         {
             int? idProducto = GetId();
 
-            if (idProducto != null)
+            var producto = controladoraProductos.BuscarProductoId((int)idProducto);
+
+            if (idProducto != null && producto.Stock > 0)
             {
                 LimitarCantidad((int)idProducto);
                 dgvProductosSucursal.Enabled = false;
@@ -199,9 +245,8 @@ namespace Vista._3_Modulo_Ventas
             }
             else
             {
-                MessageBox.Show("Seleccione una Producto para seguir con el procedimiento");
+                MessageBox.Show("ERROR: Seleccione un producto y asegurese de que tenga stock");
             }
-
 
         }
 
@@ -244,10 +289,35 @@ namespace Vista._3_Modulo_Ventas
                     ProductoDisponibles.Add(producto);
                     dgvProductosSucursal.DataSource = null;
                     dgvProductosSucursal.DataSource = ProductoDisponibles;
+
+                    foreach (var detalle in productosVenta.ToList())
+                    {
+                        if (detalle.IDProducto == producto.IDProducto && detalle.IDVenta == venta.IDVenta)
+                        {
+                            productosVenta.Remove(detalle);
+                        }
+                    }
                 }
+
+                CalcularTotal(Total);
             }
+
         }
 
- 
+        private void btnComenzar_Click(object sender, EventArgs e)
+        {
+            if (rbEfectivo.Checked || rbTarjeta.Checked || rbTransferencia.Checked && txtVendedor.Text.Length > 0)
+            {
+                grpProductos.Enabled = true;
+                grpCarritoDeCompras.Enabled = true;
+                groupBox2.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un metodo de pago y complete el campo vendedor para continuar.");
+                return;
+
+            }
+        }
     }
 }
