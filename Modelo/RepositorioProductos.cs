@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,6 +51,9 @@ namespace Modelo
             return context.Productos.FirstOrDefault(c => c.IDProducto == id);
         }
 
-
+        public Producto CategoriasConProductos(string categoria)
+        {
+            return context.Productos.FirstOrDefault(p => p.Categoria == categoria); 
+        }
     }
 }

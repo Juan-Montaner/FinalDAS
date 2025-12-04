@@ -12,6 +12,8 @@ namespace Controladora
     public class ControladoraCategorias
     {
         private RepositorioCategorias repositorioCategoria = new RepositorioCategorias();
+        private RepositorioProductos repositorioProductos = new RepositorioProductos(); 
+
         private static ControladoraCategorias instancia;
 
         public static ControladoraCategorias Instancia
@@ -58,9 +60,19 @@ namespace Controladora
                 return "Error al ELIMINAR LA CATEGORIA: La categoria no existe";
             }
 
-            repositorioCategoria.EliminarCategoria(categoria);
+            var tieneProductos = repositorioProductos.CategoriasConProductos(categoria.Nombre);
 
-            return "Categoria ELIMINADA con Exito";
+            if(tieneProductos == null)
+            {
+                repositorioCategoria.EliminarCategoria(categoria);
+
+                return "Categoria ELIMINADA con Exito";
+            }
+            else
+            {
+                return "La Categoria tiene productos cargados, no se puede eliminar";
+            }
+
         }
 
         public string ModificarCategoria(int id, string nombre)

@@ -78,12 +78,13 @@ namespace Vista.Gestion_de_Productos
             if (id != null)
             {
                 Controladora.ControladoraCategorias controladora = Controladora.ControladoraCategorias.Instancia;
-                controladora.EliminarCategoria((int)id);
+                string mensaje = controladora.EliminarCategoria((int)id);
+                MessageBox.Show(mensaje);
                 Refrescar();
             }
             else
             {
-                MessageBox.Show("Seleccione una categoria para modificar");
+                MessageBox.Show("Seleccione una categoria para eliminar");
             }
             Refrescar();
         }
