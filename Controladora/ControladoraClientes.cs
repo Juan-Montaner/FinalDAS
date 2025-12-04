@@ -27,42 +27,55 @@ namespace Controladora
 
         public string AgregarCliente(string RazonSocial, string mail, double telefono, bool tipo)
         {
-            Cliente cliente = repositorioCliente.BuscarCliente(RazonSocial);
-
-            if (cliente != null)
+            // Validación de campos vacíos
+            if (string.IsNullOrWhiteSpace(RazonSocial) ||
+                string.IsNullOrWhiteSpace(mail))
             {
-                return "Error al AGREGAR Cliente: El Cliente ya existe";
+                return "Error: Los campos no pueden estar vacíos.";
             }
 
-            if (string.IsNullOrWhiteSpace(RazonSocial) || double.IsNegative(telefono) || string.IsNullOrWhiteSpace(mail))
+            // Validación del número de teléfono
+            if (telefono < 0 )
             {
-                return "Error al AGREGAR Cliente: Los campos no pueden estar vacios";
+                return "Error: El teléfono no puede ser negativo.";
             }
 
-            if (tipo == true)
+            // Validar duplicado
+            Cliente clienteExistente = repositorioCliente.BuscarCliente(RazonSocial);
+            if (clienteExistente != null)
             {
-                ClienteMayorista nuevoCliente = new ClienteMayorista();
+                return "Error: Ya existe un cliente con esa Razón Social.";
+            }
 
-                nuevoCliente.RazonSocial = RazonSocial;
-                nuevoCliente.Mail = mail;
-                nuevoCliente.Telefono = telefono;
-                nuevoCliente.TipoCliente = tipo;
-                nuevoCliente.CuentaCorriente = 0;
+            // Crear cliente según tipo
+            if (tipo == true) // Mayorista
+            {
+                ClienteMayorista nuevoCliente = new ClienteMayorista
+                {
+                    RazonSocial = RazonSocial,
+                    Mail = mail,
+                    Telefono = telefono,
+                    TipoCliente = true,
+                    CuentaCorriente = 0
+                };
+
                 repositorioCliente.AgregarCliente(nuevoCliente);
             }
-            else
+            else // Minorista
             {
-                ClienteMinorista nuevoCliente = new ClienteMinorista();
+                ClienteMinorista nuevoCliente = new ClienteMinorista
+                {
+                    RazonSocial = RazonSocial,
+                    Mail = mail,
+                    Telefono = telefono,
+                    TipoCliente = false,
+                    CuentaCorriente = 0
+                };
 
-                nuevoCliente.RazonSocial = RazonSocial;
-                nuevoCliente.Mail = mail;
-                nuevoCliente.Telefono = telefono;
-                nuevoCliente.TipoCliente = tipo;
-                nuevoCliente.CuentaCorriente = 0;
                 repositorioCliente.AgregarCliente(nuevoCliente);
             }
 
-            return "Cliente Nuevo Agregado con Exito";
+            return "Cliente agregado con éxito.";
         }
 
         public string EliminarCliente(int id)
@@ -81,16 +94,26 @@ namespace Controladora
 
         public string ModificarCliente(int id, string razonSocial, double telefono, string mail, bool tipo, decimal cuentaCorriente)
         {
-            Cliente cliente = repositorioCliente.BuscarClienteID(id);
+            
 
-            if (cliente == null)
+            // Validación de campos vacíos
+            if (string.IsNullOrWhiteSpace(razonSocial) ||
+                string.IsNullOrWhiteSpace(mail))
             {
-                return "Error al MODIFICAR el Cliente: El cliente NO existe";
+                return "Error: Los campos no pueden estar vacíos.";
             }
 
-            if (string.IsNullOrWhiteSpace(razonSocial))
+            // Validación del número de teléfono
+            if (telefono < 0)
             {
-                return "Error al MODIFICAR el CLIENTE: Los campos no pueden estar vacios";
+                return "Error: El teléfono no puede ser negativo.";
+            }
+
+            // Validar duplicado
+            Cliente cliente = repositorioCliente.BuscarCliente(razonSocial);
+            if (cliente != null && cliente.IDCliente != id)
+            {
+                return "Error: Ya existe un cliente con esa Razón Social.";
             }
 
             cliente.RazonSocial = razonSocial;
@@ -98,7 +121,6 @@ namespace Controladora
             cliente.Telefono = telefono;
             cliente.TipoCliente = tipo;
             cliente.CuentaCorriente = cuentaCorriente;
-
 
             repositorioCliente.ModificarCliente(cliente);
 

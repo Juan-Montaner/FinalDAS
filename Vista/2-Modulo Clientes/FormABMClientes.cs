@@ -19,6 +19,8 @@ namespace Vista._2_Modulo_Clientes
         {
             InitializeComponent();
 
+            rbnMinorista.Checked = true;
+
             this.Id = id;
 
             if (id != null)
@@ -61,34 +63,43 @@ namespace Vista._2_Modulo_Clientes
                     {
                         string Razon = txtRazonSocial.Text;
                         string Mail = txtMail.Text;
-                        double Telefono = double.Parse(txtTelefono.Text);
+                        double Telefono = Convert.ToDouble(txtTelefono.Text);
                         bool Tipo;
+
                         if (rbnMayorista.Checked == true)
                         {
-                            Tipo = true; // mayorista
+                            Tipo = true;
                         }
                         else
                         {
-                            Tipo = false; // minorista
+                            Tipo = false;
+                        }
+                        decimal CuentaCorriente = 0;
+
+                        string resultado = controladora.AgregarCliente(Razon, Mail, Telefono, Tipo);
+
+                        if (resultado.StartsWith("Error"))
+                        {
+                            MessageBox.Show(resultado);
+                            return;
                         }
 
-                            controladora.AgregarCliente(Razon, Mail, Telefono, Tipo);
                     }
-                    catch
+                    catch (FormatException Ex)
                     {
-
+                        MessageBox.Show("Error en el Formato de los datos -- Intente NUEVAMENTE");
                     }
                 }
                 else
                 {
                     try
                     {
-                        int id = Id.Value;
+                        var clienteAntiguo = controladora.BuscarClienteId((int)Id);
                         string Razon = txtRazonSocial.Text;
                         string Mail = txtMail.Text;
-                        double Telefono = double.Parse(txtTelefono.Text);
+                        double Telefono = Convert.ToDouble(txtTelefono.Text);
                         bool Tipo;
-                        decimal cuentaCorriente = 0; // ACAAAAAAAAAAAAAAAAAAAAA
+
                         if (rbnMayorista.Checked == true)
                         {
                             Tipo = true;
@@ -98,11 +109,18 @@ namespace Vista._2_Modulo_Clientes
                             Tipo = false;
                         }
 
-                        controladora.ModificarCliente(id, Razon, Telefono, Mail, Tipo, cuentaCorriente);
-                    }
-                    catch
-                    {
+                        string resultado = controladora.ModificarCliente((int)Id, Razon, Telefono, Mail, Tipo, clienteAntiguo.CuentaCorriente);
 
+                        if (resultado.StartsWith("Error"))
+                        {
+                            MessageBox.Show(resultado);
+                            return;
+                        }
+
+                    }
+                    catch (FormatException Ex)
+                    {
+                        MessageBox.Show("Error en el Formato de los datos -- Intente NUEVAMENTE");
                     }
                 }
             }
@@ -113,11 +131,19 @@ namespace Vista._2_Modulo_Clientes
 
             this.Close();
         }
-        
+
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

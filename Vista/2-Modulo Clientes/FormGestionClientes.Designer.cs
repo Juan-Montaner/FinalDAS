@@ -29,18 +29,20 @@
         private void InitializeComponent()
         {
             gbGestionClientes = new GroupBox();
+            btnHistorial = new Button();
             btnVolver = new Button();
             btnEliminar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
             dgvClientes = new DataGridView();
-            btnHistorial = new Button();
+            btnSaldo = new Button();
             gbGestionClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
             // gbGestionClientes
             // 
+            gbGestionClientes.Controls.Add(btnSaldo);
             gbGestionClientes.Controls.Add(btnHistorial);
             gbGestionClientes.Controls.Add(btnVolver);
             gbGestionClientes.Controls.Add(btnEliminar);
@@ -52,6 +54,16 @@
             gbGestionClientes.Size = new Size(917, 453);
             gbGestionClientes.TabIndex = 0;
             gbGestionClientes.TabStop = false;
+            // 
+            // btnHistorial
+            // 
+            btnHistorial.Location = new Point(401, 402);
+            btnHistorial.Name = "btnHistorial";
+            btnHistorial.Size = new Size(168, 37);
+            btnHistorial.TabIndex = 5;
+            btnHistorial.Text = "Historial de Compras";
+            btnHistorial.UseVisualStyleBackColor = true;
+            btnHistorial.Click += btnHistorial_Click;
             // 
             // btnVolver
             // 
@@ -102,15 +114,15 @@
             dgvClientes.Size = new Size(878, 345);
             dgvClientes.TabIndex = 0;
             // 
-            // btnHistorial
+            // btnSaldo
             // 
-            btnHistorial.Location = new Point(401, 402);
-            btnHistorial.Name = "btnHistorial";
-            btnHistorial.Size = new Size(168, 37);
-            btnHistorial.TabIndex = 5;
-            btnHistorial.Text = "Historial de Compras";
-            btnHistorial.UseVisualStyleBackColor = true;
-            btnHistorial.Click += btnHistorial_Click;
+            btnSaldo.Location = new Point(590, 402);
+            btnSaldo.Name = "btnSaldo";
+            btnSaldo.Size = new Size(129, 37);
+            btnSaldo.TabIndex = 6;
+            btnSaldo.Text = "Modificar Saldo";
+            btnSaldo.UseVisualStyleBackColor = true;
+            btnSaldo.Click += btnSaldo_Click;
             // 
             // FormGestionClientes
             // 
@@ -135,5 +147,6 @@
         private Button btnAgregar;
         private DataGridView dgvClientes;
         private Button btnHistorial;
+        private Button btnSaldo;
     }
 }

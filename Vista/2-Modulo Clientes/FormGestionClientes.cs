@@ -104,7 +104,22 @@ namespace Vista._2_Modulo_Clientes
                 MessageBox.Show("Seleccione un cliente para modificar");
             }
             Refrescar();
-            
+
+        }
+        private void btnSaldo_Click(object sender, EventArgs e)
+        {
+            int? id = GetId();
+            if (id != null)
+            {
+                FormModificarSaldo formModificarSaldo = new FormModificarSaldo(id);
+                this.Hide();
+                formModificarSaldo.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un cliente para modificar su saldo");
+            }
+            Refrescar();
         }
     }
 }

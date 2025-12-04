@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             gbClientes = new GroupBox();
+            rbnMayorista = new RadioButton();
+            rbnMinorista = new RadioButton();
             btnVolver = new Button();
             btnGuardar = new Button();
             txtMail = new TextBox();
@@ -37,8 +39,6 @@
             lblMail = new Label();
             lblTelefono = new Label();
             lblRazon = new Label();
-            rbnMinorista = new RadioButton();
-            rbnMayorista = new RadioButton();
             gbClientes.SuspendLayout();
             SuspendLayout();
             // 
@@ -56,13 +56,35 @@
             gbClientes.Controls.Add(lblRazon);
             gbClientes.Location = new Point(24, 23);
             gbClientes.Name = "gbClientes";
-            gbClientes.Size = new Size(302, 269);
+            gbClientes.Size = new Size(302, 281);
             gbClientes.TabIndex = 0;
             gbClientes.TabStop = false;
             // 
+            // rbnMayorista
+            // 
+            rbnMayorista.AutoSize = true;
+            rbnMayorista.Location = new Point(167, 166);
+            rbnMayorista.Name = "rbnMayorista";
+            rbnMayorista.Size = new Size(95, 24);
+            rbnMayorista.TabIndex = 9;
+            rbnMayorista.TabStop = true;
+            rbnMayorista.Text = "Mayorista";
+            rbnMayorista.UseVisualStyleBackColor = true;
+            // 
+            // rbnMinorista
+            // 
+            rbnMinorista.AutoSize = true;
+            rbnMinorista.Location = new Point(35, 166);
+            rbnMinorista.Name = "rbnMinorista";
+            rbnMinorista.Size = new Size(92, 24);
+            rbnMinorista.TabIndex = 8;
+            rbnMinorista.TabStop = true;
+            rbnMinorista.Text = "Minorista";
+            rbnMinorista.UseVisualStyleBackColor = true;
+            // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(168, 207);
+            btnVolver.Location = new Point(169, 223);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(94, 29);
             btnVolver.TabIndex = 7;
@@ -72,7 +94,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(28, 207);
+            btnGuardar.Location = new Point(35, 223);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(94, 29);
             btnGuardar.TabIndex = 6;
@@ -93,6 +115,7 @@
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(151, 27);
             txtTelefono.TabIndex = 4;
+            txtTelefono.KeyPress += txtTelefono_KeyPress;
             // 
             // txtRazonSocial
             // 
@@ -128,34 +151,12 @@
             lblRazon.TabIndex = 0;
             lblRazon.Text = "Razon Social:";
             // 
-            // rbnMinorista
-            // 
-            rbnMinorista.AutoSize = true;
-            rbnMinorista.Location = new Point(36, 162);
-            rbnMinorista.Name = "rbnMinorista";
-            rbnMinorista.Size = new Size(92, 24);
-            rbnMinorista.TabIndex = 8;
-            rbnMinorista.TabStop = true;
-            rbnMinorista.Text = "Minorista";
-            rbnMinorista.UseVisualStyleBackColor = true;
-            // 
-            // rbnMayorista
-            // 
-            rbnMayorista.AutoSize = true;
-            rbnMayorista.Location = new Point(168, 162);
-            rbnMayorista.Name = "rbnMayorista";
-            rbnMayorista.Size = new Size(95, 24);
-            rbnMayorista.TabIndex = 9;
-            rbnMayorista.TabStop = true;
-            rbnMayorista.Text = "Mayorista";
-            rbnMayorista.UseVisualStyleBackColor = true;
-            // 
             // FormABMClientes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(344, 307);
+            ClientSize = new Size(344, 312);
             Controls.Add(gbClientes);
             Name = "FormABMClientes";
             Text = "FormABMClientes";
