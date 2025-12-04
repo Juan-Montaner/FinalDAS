@@ -56,8 +56,9 @@ namespace Vista.Gestion_de_Productos
 
                         controladora.AgregarCategoria(Nombre);
                     }
-                    catch
+                    catch (FormatException Ex)
                     {
+                        MessageBox.Show("Error en el Formato de los datos -- Intente NUEVAMENTE");
 
                     }
                 }
@@ -70,8 +71,9 @@ namespace Vista.Gestion_de_Productos
 
                         controladora.ModificarCategoria(id, Nombre);
                     }
-                    catch
+                    catch (FormatException Ex)
                     {
+                        MessageBox.Show("Error en el Formato de los datos -- Intente NUEVAMENTE");
 
                     }
                 }
@@ -81,7 +83,10 @@ namespace Vista.Gestion_de_Productos
                 MessageBox.Show("Error en el Formato de los datos -- Intente NUEVAMENTE");
             }
 
+            this.Hide();
+            FormGestionDeCategorias formGestionDeCategorias = new FormGestionDeCategorias();
             this.Close();
+            formGestionDeCategorias.ShowDialog();
         }
     }
 }

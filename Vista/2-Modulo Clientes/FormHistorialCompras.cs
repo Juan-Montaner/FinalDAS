@@ -22,7 +22,6 @@ namespace Vista._2_Modulo_Clientes
             this.Id = id;
 
             CargarHistoral();
-
         }
 
         private void CargarHistoral()
@@ -36,8 +35,9 @@ namespace Vista._2_Modulo_Clientes
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            FormGestionClientes formGestionClientes = new FormGestionClientes();
             this.Hide();
+            FormGestionClientes formGestionClientes = new FormGestionClientes();
+            this.Close();
             formGestionClientes.ShowDialog();
         }
     }

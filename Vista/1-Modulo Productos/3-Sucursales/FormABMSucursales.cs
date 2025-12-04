@@ -85,7 +85,10 @@ namespace Vista.Gestion_de_Productos
                 MessageBox.Show("Error en el Formato de los datos -- Intente NUEVAMENTE");
             }
 
+            this.Hide();
+            FormGestionDeSucursales formGestionDeSucursales = new FormGestionDeSucursales();
             this.Close();
+            formGestionDeSucursales.ShowDialog();
         }
     }
     

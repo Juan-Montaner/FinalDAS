@@ -95,9 +95,11 @@ namespace Vista.Gestion_de_Productos
                 return;
             }
 
+            this.Hide();
             FormABMProductos formABMProductos = new FormABMProductos();
             formABMProductos.ShowDialog();
-
+            this.Show();
+        
             Refrescar();
         }
 
@@ -106,8 +108,11 @@ namespace Vista.Gestion_de_Productos
             int? id = GetId();
             if (id != null)
             {
+                this.Hide();
                 FormABMProductos formABMProductos = new FormABMProductos(id);
                 formABMProductos.ShowDialog();
+                this.Show();
+
                 Refrescar();
             }
             else

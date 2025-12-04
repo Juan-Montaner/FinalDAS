@@ -92,6 +92,7 @@
             ClientSize = new Size(306, 190);
             Controls.Add(grpAbm);
             Name = "FormABMCategorias";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ABMCategorias";
             grpAbm.ResumeLayout(false);
             grpAbm.PerformLayout();

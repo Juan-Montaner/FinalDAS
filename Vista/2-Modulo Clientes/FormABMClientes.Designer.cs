@@ -54,18 +54,21 @@
             gbClientes.Controls.Add(lblMail);
             gbClientes.Controls.Add(lblTelefono);
             gbClientes.Controls.Add(lblRazon);
-            gbClientes.Location = new Point(24, 23);
+            gbClientes.Location = new Point(21, 17);
+            gbClientes.Margin = new Padding(3, 2, 3, 2);
             gbClientes.Name = "gbClientes";
-            gbClientes.Size = new Size(302, 281);
+            gbClientes.Padding = new Padding(3, 2, 3, 2);
+            gbClientes.Size = new Size(264, 211);
             gbClientes.TabIndex = 0;
             gbClientes.TabStop = false;
             // 
             // rbnMayorista
             // 
             rbnMayorista.AutoSize = true;
-            rbnMayorista.Location = new Point(167, 166);
+            rbnMayorista.Location = new Point(146, 124);
+            rbnMayorista.Margin = new Padding(3, 2, 3, 2);
             rbnMayorista.Name = "rbnMayorista";
-            rbnMayorista.Size = new Size(95, 24);
+            rbnMayorista.Size = new Size(77, 19);
             rbnMayorista.TabIndex = 9;
             rbnMayorista.TabStop = true;
             rbnMayorista.Text = "Mayorista";
@@ -74,9 +77,10 @@
             // rbnMinorista
             // 
             rbnMinorista.AutoSize = true;
-            rbnMinorista.Location = new Point(35, 166);
+            rbnMinorista.Location = new Point(31, 124);
+            rbnMinorista.Margin = new Padding(3, 2, 3, 2);
             rbnMinorista.Name = "rbnMinorista";
-            rbnMinorista.Size = new Size(92, 24);
+            rbnMinorista.Size = new Size(75, 19);
             rbnMinorista.TabIndex = 8;
             rbnMinorista.TabStop = true;
             rbnMinorista.Text = "Minorista";
@@ -84,9 +88,10 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(169, 223);
+            btnVolver.Location = new Point(148, 167);
+            btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(94, 29);
+            btnVolver.Size = new Size(82, 22);
             btnVolver.TabIndex = 7;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -94,9 +99,10 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(35, 223);
+            btnGuardar.Location = new Point(31, 167);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(94, 29);
+            btnGuardar.Size = new Size(82, 22);
             btnGuardar.TabIndex = 6;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -104,61 +110,66 @@
             // 
             // txtMail
             // 
-            txtMail.Location = new Point(82, 118);
+            txtMail.Location = new Point(72, 88);
+            txtMail.Margin = new Padding(3, 2, 3, 2);
             txtMail.Name = "txtMail";
-            txtMail.Size = new Size(181, 27);
+            txtMail.Size = new Size(159, 23);
             txtMail.TabIndex = 5;
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(111, 82);
+            txtTelefono.Location = new Point(97, 62);
+            txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(151, 27);
+            txtTelefono.Size = new Size(133, 23);
             txtTelefono.TabIndex = 4;
             txtTelefono.KeyPress += txtTelefono_KeyPress;
             // 
             // txtRazonSocial
             // 
-            txtRazonSocial.Location = new Point(138, 32);
+            txtRazonSocial.Location = new Point(121, 24);
+            txtRazonSocial.Margin = new Padding(3, 2, 3, 2);
             txtRazonSocial.Name = "txtRazonSocial";
-            txtRazonSocial.Size = new Size(125, 27);
+            txtRazonSocial.Size = new Size(110, 23);
             txtRazonSocial.TabIndex = 3;
             // 
             // lblMail
             // 
             lblMail.AutoSize = true;
-            lblMail.Location = new Point(35, 121);
+            lblMail.Location = new Point(31, 91);
             lblMail.Name = "lblMail";
-            lblMail.Size = new Size(41, 20);
+            lblMail.Size = new Size(33, 15);
             lblMail.TabIndex = 2;
             lblMail.Text = "Mail:";
             // 
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Location = new Point(35, 80);
+            lblTelefono.Location = new Point(31, 60);
             lblTelefono.Name = "lblTelefono";
-            lblTelefono.Size = new Size(70, 20);
+            lblTelefono.Size = new Size(56, 15);
             lblTelefono.TabIndex = 1;
             lblTelefono.Text = "Telefono:";
             // 
             // lblRazon
             // 
             lblRazon.AutoSize = true;
-            lblRazon.Location = new Point(35, 35);
+            lblRazon.Location = new Point(31, 26);
             lblRazon.Name = "lblRazon";
-            lblRazon.Size = new Size(97, 20);
+            lblRazon.Size = new Size(76, 15);
             lblRazon.TabIndex = 0;
             lblRazon.Text = "Razon Social:";
             // 
             // FormABMClientes
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(344, 312);
+            ClientSize = new Size(301, 234);
             Controls.Add(gbClientes);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormABMClientes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormABMClientes";
             gbClientes.ResumeLayout(false);
             gbClientes.PerformLayout();

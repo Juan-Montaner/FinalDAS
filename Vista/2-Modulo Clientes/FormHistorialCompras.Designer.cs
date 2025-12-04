@@ -39,17 +39,20 @@
             // 
             gbGestionClientes.Controls.Add(btnVolver);
             gbGestionClientes.Controls.Add(dgvHistorial);
-            gbGestionClientes.Location = new Point(12, 12);
+            gbGestionClientes.Location = new Point(10, 9);
+            gbGestionClientes.Margin = new Padding(3, 2, 3, 2);
             gbGestionClientes.Name = "gbGestionClientes";
-            gbGestionClientes.Size = new Size(917, 453);
+            gbGestionClientes.Padding = new Padding(3, 2, 3, 2);
+            gbGestionClientes.Size = new Size(802, 340);
             gbGestionClientes.TabIndex = 1;
             gbGestionClientes.TabStop = false;
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(18, 410);
+            btnVolver.Location = new Point(16, 308);
+            btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(98, 37);
+            btnVolver.Size = new Size(86, 28);
             btnVolver.TabIndex = 4;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -58,20 +61,23 @@
             // dgvHistorial
             // 
             dgvHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHistorial.Location = new Point(18, 28);
+            dgvHistorial.Location = new Point(16, 21);
+            dgvHistorial.Margin = new Padding(3, 2, 3, 2);
             dgvHistorial.Name = "dgvHistorial";
             dgvHistorial.RowHeadersWidth = 51;
-            dgvHistorial.Size = new Size(878, 345);
+            dgvHistorial.Size = new Size(768, 259);
             dgvHistorial.TabIndex = 0;
             // 
             // FormHistorialCompras
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(945, 471);
+            ClientSize = new Size(827, 353);
             Controls.Add(gbGestionClientes);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormHistorialCompras";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Historial de Compras";
             gbGestionClientes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvHistorial).EndInit();

@@ -129,7 +129,10 @@ namespace Vista._2_Modulo_Clientes
                 MessageBox.Show("Error en el Formato de los datos -- Intente NUEVAMENTE");
             }
 
+            this.Hide();
+            FormGestionClientes formGestionClientes = new FormGestionClientes();
             this.Close();
+            formGestionClientes.ShowDialog();
         }
 
 

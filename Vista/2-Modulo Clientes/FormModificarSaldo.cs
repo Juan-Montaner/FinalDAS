@@ -32,7 +32,7 @@ namespace Vista._2_Modulo_Clientes
 
             var cliente = controladora.BuscarClienteId((int)Id);
 
-            lblSaldoActual.Text = cliente.CuentaCorriente.ToString();
+            lblSaldoActual.Text = "$ " + cliente.CuentaCorriente.ToString();
 
         }
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -44,7 +44,11 @@ namespace Vista._2_Modulo_Clientes
             cliente.CuentaCorriente = cliente.CuentaCorriente + decimal.Parse(txtSaldo.Text);
 
             controladora.ModificarCliente(cliente.IDCliente, cliente.RazonSocial, cliente.Telefono, cliente.Mail, cliente.TipoCliente, cliente.CuentaCorriente);
+
+            this.Hide();
+            FormGestionClientes formGestionClientes = new FormGestionClientes();
             this.Close();
+            formGestionClientes.ShowDialog();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -58,14 +62,14 @@ namespace Vista._2_Modulo_Clientes
             if (e.KeyChar == (char)Keys.Back)
                 return;
 
-    // Bloquear letras y espacios
+            // Bloquear letras y espacios
             if (char.IsLetter(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
               return;
             }
 
-    // Todo lo demás (números + caracteres especiales) se permite
+            // Todo lo demás (números + caracteres especiales) se permite
         }
 
     }

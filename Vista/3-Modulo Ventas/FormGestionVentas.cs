@@ -113,8 +113,11 @@ namespace Vista._3_Modulo_Ventas
                 return;
             }
 
+            this.Hide();
             FormABMVentas formABMVentas = new FormABMVentas(idSucursal);
             formABMVentas.ShowDialog();
+            this.Show();
+
             Refrescar();
         }
 

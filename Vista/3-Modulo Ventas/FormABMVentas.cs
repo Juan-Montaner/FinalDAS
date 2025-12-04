@@ -22,7 +22,6 @@ namespace Vista._3_Modulo_Ventas
         Controladora.ControladoraClientes controladoraClientes = Controladora.ControladoraClientes.Instancia;
         Controladora.ControladoraFacturas controladoraFacturas = Controladora.ControladoraFacturas.Instancia;
 
-
         private List<Producto> productosCarrito = new List<Producto>();
         private List<Producto> ProductoDisponibles = new List<Producto>();
         private List<DetalleVenta> productosVenta = new List<DetalleVenta>();
@@ -58,8 +57,9 @@ namespace Vista._3_Modulo_Ventas
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            FormGestionVentas formGestionVentas = new FormGestionVentas();
             this.Hide();
+            FormGestionVentas formGestionVentas = new FormGestionVentas();
+            this.Close();
             formGestionVentas.ShowDialog();
         }
 
@@ -185,7 +185,11 @@ namespace Vista._3_Modulo_Ventas
                 controladoraClientes.ModificarCliente(cliente.IDCliente, cliente.RazonSocial, cliente.Telefono, cliente.Mail, cliente.TipoCliente, cliente.CuentaCorriente);
 
                 MessageBox.Show("Venta realizada con exito.");
+
+                this.Hide(); 
+                FormGestionVentas formGestionVentas = new FormGestionVentas();
                 this.Close();
+                formGestionVentas.ShowDialog();
             }
             else
             {

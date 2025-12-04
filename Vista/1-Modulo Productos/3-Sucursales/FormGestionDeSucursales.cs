@@ -43,8 +43,11 @@ namespace Vista.Gestion_de_Productos
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormABMSucursales formABMSucursales = new FormABMSucursales();
             formABMSucursales.ShowDialog();
+            this.Show();
+
             Refrescar();
         }
 
@@ -53,8 +56,11 @@ namespace Vista.Gestion_de_Productos
             int? id = GetId();
             if (id != null)
             {
+                this.Hide();
                 FormABMSucursales formABMSucursales = new FormABMSucursales(id);
                 formABMSucursales.ShowDialog();
+                this.Show();
+
                 Refrescar();
             }
             else

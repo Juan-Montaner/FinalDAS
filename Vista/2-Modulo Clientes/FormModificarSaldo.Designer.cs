@@ -46,36 +46,39 @@
             gbSaldo.Controls.Add(btnGuardar);
             gbSaldo.Controls.Add(txtSaldo);
             gbSaldo.Controls.Add(lblSaldo);
-            gbSaldo.Location = new Point(12, 12);
+            gbSaldo.Location = new Point(10, 9);
+            gbSaldo.Margin = new Padding(3, 2, 3, 2);
             gbSaldo.Name = "gbSaldo";
-            gbSaldo.Size = new Size(270, 179);
+            gbSaldo.Padding = new Padding(3, 2, 3, 2);
+            gbSaldo.Size = new Size(236, 134);
             gbSaldo.TabIndex = 0;
             gbSaldo.TabStop = false;
             // 
             // lblImporte
             // 
             lblImporte.AutoSize = true;
-            lblImporte.Location = new Point(15, 71);
+            lblImporte.Location = new Point(13, 53);
             lblImporte.Name = "lblImporte";
-            lblImporte.Size = new Size(65, 20);
+            lblImporte.Size = new Size(52, 15);
             lblImporte.TabIndex = 5;
             lblImporte.Text = "Importe:";
             // 
             // lblSaldoActual
             // 
             lblSaldoActual.AutoSize = true;
-            lblSaldoActual.Location = new Point(140, 23);
+            lblSaldoActual.Location = new Point(122, 17);
             lblSaldoActual.Name = "lblSaldoActual";
-            lblSaldoActual.Size = new Size(56, 20);
+            lblSaldoActual.Size = new Size(44, 15);
             lblSaldoActual.TabIndex = 4;
             lblSaldoActual.Text = "SALDO";
             lblSaldoActual.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(157, 128);
+            btnVolver.Location = new Point(137, 96);
+            btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(99, 34);
+            btnVolver.Size = new Size(87, 26);
             btnVolver.TabIndex = 3;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -83,9 +86,10 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(15, 128);
+            btnGuardar.Location = new Point(13, 96);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(99, 34);
+            btnGuardar.Size = new Size(87, 26);
             btnGuardar.TabIndex = 2;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -93,29 +97,32 @@
             // 
             // txtSaldo
             // 
-            txtSaldo.Location = new Point(96, 71);
+            txtSaldo.Location = new Point(84, 53);
+            txtSaldo.Margin = new Padding(3, 2, 3, 2);
             txtSaldo.Name = "txtSaldo";
-            txtSaldo.Size = new Size(160, 27);
+            txtSaldo.Size = new Size(140, 23);
             txtSaldo.TabIndex = 1;
             txtSaldo.KeyPress += txtSaldo_KeyPress;
             // 
             // lblSaldo
             // 
             lblSaldo.AutoSize = true;
-            lblSaldo.Location = new Point(15, 23);
+            lblSaldo.Location = new Point(13, 17);
             lblSaldo.Name = "lblSaldo";
-            lblSaldo.Size = new Size(94, 20);
+            lblSaldo.Size = new Size(74, 15);
             lblSaldo.TabIndex = 0;
             lblSaldo.Text = "Saldo actual:";
             // 
             // FormModificarSaldo
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(329, 203);
+            ClientSize = new Size(288, 152);
             Controls.Add(gbSaldo);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormModificarSaldo";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormModificarSaldo";
             gbSaldo.ResumeLayout(false);
             gbSaldo.PerformLayout();

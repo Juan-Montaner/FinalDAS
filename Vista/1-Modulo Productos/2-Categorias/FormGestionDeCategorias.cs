@@ -45,8 +45,11 @@ namespace Vista.Gestion_de_Productos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormABMCategorias formABMCategorias = new FormABMCategorias();
             formABMCategorias.ShowDialog();
+            this.Show();
+
             Refrescar();
         }
 
@@ -55,8 +58,11 @@ namespace Vista.Gestion_de_Productos
             int? id = GetId();
             if (id != null)
             {
+                this.Hide();
                 FormABMCategorias formABMCategorias = new FormABMCategorias(id);
                 formABMCategorias.ShowDialog();
+                this.Show();
+
                 Refrescar();
             }
             else

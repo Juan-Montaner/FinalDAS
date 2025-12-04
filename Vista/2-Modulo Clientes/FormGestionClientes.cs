@@ -25,6 +25,7 @@ namespace Vista._2_Modulo_Clientes
             Controladora.ControladoraClientes controladora = Controladora.ControladoraClientes.Instancia;
             dgvClientes.DataSource = controladora.ListarClientes();
         }
+
         private int? GetId()
         {
             if (dgvClientes.Rows.Count == 0)
@@ -46,8 +47,11 @@ namespace Vista._2_Modulo_Clientes
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormABMClientes formABMClientes = new FormABMClientes();
             formABMClientes.ShowDialog();
+            this.Show();
+
             Refrescar();
         }
 
@@ -56,8 +60,11 @@ namespace Vista._2_Modulo_Clientes
             int? id = GetId();
             if (id != null)
             {
+                this.Hide();
                 FormABMClientes formABMClientes = new FormABMClientes(id);
                 formABMClientes.ShowDialog();
+                this.Show();
+
                 Refrescar();
             }
             else
@@ -95,9 +102,10 @@ namespace Vista._2_Modulo_Clientes
             int? id = GetId();
             if (id != null)
             {
-                FormHistorialCompras formHistorialCompras = new FormHistorialCompras(id);
                 this.Hide();
+                FormHistorialCompras formHistorialCompras = new FormHistorialCompras(id);
                 formHistorialCompras.ShowDialog();
+                this.Show();
             }
             else
             {
@@ -111,14 +119,16 @@ namespace Vista._2_Modulo_Clientes
             int? id = GetId();
             if (id != null)
             {
-                FormModificarSaldo formModificarSaldo = new FormModificarSaldo(id);
                 this.Hide();
+                FormModificarSaldo formModificarSaldo = new FormModificarSaldo(id);
                 formModificarSaldo.ShowDialog();
+                this.Show();
             }
             else
             {
                 MessageBox.Show("Seleccione un cliente para modificar su saldo");
             }
+
             Refrescar();
         }
     }

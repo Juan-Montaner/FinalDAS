@@ -11,11 +11,12 @@ namespace Modelo
 {
     public class Context : DbContext
     {
-        public string conexion = "Data Source=LAPTOP-RHFQ1TRV\\SQLEXPRESS;Initial Catalog=\"BD Final DAS\";Integrated Security=True;Persist Security Info=False;Pooling=False;Encrypt=False;";
-
+        public string conexion = "Data Source=JUANMONTANER\\SQLEXPRESS;Initial Catalog=FinalDAS;Integrated Security=True;Persist Security Info=False;Pooling=False;Encrypt=False;";
 
         // CADENA DE FRANCIS: Data Source=LAPTOP-RHFQ1TRV\\SQLEXPRESS;Initial Catalog=\"BD Final DAS\";Integrated Security=True;Persist Security Info=False;Pooling=False;Encrypt=False;
         // CADENA DE MAXI: Data Source=MAXI\\SQLEXPRESS;Initial Catalog=TrabajoFinalADS;Integrated Security=True;Persist Security Info=False;Pooling=False;Encrypt=False;
+        // CADENA DE MONTAÑA: Data Source=JUANMONTANER\\SQLEXPRESS;Initial Catalog=FinalDAS;Integrated Security=True;Persist Security Info=False;Pooling=False;Encrypt=False;
+
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Sucursal> Sucursales { get; set; }
