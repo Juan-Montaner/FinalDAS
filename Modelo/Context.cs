@@ -24,6 +24,7 @@ namespace Modelo
         public DbSet<Venta> Ventas { get; set; }
         public DbSet<Factura> Facturas { get; set; }
         public DbSet<Vendedor> Vendedores { get; set; }
+        public DbSet<DetalleVenta> DetallesVentas { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
           => options.UseSqlServer(conexion);

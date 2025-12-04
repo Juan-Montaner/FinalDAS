@@ -55,5 +55,7 @@ namespace Modelo
         {
             return context.Productos.FirstOrDefault(p => p.Categoria == categoria); 
         }
+
+        
     }
 }

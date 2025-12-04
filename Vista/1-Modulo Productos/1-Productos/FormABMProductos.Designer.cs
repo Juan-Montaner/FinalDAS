@@ -62,7 +62,7 @@
             // 
             numUdStock.Location = new Point(96, 304);
             numUdStock.Margin = new Padding(3, 4, 3, 4);
-            numUdStock.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numUdStock.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numUdStock.Name = "numUdStock";
             numUdStock.Size = new Size(187, 27);
             numUdStock.TabIndex = 28;

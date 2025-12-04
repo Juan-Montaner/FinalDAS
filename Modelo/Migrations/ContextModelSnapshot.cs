@@ -100,7 +100,7 @@ namespace Modelo.Migrations
 
                     b.HasIndex("VentaIDVenta");
 
-                    b.ToTable("DetalleVenta");
+                    b.ToTable("DetallesVentas");
                 });
 
             modelBuilder.Entity("Entidades.Factura", b =>

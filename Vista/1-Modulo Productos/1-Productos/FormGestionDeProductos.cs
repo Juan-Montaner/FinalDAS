@@ -99,7 +99,7 @@ namespace Vista.Gestion_de_Productos
             FormABMProductos formABMProductos = new FormABMProductos();
             formABMProductos.ShowDialog();
             this.Show();
-        
+
             Refrescar();
         }
 
@@ -160,6 +160,29 @@ namespace Vista.Gestion_de_Productos
         private void btnDesfiltrar_Click(object sender, EventArgs e)
         {
             Refrescar();
+        }
+
+        private void btnMasVendidos_Click(object sender, EventArgs e)
+        {
+            Controladora.ControladoraVentas controladora = Controladora.ControladoraVentas.Instancia;
+            dgvGestionProductos.DataSource = controladora.ProductosMasVendidos();
+        }
+
+        private void btnCantidadVendida_Click(object sender, EventArgs e)
+        {
+            int? id = GetId();
+
+            if (id == null)
+            {
+                MessageBox.Show("Seleccione un producto para consultar la cantidad vendida.");
+                return;
+            }
+
+            Controladora.ControladoraVentas controladora = Controladora.ControladoraVentas.Instancia;
+
+            int cantidad = controladora.CantidadVendidaProducto((int)id);
+
+            MessageBox.Show($"Cantidad vendida del producto seleccionado: {cantidad}");
         }
     }
 }

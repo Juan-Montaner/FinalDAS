@@ -48,5 +48,29 @@ namespace Modelo
             return context.Ventas.Where(v => v.RazonSocialCliente == razonSocial).ToList(); ;
         }
 
+        public List<Producto> ProductosMasVendidos()
+        {
+            // Agrupo por producto y sumo cantidades, luego hago join con Productos
+            var grouped = context.DetallesVentas
+                                 .GroupBy(d => d.IDProducto).Select(g => new
+                                 {
+                                     IDProducto = g.Key,
+                                     CantidadVendida = g.Sum(x => x.Cantidad)
+                                 }).OrderByDescending(x => x.CantidadVendida);
+
+            var productos = grouped.Join(context.Productos,
+                                  g => g.IDProducto,
+                                  p => p.IDProducto,
+                                  (g, p) => p).ToList();
+
+            return productos;
+        }
+
+        public int CantidadVendidaProducto(int idProducto)
+        {
+            return context.DetallesVentas.Where(d => d.IDProducto == idProducto).Sum(d => d.Cantidad);
+        }
+
+
     }
 }

@@ -12,8 +12,8 @@ using Modelo;
 namespace Modelo.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20251204213816_rrrr")]
-    partial class rrrr
+    [Migration("20251204222542_fffffff")]
+    partial class fffffff
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -103,7 +103,7 @@ namespace Modelo.Migrations
 
                     b.HasIndex("VentaIDVenta");
 
-                    b.ToTable("DetalleVenta");
+                    b.ToTable("DetallesVentas");
                 });
 
             modelBuilder.Entity("Entidades.Factura", b =>

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Modelo.Migrations
 {
     /// <inheritdoc />
-    public partial class rrrr : Migration
+    public partial class fffffff : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -124,7 +124,7 @@ namespace Modelo.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DetalleVenta",
+                name: "DetallesVentas",
                 columns: table => new
                 {
                     IDDetalleVenta = table.Column<int>(type: "int", nullable: false)
@@ -137,39 +137,39 @@ namespace Modelo.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DetalleVenta", x => x.IDDetalleVenta);
+                    table.PrimaryKey("PK_DetallesVentas", x => x.IDDetalleVenta);
                     table.ForeignKey(
-                        name: "FK_DetalleVenta_Productos_IDProducto",
+                        name: "FK_DetallesVentas_Productos_IDProducto",
                         column: x => x.IDProducto,
                         principalTable: "Productos",
                         principalColumn: "IDProducto",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DetalleVenta_Ventas_IDVenta",
+                        name: "FK_DetallesVentas_Ventas_IDVenta",
                         column: x => x.IDVenta,
                         principalTable: "Ventas",
                         principalColumn: "IDVenta",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DetalleVenta_Ventas_VentaIDVenta",
+                        name: "FK_DetallesVentas_Ventas_VentaIDVenta",
                         column: x => x.VentaIDVenta,
                         principalTable: "Ventas",
                         principalColumn: "IDVenta");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_DetalleVenta_IDProducto",
-                table: "DetalleVenta",
+                name: "IX_DetallesVentas_IDProducto",
+                table: "DetallesVentas",
                 column: "IDProducto");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DetalleVenta_IDVenta",
-                table: "DetalleVenta",
+                name: "IX_DetallesVentas_IDVenta",
+                table: "DetallesVentas",
                 column: "IDVenta");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DetalleVenta_VentaIDVenta",
-                table: "DetalleVenta",
+                name: "IX_DetallesVentas_VentaIDVenta",
+                table: "DetallesVentas",
                 column: "VentaIDVenta");
         }
 
@@ -183,7 +183,7 @@ namespace Modelo.Migrations
                 name: "Clientes");
 
             migrationBuilder.DropTable(
-                name: "DetalleVenta");
+                name: "DetallesVentas");
 
             migrationBuilder.DropTable(
                 name: "Facturas");

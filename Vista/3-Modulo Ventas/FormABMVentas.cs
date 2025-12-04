@@ -40,6 +40,7 @@ namespace Vista._3_Modulo_Ventas
             lblSucursalID.Text = iDSucursal.ToString();
             CargarDgvSucursal();
             CargarCmbClientes();
+            CargarCmbVendedores();
 
             nudCantidad.Enabled = false;
             btnAgregarACarrito.Enabled = false;
@@ -105,7 +106,7 @@ namespace Vista._3_Modulo_Ventas
                     dgvProductosSucursal.DataSource = ProductoDisponibles;
 
                     CalcularTotal(Total);
-                    
+
                 }
             }
             else
@@ -123,7 +124,7 @@ namespace Vista._3_Modulo_Ventas
         {
             string razonSocial = cmbRazonSocial.Text;
             DateTime Fecha = dtpFechaVenta.Value;
-            string vendedor = txtVendedor.Text;
+            string vendedor = cmbVendedor.Text;
             int cantidadProductosTotales = 0;
             bool aptoParaComprar;
 
@@ -175,7 +176,7 @@ namespace Vista._3_Modulo_Ventas
                 var ventaRecien = controladoraVentas.BuscarVenta(Fecha);
 
                 controladoraFacturas.AgregarFacturas(razonSocial, Fecha, MetodoDePago, Total, ventaRecien.IDVenta);
-                
+
                 if (MetodoDePago == 4)
                 {
                     cliente.CuentaCorriente = cliente.CuentaCorriente - this.Total;
@@ -186,7 +187,7 @@ namespace Vista._3_Modulo_Ventas
 
                 MessageBox.Show("Venta realizada con exito.");
 
-                this.Hide(); 
+                this.Hide();
                 FormGestionVentas formGestionVentas = new FormGestionVentas();
                 this.Close();
                 formGestionVentas.ShowDialog();
@@ -194,9 +195,9 @@ namespace Vista._3_Modulo_Ventas
             else
             {
                 MessageBox.Show("No cumple con los requisitos para realizar la compra y los clientes mayoristas deben comprar al menos 150 productos Los clientes minoristas no pueden comprar 150 o más productos.");
-            }            
+            }
 
-            
+
         }
 
         private void CalcularTotal(decimal Total)
@@ -212,11 +213,11 @@ namespace Vista._3_Modulo_Ventas
 
             if (cliente.TipoCliente == true)
             {
-                this.Total = this.Total * (1 - 0.10m); 
+                this.Total = this.Total * (1 - 0.10m);
             }
             else
             {
-                this.Total = this.Total * (1 - 0.025m); 
+                this.Total = this.Total * (1 - 0.025m);
 
             }
             lblTotal.Text = "$ " + this.Total.ToString("0.00");
@@ -273,6 +274,20 @@ namespace Vista._3_Modulo_Ventas
                 cmbRazonSocial.DataSource = clientes;
                 cmbRazonSocial.DisplayMember = "RazonSocial";
                 cmbRazonSocial.ValueMember = "IDCliente";
+            }
+        }
+
+        private void CargarCmbVendedores()
+        {
+            Controladora.ControladoraVendedores controladoraVendedores = Controladora.ControladoraVendedores.Instancia;
+
+            var vendedores = controladoraVendedores.ListarVendedores();
+
+            if (vendedores != null)
+            {
+                cmbVendedor.DataSource = vendedores;
+                cmbVendedor.DisplayMember = "Nombre";
+                cmbVendedor.ValueMember = "IDVendedor";
             }
         }
 
@@ -346,7 +361,7 @@ namespace Vista._3_Modulo_Ventas
 
         private void btnComenzar_Click(object sender, EventArgs e)
         {
-            if (rbEfectivo.Checked || rbTarjeta.Checked || rbTransferencia.Checked || rbCuentaCorriente.Checked && txtVendedor.Text.Length > 0)
+            if (rbEfectivo.Checked || rbTarjeta.Checked || rbTransferencia.Checked || rbCuentaCorriente.Checked)
             {
                 grpProductos.Enabled = true;
                 grpCarritoDeCompras.Enabled = true;
@@ -359,6 +374,11 @@ namespace Vista._3_Modulo_Ventas
                 return;
 
             }
+        }
+
+        private void cmbVendedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

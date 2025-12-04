@@ -98,5 +98,15 @@ namespace Controladora
             return repositorioVentas.FiltrarVentasRazonSocial(razonSocial);
                 
         }
+
+        public List<Producto> ProductosMasVendidos()
+        {
+            return repositorioVentas.ProductosMasVendidos();
+        }
+
+        public int CantidadVendidaProducto(int idProducto)
+        {
+            return repositorioVentas.CantidadVendidaProducto(idProducto);
+        }
     }
 }
