@@ -46,8 +46,8 @@ namespace Controladora
                 nuevoCliente.RazonSocial = RazonSocial;
                 nuevoCliente.Mail = mail;
                 nuevoCliente.Telefono = telefono;
-                nuevoCliente.ListaCompras = new List<Factura>();
                 nuevoCliente.TipoCliente = tipo;
+                nuevoCliente.CuentaCorriente = 0;
                 repositorioCliente.AgregarCliente(nuevoCliente);
             }
             else
@@ -57,8 +57,8 @@ namespace Controladora
                 nuevoCliente.RazonSocial = RazonSocial;
                 nuevoCliente.Mail = mail;
                 nuevoCliente.Telefono = telefono;
-                nuevoCliente.ListaCompras = new List<Factura>();
                 nuevoCliente.TipoCliente = tipo;
+                nuevoCliente.CuentaCorriente = 0;
                 repositorioCliente.AgregarCliente(nuevoCliente);
             }
 
@@ -79,7 +79,7 @@ namespace Controladora
             return "Cliente Eliminado con Exito";
         }
 
-        public string ModificarCliente(int id, string direccion, string mail, double telefono, bool tipo)
+        public string ModificarCliente(int id, string razonSocial, double telefono, string mail, bool tipo, decimal cuentaCorriente)
         {
             Cliente cliente = repositorioCliente.BuscarClienteID(id);
 
@@ -88,16 +88,17 @@ namespace Controladora
                 return "Error al MODIFICAR el Cliente: El cliente NO existe";
             }
 
-            if (string.IsNullOrWhiteSpace(direccion))
+            if (string.IsNullOrWhiteSpace(razonSocial))
             {
                 return "Error al MODIFICAR el CLIENTE: Los campos no pueden estar vacios";
             }
 
-            cliente.RazonSocial = direccion;
+            cliente.RazonSocial = razonSocial;
             cliente.Mail = mail;
             cliente.Telefono = telefono;
             cliente.TipoCliente = tipo;
-            
+            cliente.CuentaCorriente = cuentaCorriente;
+
 
             repositorioCliente.ModificarCliente(cliente);
 

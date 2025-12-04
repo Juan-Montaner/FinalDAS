@@ -47,6 +47,9 @@ namespace Modelo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IDCliente"));
 
+                    b.Property<decimal>("CuentaCorriente")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("Mail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -108,9 +111,6 @@ namespace Modelo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IDFactura"));
 
-                    b.Property<int?>("ClienteIDCliente")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
 
@@ -128,8 +128,6 @@ namespace Modelo.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("IDFactura");
-
-                    b.HasIndex("ClienteIDCliente");
 
                     b.ToTable("Facturas");
                 });
@@ -246,18 +244,6 @@ namespace Modelo.Migrations
                     b.Navigation("Producto");
 
                     b.Navigation("Venta");
-                });
-
-            modelBuilder.Entity("Entidades.Factura", b =>
-                {
-                    b.HasOne("Entidades.Cliente", null)
-                        .WithMany("ListaCompras")
-                        .HasForeignKey("ClienteIDCliente");
-                });
-
-            modelBuilder.Entity("Entidades.Cliente", b =>
-                {
-                    b.Navigation("ListaCompras");
                 });
 
             modelBuilder.Entity("Entidades.Venta", b =>

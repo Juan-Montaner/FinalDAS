@@ -24,7 +24,8 @@ namespace Entidades
         {
             Efectivo = 1,
             Tarjeta = 2,
-            Transferencia = 3
+            Transferencia = 3,
+            CuentaCorriente = 4
         }
         public decimal Total { get; set; }
 

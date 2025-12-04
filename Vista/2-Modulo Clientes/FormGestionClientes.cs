@@ -89,5 +89,22 @@ namespace Vista._2_Modulo_Clientes
             this.Hide();
             formMenuPrincipal.ShowDialog();
         }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            int? id = GetId();
+            if (id != null)
+            {
+                FormHistorialCompras formHistorialCompras = new FormHistorialCompras(id);
+                this.Hide();
+                formHistorialCompras.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un cliente para modificar");
+            }
+            Refrescar();
+            
+        }
     }
 }

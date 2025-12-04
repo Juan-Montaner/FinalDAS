@@ -85,5 +85,18 @@ namespace Controladora
         {
             return repositorioVentas.ListarVentas().ToList();
         }
+
+        public List<Venta> FiltrarVentasPorFecha(DateTime fechaInicio, DateTime fechaFin)
+        {
+            var todasLasVentas = repositorioVentas.ListarVentas();
+            var ventasFiltradas = todasLasVentas.Where(v => v.Fecha >= fechaInicio && v.Fecha <= fechaFin).ToList();
+            return ventasFiltradas;
+        }
+
+        public List<Venta> FiltrarVentasRazonSocial(string razonSocial)
+        {
+            return repositorioVentas.FiltrarVentasRazonSocial(razonSocial);
+                
+        }
     }
 }

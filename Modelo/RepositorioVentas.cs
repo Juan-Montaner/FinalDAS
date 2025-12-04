@@ -43,5 +43,10 @@ namespace Modelo
             return context.Ventas.FirstOrDefault(c => c.Fecha == fecha);
         }
 
+        public List<Venta> FiltrarVentasRazonSocial(string razonSocial)
+        {
+            return context.Ventas.Where(v => v.RazonSocialCliente == razonSocial).ToList(); ;
+        }
+
     }
 }

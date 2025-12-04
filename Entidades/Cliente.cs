@@ -18,10 +18,11 @@ namespace Entidades
 
         public double Telefono { get; set; }
 
+
         public string Mail { get; set; }
 
         public bool TipoCliente { get; set; }
 
-        public List<Factura> ListaCompras { get; set; }
+        public decimal CuentaCorriente { get; set; }
     }
 }

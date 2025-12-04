@@ -88,6 +88,7 @@ namespace Vista._2_Modulo_Clientes
                         string Mail = txtMail.Text;
                         double Telefono = double.Parse(txtTelefono.Text);
                         bool Tipo;
+                        decimal cuentaCorriente = 0; // ACAAAAAAAAAAAAAAAAAAAAA
                         if (rbnMayorista.Checked == true)
                         {
                             Tipo = true;
@@ -97,7 +98,7 @@ namespace Vista._2_Modulo_Clientes
                             Tipo = false;
                         }
 
-                        controladora.ModificarCliente(id, Razon, Mail, Telefono, Tipo);
+                        controladora.ModificarCliente(id, Razon, Telefono, Mail, Tipo, cuentaCorriente);
                     }
                     catch
                     {

@@ -124,6 +124,8 @@ namespace Vista._3_Modulo_Ventas
             string razonSocial = cmbRazonSocial.Text;
             DateTime Fecha = dtpFechaVenta.Value;
             string vendedor = txtVendedor.Text;
+            int cantidadProductosTotales = 0;
+            bool aptoParaComprar;
 
             int MetodoDePago = 0;
             if (rbEfectivo.Checked == true)
@@ -138,25 +140,59 @@ namespace Vista._3_Modulo_Ventas
             {
                 MetodoDePago = 3;
             }
-
-            foreach (var detalle in productosVenta)
+            else if (rbCuentaCorriente.Checked == true)
             {
-                var producto = controladoraProductos.BuscarProductoId(detalle.IDProducto);
-
-                
-                producto.Stock = producto.Stock - detalle.Cantidad;
-
-                controladoraProductos.ModificarProducto(producto.IDProducto, producto.Nombre, producto.Descripcion, producto.Categoria, producto.IDSucursal, producto.Precio, producto.Stock);
+                MetodoDePago = 4;
             }
 
-            controladoraVentas.AgregarVentas(razonSocial, Fecha, productosVenta, (int)iDSucursal, vendedor, MetodoDePago, Total);
+            var cliente = controladoraClientes.BuscarCliente(razonSocial);
 
-            var ventaRecien = controladoraVentas.BuscarVenta(Fecha);
+            if (cliente.TipoCliente == true && cantidadProductosTotales >= 150 || cliente.TipoCliente == false && cantidadProductosTotales < 150)
+            {
+                aptoParaComprar = true;
+            }
+            else
+            {
+                aptoParaComprar = false;
+            }
 
-            controladoraFacturas.AgregarFacturas(razonSocial, Fecha, MetodoDePago, Total, ventaRecien.IDVenta);
+            if (aptoParaComprar == true)
+            {
+                foreach (var detalle in productosVenta)
+                {
+                    var producto = controladoraProductos.BuscarProductoId(detalle.IDProducto);
 
-            MessageBox.Show("Venta realizada con exito.");
-            this.Close();
+                    producto.Stock = producto.Stock - detalle.Cantidad;
+                    cantidadProductosTotales = detalle.Cantidad;
+                    controladoraProductos.ModificarProducto(producto.IDProducto, producto.Nombre, producto.Descripcion, producto.Categoria, producto.IDSucursal, producto.Precio, producto.Stock);
+                }
+            }
+
+            if (aptoParaComprar == true)
+            {
+                controladoraVentas.AgregarVentas(razonSocial, Fecha, productosVenta, (int)iDSucursal, vendedor, MetodoDePago, Total);
+
+                var ventaRecien = controladoraVentas.BuscarVenta(Fecha);
+
+                controladoraFacturas.AgregarFacturas(razonSocial, Fecha, MetodoDePago, Total, ventaRecien.IDVenta);
+                
+                if (MetodoDePago == 4)
+                {
+                    cliente.CuentaCorriente = cliente.CuentaCorriente - this.Total;
+
+                }
+
+                controladoraClientes.ModificarCliente(cliente.IDCliente, cliente.RazonSocial, cliente.Telefono, cliente.Mail, cliente.TipoCliente, cliente.CuentaCorriente);
+
+                MessageBox.Show("Venta realizada con exito.");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No cumple con los requisitos para realizar la compra y los clientes mayoristas deben comprar al menos 150 productos Los clientes minoristas no pueden comprar 150 o más productos.");
+            }            
+
+            
         }
 
         private void CalcularTotal(decimal Total)
@@ -236,8 +272,6 @@ namespace Vista._3_Modulo_Ventas
             }
         }
 
-
-
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
             int? idProducto = GetId();
@@ -267,11 +301,6 @@ namespace Vista._3_Modulo_Ventas
             {
                 btnAgregarACarrito.Enabled = false;
             }
-        }
-
-        private void dtpFechaVenta_ValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -311,14 +340,13 @@ namespace Vista._3_Modulo_Ventas
 
         }
 
-        
-
         private void btnComenzar_Click(object sender, EventArgs e)
         {
-            if (rbEfectivo.Checked || rbTarjeta.Checked || rbTransferencia.Checked && txtVendedor.Text.Length > 0)
+            if (rbEfectivo.Checked || rbTarjeta.Checked || rbTransferencia.Checked || rbCuentaCorriente.Checked && txtVendedor.Text.Length > 0)
             {
                 grpProductos.Enabled = true;
                 grpCarritoDeCompras.Enabled = true;
+                gbCuentaCorriente.Enabled = false;
                 groupBox2.Enabled = false;
             }
             else

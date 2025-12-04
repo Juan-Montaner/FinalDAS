@@ -29,17 +29,6 @@
         private void InitializeComponent()
         {
             grpVentas = new GroupBox();
-            groupBox2 = new GroupBox();
-            btnComenzar = new Button();
-            rbTransferencia = new RadioButton();
-            rbEfectivo = new RadioButton();
-            rbTarjeta = new RadioButton();
-            cmbRazonSocial = new ComboBox();
-            lblRazon = new Label();
-            lblFecha = new Label();
-            lblVendedor = new Label();
-            dtpFechaVenta = new DateTimePicker();
-            txtVendedor = new TextBox();
             lblSucursalID = new Label();
             lblSucursal = new Label();
             btnVolver = new Button();
@@ -55,14 +44,27 @@
             grpProductos = new GroupBox();
             btnSeleccionar = new Button();
             nudCantidad = new NumericUpDown();
+            txtVendedor = new TextBox();
+            dtpFechaVenta = new DateTimePicker();
+            lblVendedor = new Label();
+            lblFecha = new Label();
+            lblRazon = new Label();
+            cmbRazonSocial = new ComboBox();
+            rbTarjeta = new RadioButton();
+            rbEfectivo = new RadioButton();
+            rbTransferencia = new RadioButton();
+            btnComenzar = new Button();
+            rbCuentaCorriente = new RadioButton();
+            groupBox2 = new GroupBox();
+            gbCuentaCorriente = new GroupBox();
             grpVentas.SuspendLayout();
-            groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProductosSucursal).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductosCompra).BeginInit();
             groupBox1.SuspendLayout();
             grpCarritoDeCompras.SuspendLayout();
             grpProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // grpVentas
@@ -76,125 +78,6 @@
             grpVentas.Size = new Size(317, 713);
             grpVentas.TabIndex = 0;
             grpVentas.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(btnComenzar);
-            groupBox2.Controls.Add(rbTransferencia);
-            groupBox2.Controls.Add(rbEfectivo);
-            groupBox2.Controls.Add(rbTarjeta);
-            groupBox2.Controls.Add(cmbRazonSocial);
-            groupBox2.Controls.Add(lblRazon);
-            groupBox2.Controls.Add(lblFecha);
-            groupBox2.Controls.Add(lblVendedor);
-            groupBox2.Controls.Add(dtpFechaVenta);
-            groupBox2.Controls.Add(txtVendedor);
-            groupBox2.Location = new Point(7, 169);
-            groupBox2.Margin = new Padding(3, 4, 3, 4);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(3, 4, 3, 4);
-            groupBox2.Size = new Size(299, 390);
-            groupBox2.TabIndex = 12;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Datos de la Venta";
-            // 
-            // btnComenzar
-            // 
-            btnComenzar.Location = new Point(78, 341);
-            btnComenzar.Name = "btnComenzar";
-            btnComenzar.Size = new Size(141, 34);
-            btnComenzar.TabIndex = 14;
-            btnComenzar.Text = "Comenzar Venta";
-            btnComenzar.UseVisualStyleBackColor = true;
-            btnComenzar.Click += btnComenzar_Click;
-            // 
-            // rbTransferencia
-            // 
-            rbTransferencia.AutoSize = true;
-            rbTransferencia.Location = new Point(7, 247);
-            rbTransferencia.Margin = new Padding(3, 4, 3, 4);
-            rbTransferencia.Name = "rbTransferencia";
-            rbTransferencia.Size = new Size(117, 24);
-            rbTransferencia.TabIndex = 13;
-            rbTransferencia.TabStop = true;
-            rbTransferencia.Text = "Transferencia";
-            rbTransferencia.UseVisualStyleBackColor = true;
-            // 
-            // rbEfectivo
-            // 
-            rbEfectivo.AutoSize = true;
-            rbEfectivo.Location = new Point(7, 206);
-            rbEfectivo.Margin = new Padding(3, 4, 3, 4);
-            rbEfectivo.Name = "rbEfectivo";
-            rbEfectivo.Size = new Size(83, 24);
-            rbEfectivo.TabIndex = 12;
-            rbEfectivo.TabStop = true;
-            rbEfectivo.Text = "Efectivo";
-            rbEfectivo.UseVisualStyleBackColor = true;
-            // 
-            // rbTarjeta
-            // 
-            rbTarjeta.AutoSize = true;
-            rbTarjeta.Location = new Point(7, 290);
-            rbTarjeta.Margin = new Padding(3, 4, 3, 4);
-            rbTarjeta.Name = "rbTarjeta";
-            rbTarjeta.Size = new Size(74, 24);
-            rbTarjeta.TabIndex = 12;
-            rbTarjeta.TabStop = true;
-            rbTarjeta.Text = "Tarjeta";
-            rbTarjeta.UseVisualStyleBackColor = true;
-            // 
-            // cmbRazonSocial
-            // 
-            cmbRazonSocial.FormattingEnabled = true;
-            cmbRazonSocial.Location = new Point(107, 60);
-            cmbRazonSocial.Margin = new Padding(3, 4, 3, 4);
-            cmbRazonSocial.Name = "cmbRazonSocial";
-            cmbRazonSocial.Size = new Size(183, 28);
-            cmbRazonSocial.TabIndex = 11;
-            // 
-            // lblRazon
-            // 
-            lblRazon.AutoSize = true;
-            lblRazon.Location = new Point(7, 60);
-            lblRazon.Name = "lblRazon";
-            lblRazon.Size = new Size(97, 20);
-            lblRazon.TabIndex = 0;
-            lblRazon.Text = "Razon Social:";
-            // 
-            // lblFecha
-            // 
-            lblFecha.AutoSize = true;
-            lblFecha.Location = new Point(7, 111);
-            lblFecha.Name = "lblFecha";
-            lblFecha.Size = new Size(50, 20);
-            lblFecha.TabIndex = 1;
-            lblFecha.Text = "Fecha:";
-            // 
-            // lblVendedor
-            // 
-            lblVendedor.AutoSize = true;
-            lblVendedor.Location = new Point(7, 156);
-            lblVendedor.Name = "lblVendedor";
-            lblVendedor.Size = new Size(76, 20);
-            lblVendedor.TabIndex = 2;
-            lblVendedor.Text = "Vendedor:";
-            // 
-            // dtpFechaVenta
-            // 
-            dtpFechaVenta.Format = DateTimePickerFormat.Short;
-            dtpFechaVenta.Location = new Point(67, 111);
-            dtpFechaVenta.Name = "dtpFechaVenta";
-            dtpFechaVenta.Size = new Size(223, 27);
-            dtpFechaVenta.TabIndex = 6;
-            dtpFechaVenta.ValueChanged += dtpFechaVenta_ValueChanged;
-            // 
-            // txtVendedor
-            // 
-            txtVendedor.Location = new Point(89, 156);
-            txtVendedor.Name = "txtVendedor";
-            txtVendedor.Size = new Size(202, 27);
-            txtVendedor.TabIndex = 8;
             // 
             // lblSucursalID
             // 
@@ -357,6 +240,145 @@
             nudCantidad.TabIndex = 12;
             nudCantidad.ValueChanged += nudCantidad_ValueChanged;
             // 
+            // txtVendedor
+            // 
+            txtVendedor.Location = new Point(89, 156);
+            txtVendedor.Name = "txtVendedor";
+            txtVendedor.Size = new Size(202, 27);
+            txtVendedor.TabIndex = 8;
+            // 
+            // dtpFechaVenta
+            // 
+            dtpFechaVenta.Format = DateTimePickerFormat.Short;
+            dtpFechaVenta.Location = new Point(67, 111);
+            dtpFechaVenta.Name = "dtpFechaVenta";
+            dtpFechaVenta.Size = new Size(223, 27);
+            dtpFechaVenta.TabIndex = 6;
+            // 
+            // lblVendedor
+            // 
+            lblVendedor.AutoSize = true;
+            lblVendedor.Location = new Point(7, 156);
+            lblVendedor.Name = "lblVendedor";
+            lblVendedor.Size = new Size(76, 20);
+            lblVendedor.TabIndex = 2;
+            lblVendedor.Text = "Vendedor:";
+            // 
+            // lblFecha
+            // 
+            lblFecha.AutoSize = true;
+            lblFecha.Location = new Point(7, 111);
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(50, 20);
+            lblFecha.TabIndex = 1;
+            lblFecha.Text = "Fecha:";
+            // 
+            // lblRazon
+            // 
+            lblRazon.AutoSize = true;
+            lblRazon.Location = new Point(7, 60);
+            lblRazon.Name = "lblRazon";
+            lblRazon.Size = new Size(97, 20);
+            lblRazon.TabIndex = 0;
+            lblRazon.Text = "Razon Social:";
+            // 
+            // cmbRazonSocial
+            // 
+            cmbRazonSocial.FormattingEnabled = true;
+            cmbRazonSocial.Location = new Point(107, 60);
+            cmbRazonSocial.Margin = new Padding(3, 4, 3, 4);
+            cmbRazonSocial.Name = "cmbRazonSocial";
+            cmbRazonSocial.Size = new Size(183, 28);
+            cmbRazonSocial.TabIndex = 11;
+            // 
+            // rbTarjeta
+            // 
+            rbTarjeta.AutoSize = true;
+            rbTarjeta.Location = new Point(149, 206);
+            rbTarjeta.Margin = new Padding(3, 4, 3, 4);
+            rbTarjeta.Name = "rbTarjeta";
+            rbTarjeta.Size = new Size(74, 24);
+            rbTarjeta.TabIndex = 12;
+            rbTarjeta.TabStop = true;
+            rbTarjeta.Text = "Tarjeta";
+            rbTarjeta.UseVisualStyleBackColor = true;
+            // 
+            // rbEfectivo
+            // 
+            rbEfectivo.AutoSize = true;
+            rbEfectivo.Location = new Point(7, 206);
+            rbEfectivo.Margin = new Padding(3, 4, 3, 4);
+            rbEfectivo.Name = "rbEfectivo";
+            rbEfectivo.Size = new Size(83, 24);
+            rbEfectivo.TabIndex = 12;
+            rbEfectivo.TabStop = true;
+            rbEfectivo.Text = "Efectivo";
+            rbEfectivo.UseVisualStyleBackColor = true;
+            // 
+            // rbTransferencia
+            // 
+            rbTransferencia.AutoSize = true;
+            rbTransferencia.Location = new Point(7, 247);
+            rbTransferencia.Margin = new Padding(3, 4, 3, 4);
+            rbTransferencia.Name = "rbTransferencia";
+            rbTransferencia.Size = new Size(117, 24);
+            rbTransferencia.TabIndex = 13;
+            rbTransferencia.TabStop = true;
+            rbTransferencia.Text = "Transferencia";
+            rbTransferencia.UseVisualStyleBackColor = true;
+            // 
+            // btnComenzar
+            // 
+            btnComenzar.Location = new Point(78, 341);
+            btnComenzar.Name = "btnComenzar";
+            btnComenzar.Size = new Size(141, 34);
+            btnComenzar.TabIndex = 14;
+            btnComenzar.Text = "Comenzar Venta";
+            btnComenzar.UseVisualStyleBackColor = true;
+            btnComenzar.Click += btnComenzar_Click;
+            // 
+            // rbCuentaCorriente
+            // 
+            rbCuentaCorriente.AutoSize = true;
+            rbCuentaCorriente.Location = new Point(149, 247);
+            rbCuentaCorriente.Name = "rbCuentaCorriente";
+            rbCuentaCorriente.Size = new Size(141, 24);
+            rbCuentaCorriente.TabIndex = 15;
+            rbCuentaCorriente.TabStop = true;
+            rbCuentaCorriente.Text = "Cuenta Corriente";
+            rbCuentaCorriente.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(rbCuentaCorriente);
+            groupBox2.Controls.Add(btnComenzar);
+            groupBox2.Controls.Add(rbTransferencia);
+            groupBox2.Controls.Add(rbEfectivo);
+            groupBox2.Controls.Add(rbTarjeta);
+            groupBox2.Controls.Add(cmbRazonSocial);
+            groupBox2.Controls.Add(lblRazon);
+            groupBox2.Controls.Add(lblFecha);
+            groupBox2.Controls.Add(lblVendedor);
+            groupBox2.Controls.Add(dtpFechaVenta);
+            groupBox2.Controls.Add(txtVendedor);
+            groupBox2.Controls.Add(gbCuentaCorriente);
+            groupBox2.Location = new Point(7, 169);
+            groupBox2.Margin = new Padding(3, 4, 3, 4);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Padding = new Padding(3, 4, 3, 4);
+            groupBox2.Size = new Size(299, 390);
+            groupBox2.TabIndex = 12;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Datos de la Venta";
+            // 
+            // gbCuentaCorriente
+            // 
+            gbCuentaCorriente.Location = new Point(6, 185);
+            gbCuentaCorriente.Name = "gbCuentaCorriente";
+            gbCuentaCorriente.Size = new Size(287, 102);
+            gbCuentaCorriente.TabIndex = 16;
+            gbCuentaCorriente.TabStop = false;
+            // 
             // FormABMVentas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -368,8 +390,6 @@
             Text = "FormABMVentas";
             grpVentas.ResumeLayout(false);
             grpVentas.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProductosSucursal).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductosCompra).EndInit();
             groupBox1.ResumeLayout(false);
@@ -377,17 +397,14 @@
             grpCarritoDeCompras.PerformLayout();
             grpProductos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private GroupBox grpVentas;
-        private DateTimePicker dtpFechaVenta;
-        private Label lblVendedor;
-        private Label lblFecha;
-        private Label lblRazon;
-        private TextBox txtVendedor;
         private DataGridView dgvProductosSucursal;
         private DataGridView dgvProductosCompra;
         private Button btnFinalizar;
@@ -398,16 +415,23 @@
         private Label lblSucursalID;
         private Label lblSucursal;
         private GroupBox grpProductos;
-        private ComboBox cmbRazonSocial;
-        private GroupBox groupBox2;
         private NumericUpDown nudCantidad;
         private Button btnBorrar;
         private Button btnSeleccionar;
+        private Label lblTotal;
+        private Label label1;
+        private GroupBox groupBox2;
+        private RadioButton rbCuentaCorriente;
+        private Button btnComenzar;
         private RadioButton rbTransferencia;
         private RadioButton rbEfectivo;
         private RadioButton rbTarjeta;
-        private Label lblTotal;
-        private Label label1;
-        private Button btnComenzar;
+        private ComboBox cmbRazonSocial;
+        private Label lblRazon;
+        private Label lblFecha;
+        private Label lblVendedor;
+        private DateTimePicker dtpFechaVenta;
+        private TextBox txtVendedor;
+        private GroupBox gbCuentaCorriente;
     }
 }
