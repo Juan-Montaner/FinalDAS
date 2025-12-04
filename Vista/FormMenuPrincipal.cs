@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vista._2_Modulo_Clientes;
 using Vista._3_Modulo_Ventas;
+using Vista._5_Modulo_Vendedores;
 
 namespace Vista
 {
@@ -59,6 +60,13 @@ namespace Vista
             FormGestionVentas formGestionVentas = new FormGestionVentas();
             this.Hide();
             formGestionVentas.ShowDialog();
+        }
+
+        private void btnVendedores_Click(object sender, EventArgs e)
+        {
+            FormGestionVendedores formGestionVendedores = new FormGestionVendedores();
+            this.Hide();
+            formGestionVendedores.ShowDialog();
         }
     }
 }

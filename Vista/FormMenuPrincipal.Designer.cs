@@ -34,12 +34,13 @@
             btnGestionClientes = new Button();
             btnGestionProductos = new Button();
             groupBox1 = new GroupBox();
+            btnVendedores = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(46, 389);
+            btnSalir.Location = new Point(46, 493);
             btnSalir.Margin = new Padding(3, 4, 3, 4);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(162, 71);
@@ -50,7 +51,7 @@
             // 
             // btnRepYCons
             // 
-            btnRepYCons.Location = new Point(46, 303);
+            btnRepYCons.Location = new Point(46, 397);
             btnRepYCons.Margin = new Padding(3, 4, 3, 4);
             btnRepYCons.Name = "btnRepYCons";
             btnRepYCons.Size = new Size(162, 71);
@@ -60,7 +61,7 @@
             // 
             // btnGestionVentas
             // 
-            btnGestionVentas.Location = new Point(46, 216);
+            btnGestionVentas.Location = new Point(46, 205);
             btnGestionVentas.Margin = new Padding(3, 4, 3, 4);
             btnGestionVentas.Name = "btnGestionVentas";
             btnGestionVentas.Size = new Size(162, 71);
@@ -71,7 +72,7 @@
             // 
             // btnGestionClientes
             // 
-            btnGestionClientes.Location = new Point(46, 129);
+            btnGestionClientes.Location = new Point(46, 109);
             btnGestionClientes.Margin = new Padding(3, 4, 3, 4);
             btnGestionClientes.Name = "btnGestionClientes";
             btnGestionClientes.Size = new Size(162, 71);
@@ -82,7 +83,7 @@
             // 
             // btnGestionProductos
             // 
-            btnGestionProductos.Location = new Point(46, 43);
+            btnGestionProductos.Location = new Point(46, 13);
             btnGestionProductos.Margin = new Padding(3, 4, 3, 4);
             btnGestionProductos.Name = "btnGestionProductos";
             btnGestionProductos.Size = new Size(162, 71);
@@ -93,25 +94,37 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnVendedores);
             groupBox1.Controls.Add(btnGestionProductos);
             groupBox1.Controls.Add(btnSalir);
             groupBox1.Controls.Add(btnGestionClientes);
             groupBox1.Controls.Add(btnRepYCons);
             groupBox1.Controls.Add(btnGestionVentas);
-            groupBox1.Location = new Point(14, 13);
+            groupBox1.Location = new Point(12, 0);
             groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(261, 489);
+            groupBox1.Size = new Size(263, 573);
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
+            // 
+            // btnVendedores
+            // 
+            btnVendedores.Location = new Point(46, 301);
+            btnVendedores.Margin = new Padding(3, 4, 3, 4);
+            btnVendedores.Name = "btnVendedores";
+            btnVendedores.Size = new Size(162, 71);
+            btnVendedores.TabIndex = 10;
+            btnVendedores.Text = "Gestion de Vendedores";
+            btnVendedores.UseVisualStyleBackColor = true;
+            btnVendedores.Click += btnVendedores_Click;
             // 
             // FormMenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(285, 519);
+            ClientSize = new Size(285, 586);
             Controls.Add(groupBox1);
             Name = "FormMenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
@@ -128,5 +141,6 @@
         private Button btnGestionClientes;
         private Button btnGestionProductos;
         private GroupBox groupBox1;
+        private Button btnVendedores;
     }
 }

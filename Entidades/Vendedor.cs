@@ -15,5 +15,6 @@ namespace Entidades
         public int IDVendedor { get; set; }
         public string Nombre { get; set; }
         public int DNI { get; set; }
+
     }
 }

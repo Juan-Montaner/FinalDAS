@@ -190,6 +190,26 @@ namespace Modelo.Migrations
                     b.ToTable("Sucursales");
                 });
 
+            modelBuilder.Entity("Entidades.Vendedor", b =>
+                {
+                    b.Property<int>("IDVendedor")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IDVendedor"));
+
+                    b.Property<int>("DNI")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IDVendedor");
+
+                    b.ToTable("Vendedores");
+                });
+
             modelBuilder.Entity("Entidades.Venta", b =>
                 {
                     b.Property<int>("IDVenta")

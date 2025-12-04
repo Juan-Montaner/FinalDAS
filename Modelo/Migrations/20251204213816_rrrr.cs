@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Modelo.Migrations
 {
     /// <inheritdoc />
-    public partial class peene : Migration
+    public partial class rrrr : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -89,6 +89,20 @@ namespace Modelo.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Sucursales", x => x.IDSucursal);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Vendedores",
+                columns: table => new
+                {
+                    IDVendedor = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DNI = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Vendedores", x => x.IDVendedor);
                 });
 
             migrationBuilder.CreateTable(
@@ -176,6 +190,9 @@ namespace Modelo.Migrations
 
             migrationBuilder.DropTable(
                 name: "Sucursales");
+
+            migrationBuilder.DropTable(
+                name: "Vendedores");
 
             migrationBuilder.DropTable(
                 name: "Productos");

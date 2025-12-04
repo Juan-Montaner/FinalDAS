@@ -12,8 +12,8 @@ using Modelo;
 namespace Modelo.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20251204205952_peene")]
-    partial class peene
+    [Migration("20251204213816_rrrr")]
+    partial class rrrr
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -191,6 +191,26 @@ namespace Modelo.Migrations
                     b.HasKey("IDSucursal");
 
                     b.ToTable("Sucursales");
+                });
+
+            modelBuilder.Entity("Entidades.Vendedor", b =>
+                {
+                    b.Property<int>("IDVendedor")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IDVendedor"));
+
+                    b.Property<int>("DNI")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IDVendedor");
+
+                    b.ToTable("Vendedores");
                 });
 
             modelBuilder.Entity("Entidades.Venta", b =>

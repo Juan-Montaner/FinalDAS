@@ -126,7 +126,7 @@ namespace Controladora
 
             return "Cliente Modificado con Exito";
         }
-
+        
         public Cliente BuscarClienteId(int id)
         {
             return repositorioCliente.BuscarClienteID(id);
