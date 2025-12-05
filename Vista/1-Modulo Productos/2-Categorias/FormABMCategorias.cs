@@ -22,6 +22,12 @@ namespace Vista.Gestion_de_Productos
             if (id != null)
             {
                 CargarDatos();
+                grpAbm.Text = "Modificar Categoria";
+
+            }
+            else
+            {
+                grpAbm.Text = "Agregar Categoria";
             }
         }
 

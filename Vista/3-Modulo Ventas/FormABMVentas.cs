@@ -173,7 +173,7 @@ namespace Vista._3_Modulo_Ventas
             {
                 controladoraVentas.AgregarVentas(razonSocial, Fecha, productosVenta, (int)iDSucursal, vendedor, MetodoDePago, Total);
 
-                var ventaRecien = controladoraVentas.BuscarVenta(Fecha);
+                var ventaRecien = controladoraVentas.BuscarVentaFecha(Fecha);
 
                 controladoraFacturas.AgregarFacturas(razonSocial, Fecha, MetodoDePago, Total, ventaRecien.IDVenta);
 
@@ -242,7 +242,6 @@ namespace Vista._3_Modulo_Ventas
 
             return null;
         }
-
 
         private int? GetIdCarritoDeCompras()
         {

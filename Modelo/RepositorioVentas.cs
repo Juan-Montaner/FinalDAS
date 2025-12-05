@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,17 +52,13 @@ namespace Modelo
         public List<Producto> ProductosMasVendidos()
         {
             // Agrupo por producto y sumo cantidades, luego hago join con Productos
-            var grouped = context.DetallesVentas
-                                 .GroupBy(d => d.IDProducto).Select(g => new
-                                 {
-                                     IDProducto = g.Key,
-                                     CantidadVendida = g.Sum(x => x.Cantidad)
-                                 }).OrderByDescending(x => x.CantidadVendida);
+            var grouped = context.DetallesVentas.GroupBy(d => d.IDProducto).Select(g => new
+            {
+                IDProducto = g.Key,
+                CantidadVendida = g.Sum(x => x.Cantidad)
+            }).OrderByDescending(x => x.CantidadVendida);
 
-            var productos = grouped.Join(context.Productos,
-                                  g => g.IDProducto,
-                                  p => p.IDProducto,
-                                  (g, p) => p).ToList();
+            var productos = grouped.Join(context.Productos, g => g.IDProducto, p => p.IDProducto, (g, p) => p).ToList();
 
             return productos;
         }
@@ -71,6 +68,31 @@ namespace Modelo
             return context.DetallesVentas.Where(d => d.IDProducto == idProducto).Sum(d => d.Cantidad);
         }
 
+        public Venta BuscarVentaIDDetalles(int idVenta)
+        {
+            return context.Ventas.Include(v => v.Detalles).ThenInclude(d => d.Producto).FirstOrDefault(v => v.IDVenta == idVenta);
+        }
+
+        public List<Venta> FiltrarVentasPorPeriodo(DateTime inicio, DateTime fin)
+        {
+            return context.Ventas.Where(c => c.Fecha.Date >= inicio.Date && c.Fecha.Date <= fin.Date).ToList();
+        }
+
+
+        public List<Venta> FiltrarVentasPorSucursal(int idSucursal)
+        {
+            return context.Ventas.Where(c => c.IDSucursal == idSucursal).ToList();
+        }
+
+        public List<Venta> FiltrarVentasPorVendedor(string Nombre)
+        {
+            return context.Ventas.Where(c => c.Vendedor == Nombre).ToList();
+        }
+
+        public List<Venta> FiltrarVentasPorProducto(int idProducto)
+        {
+            return context.DetallesVentas.Where(d => d.IDProducto == idProducto).Select(d => d.Venta).Distinct().ToList();
+        }
 
     }
 }

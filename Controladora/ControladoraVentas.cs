@@ -52,7 +52,7 @@ namespace Controladora
 
             repositorioVentas.AgregarVenta(nuevaVenta);
 
-            return "VENTA nueva Agregada con Exito";
+            return "Nueva VENTA agregada con exito";
         }
 
         public string EliminarVenta(int id)
@@ -66,17 +66,14 @@ namespace Controladora
 
             repositorioVentas.EliminarVentas(venta);
 
-            return "VENTA Eliminada con Exito";
+            return "VENTA eliminada con exito";
         }
-
-        
-
         public Venta BuscarVentaId(int id)
         {
             return repositorioVentas.BuscarVentaID(id);
         }
 
-        public Venta BuscarVenta(DateTime fecha)
+        public Venta BuscarVentaFecha(DateTime fecha)
         {
             return repositorioVentas.BuscarVenta(fecha);
         }
@@ -96,7 +93,7 @@ namespace Controladora
         public List<Venta> FiltrarVentasRazonSocial(string razonSocial)
         {
             return repositorioVentas.FiltrarVentasRazonSocial(razonSocial);
-                
+
         }
 
         public List<Producto> ProductosMasVendidos()
@@ -108,5 +105,31 @@ namespace Controladora
         {
             return repositorioVentas.CantidadVendidaProducto(idProducto);
         }
+
+        public Venta BuscarVentaPorId(int idVenta)
+        {
+            return repositorioVentas.BuscarVentaIDDetalles(idVenta);
+        }
+
+        public List<Venta> FiltrarVentasPorPeriodo(DateTime tiempoInicio, DateTime tiempoHasta)
+        {
+            return repositorioVentas.FiltrarVentasPorPeriodo(tiempoInicio, tiempoHasta);
+        }
+
+        public List<Venta> FiltrarVentasPorSucursal(int idSucursal)
+        {
+            return repositorioVentas.FiltrarVentasPorSucursal(idSucursal);
+        }
+
+        public List<Venta> FiltrarVentasPorVendedor(string Nombre)
+        {
+            return repositorioVentas.FiltrarVentasPorVendedor(Nombre);
+        }
+
+        public List<Venta> FiltrarVentasPorProducto(int idProducto)
+        {
+            return repositorioVentas.FiltrarVentasPorProducto(idProducto);
+        }
+
     }
 }

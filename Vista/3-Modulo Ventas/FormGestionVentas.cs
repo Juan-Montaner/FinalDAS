@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
+using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -150,10 +154,95 @@ namespace Vista._3_Modulo_Ventas
 
         }
 
-        private void btnFactura_Click(object sender, EventArgs e)
+        public void GenerarFacturaExcel(Venta venta, string ruta)
         {
+            using (SpreadsheetDocument documento = SpreadsheetDocument.Create(ruta, SpreadsheetDocumentType.Workbook))
+            {
+                WorkbookPart workbookPart = documento.AddWorkbookPart();
+                workbookPart.Workbook = new Workbook();
 
+                WorksheetPart worksheetPart = workbookPart.AddNewPart<WorksheetPart>();
+                SheetData sheetData = new SheetData();
+                worksheetPart.Worksheet = new Worksheet(sheetData);
+
+                Sheets sheets = documento.WorkbookPart.Workbook.AppendChild(new Sheets());
+                Sheet sheet = new Sheet()
+                {
+                    Id = documento.WorkbookPart.GetIdOfPart(worksheetPart),
+                    SheetId = 1,
+                    Name = "Factura"
+                };
+                sheets.Append(sheet);
+
+                // Agregar información
+                sheetData.Append(CrearFila("ID Venta", venta.IDVenta.ToString()));
+                sheetData.Append(CrearFila("Cliente", venta.RazonSocialCliente));
+                sheetData.Append(CrearFila("Fecha", venta.Fecha.ToString("dd/MM/yyyy")));
+                sheetData.Append(CrearFila("Método de Pago", venta.MetodoDePago.ToString()));
+                sheetData.Append(CrearFila("Total", venta.Total.ToString("0.00")));
+
+                // Encabezado detalles
+                sheetData.Append(CrearFila(" "));
+                sheetData.Append(CrearFila("Producto", "Cantidad", "Precio Unitario"));
+
+                // Detalles de productos
+                foreach (var det in venta.Detalles)
+                {
+                    sheetData.Append(CrearFila(
+                        det.Producto.Nombre,
+                        det.Cantidad.ToString(),
+                        det.PrecioUnitario.ToString("0.00")
+                    ));
+                }
+            }
         }
 
+        // Método helper para crear filas
+        private Row CrearFila(params string[] valores)
+        {
+            Row fila = new Row();
+            foreach (string val in valores)
+            {
+                Cell celda = new Cell()
+                {
+                    DataType = CellValues.String,
+                    CellValue = new CellValue(val)
+                };
+                fila.Append(celda);
+            }
+            return fila;
+        }
+
+        private void btnFactura_Click(object sender, EventArgs e)
+        {
+            int? id = GetId();
+
+            if (id == null)
+            {
+                MessageBox.Show("Seleccione una factura/venta.");
+                return;
+            }
+
+            // Obtener la factura/venta
+            Controladora.ControladoraVentas controladora = Controladora.ControladoraVentas.Instancia;
+            var venta = controladora.BuscarVentaPorId((int)id);
+
+            if (venta == null)
+            {
+                MessageBox.Show("No se encontró la factura.");
+                return;
+            }
+
+            // Seleccionar ruta
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Excel (*.xlsx)|*.xlsx";
+            save.FileName = $"Factura_{venta.IDVenta}.xlsx";
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                GenerarFacturaExcel(venta, save.FileName);
+                MessageBox.Show("Factura exportada correctamente.");
+            }
+        }
     }
 }

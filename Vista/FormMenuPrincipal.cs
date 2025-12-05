@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vista._2_Modulo_Clientes;
 using Vista._3_Modulo_Ventas;
+using Vista._4_Modulo_Reportes_y_Consultas;
 using Vista._5_Modulo_Vendedores;
 
 namespace Vista
@@ -67,6 +68,13 @@ namespace Vista
             FormGestionVendedores formGestionVendedores = new FormGestionVendedores();
             this.Hide();
             formGestionVendedores.ShowDialog();
+        }
+
+        private void btnRepYCons_Click(object sender, EventArgs e)
+        {
+            FormReporteYConsultas formReporteYConsultas = new FormReporteYConsultas();
+            this.Hide();
+            formReporteYConsultas.ShowDialog();
         }
     }
 }
