@@ -56,7 +56,7 @@ namespace Vista._5_Modulo_Vendedores
                     {
                         string Nombre = txtNombre.Text;
                         int DNI = int.Parse(txtDNI.Text);
-                        
+
 
                         string resultado = controladora.AgregarVendedor(Nombre, DNI);
 
@@ -110,6 +110,26 @@ namespace Vista._5_Modulo_Vendedores
             FormGestionVendedores formGestionVendedores = new FormGestionVendedores();
             this.Hide();
             formGestionVendedores.ShowDialog();
+        }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Solo permite dígitos y la tecla Backspace
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite letras, espacio y Backspace
+            if (!char.IsLetter(e.KeyChar) &&
+                e.KeyChar != (char)Keys.Back &&
+                e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

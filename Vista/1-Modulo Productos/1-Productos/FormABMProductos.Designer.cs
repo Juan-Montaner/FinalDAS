@@ -49,9 +49,10 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(20, 286);
+            btnGuardar.Location = new Point(23, 381);
+            btnGuardar.Margin = new Padding(3, 4, 3, 4);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(83, 38);
+            btnGuardar.Size = new Size(95, 51);
             btnGuardar.TabIndex = 29;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -59,46 +60,54 @@
             // 
             // numUdStock
             // 
-            numUdStock.Location = new Point(66, 234);
+            numUdStock.Location = new Point(75, 312);
+            numUdStock.Margin = new Padding(3, 4, 3, 4);
             numUdStock.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numUdStock.Name = "numUdStock";
-            numUdStock.Size = new Size(164, 23);
+            numUdStock.Size = new Size(187, 27);
             numUdStock.TabIndex = 28;
             // 
             // txtPrecio
             // 
-            txtPrecio.Location = new Point(70, 196);
+            txtPrecio.Location = new Point(80, 261);
+            txtPrecio.Margin = new Padding(3, 4, 3, 4);
+            txtPrecio.MaxLength = 10;
             txtPrecio.Name = "txtPrecio";
-            txtPrecio.Size = new Size(160, 23);
+            txtPrecio.Size = new Size(182, 27);
             txtPrecio.TabIndex = 27;
+            txtPrecio.KeyPress += txtPrecio_KeyPress;
             // 
             // cmbCategoria
             // 
             cmbCategoria.FormattingEnabled = true;
-            cmbCategoria.Location = new Point(87, 120);
+            cmbCategoria.Location = new Point(99, 160);
+            cmbCategoria.Margin = new Padding(3, 4, 3, 4);
             cmbCategoria.Name = "cmbCategoria";
-            cmbCategoria.Size = new Size(142, 23);
+            cmbCategoria.Size = new Size(162, 28);
             cmbCategoria.TabIndex = 26;
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(98, 82);
+            txtDescripcion.Location = new Point(112, 109);
+            txtDescripcion.Margin = new Padding(3, 4, 3, 4);
             txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(131, 23);
+            txtDescripcion.Size = new Size(149, 27);
             txtDescripcion.TabIndex = 25;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(80, 44);
+            txtNombre.Location = new Point(91, 59);
+            txtNombre.Margin = new Padding(3, 4, 3, 4);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(149, 23);
+            txtNombre.Size = new Size(170, 27);
             txtNombre.TabIndex = 24;
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(146, 286);
+            btnVolver.Location = new Point(167, 381);
+            btnVolver.Margin = new Padding(3, 4, 3, 4);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(83, 38);
+            btnVolver.Size = new Size(95, 51);
             btnVolver.TabIndex = 23;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -107,45 +116,45 @@
             // lblStock
             // 
             lblStock.AutoSize = true;
-            lblStock.Location = new Point(20, 237);
+            lblStock.Location = new Point(23, 316);
             lblStock.Name = "lblStock";
-            lblStock.Size = new Size(39, 15);
+            lblStock.Size = new Size(48, 20);
             lblStock.TabIndex = 22;
             lblStock.Text = "Stock:";
             // 
             // lblPrecio
             // 
             lblPrecio.AutoSize = true;
-            lblPrecio.Location = new Point(20, 199);
+            lblPrecio.Location = new Point(23, 265);
             lblPrecio.Name = "lblPrecio";
-            lblPrecio.Size = new Size(43, 15);
+            lblPrecio.Size = new Size(53, 20);
             lblPrecio.TabIndex = 21;
             lblPrecio.Text = "Precio:";
             // 
             // lblCategoria
             // 
             lblCategoria.AutoSize = true;
-            lblCategoria.Location = new Point(20, 123);
+            lblCategoria.Location = new Point(23, 164);
             lblCategoria.Name = "lblCategoria";
-            lblCategoria.Size = new Size(61, 15);
+            lblCategoria.Size = new Size(77, 20);
             lblCategoria.TabIndex = 20;
             lblCategoria.Text = "Categoria:";
             // 
             // lblDescripcion
             // 
             lblDescripcion.AutoSize = true;
-            lblDescripcion.Location = new Point(20, 85);
+            lblDescripcion.Location = new Point(23, 113);
             lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new Size(72, 15);
+            lblDescripcion.Size = new Size(90, 20);
             lblDescripcion.TabIndex = 19;
             lblDescripcion.Text = "Descripcion:";
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(20, 47);
+            lblNombre.Location = new Point(23, 63);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(54, 15);
+            lblNombre.Size = new Size(67, 20);
             lblNombre.TabIndex = 18;
             lblNombre.Text = "Nombre:";
             // 
@@ -165,9 +174,11 @@
             grpAgregarMod.Controls.Add(txtDescripcion);
             grpAgregarMod.Controls.Add(btnVolver);
             grpAgregarMod.Controls.Add(txtNombre);
-            grpAgregarMod.Location = new Point(10, 3);
+            grpAgregarMod.Location = new Point(11, 4);
+            grpAgregarMod.Margin = new Padding(3, 4, 3, 4);
             grpAgregarMod.Name = "grpAgregarMod";
-            grpAgregarMod.Size = new Size(250, 347);
+            grpAgregarMod.Padding = new Padding(3, 4, 3, 4);
+            grpAgregarMod.Size = new Size(286, 463);
             grpAgregarMod.TabIndex = 30;
             grpAgregarMod.TabStop = false;
             grpAgregarMod.Text = "Agregar Producto";
@@ -175,28 +186,28 @@
             // cmbSucursal
             // 
             cmbSucursal.FormattingEnabled = true;
-            cmbSucursal.Location = new Point(90, 158);
-            cmbSucursal.Margin = new Padding(3, 2, 3, 2);
+            cmbSucursal.Location = new Point(103, 211);
             cmbSucursal.Name = "cmbSucursal";
-            cmbSucursal.Size = new Size(139, 23);
+            cmbSucursal.Size = new Size(158, 28);
             cmbSucursal.TabIndex = 31;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 161);
+            label1.Location = new Point(31, 215);
             label1.Name = "label1";
-            label1.Size = new Size(54, 15);
+            label1.Size = new Size(66, 20);
             label1.TabIndex = 30;
             label1.Text = "Sucursal:";
             // 
             // FormABMProductos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(269, 358);
+            ClientSize = new Size(307, 477);
             Controls.Add(grpAgregarMod);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormABMProductos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Productos";

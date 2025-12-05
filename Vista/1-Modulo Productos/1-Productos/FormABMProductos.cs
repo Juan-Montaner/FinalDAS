@@ -91,7 +91,7 @@ namespace Vista.Gestion_de_Productos
                 if (Id == null)
                 {
                     try
-                    {                
+                    {
                         string Nombre = txtNombre.Text;
                         string Descripcion = txtDescripcion.Text;
                         decimal Precio = decimal.Parse(txtPrecio.Text);
@@ -137,7 +137,14 @@ namespace Vista.Gestion_de_Productos
             formGestionDeProductos.ShowDialog();
         }
 
-
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Solo permite dígitos y la tecla Backspace
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
     }
 
 }

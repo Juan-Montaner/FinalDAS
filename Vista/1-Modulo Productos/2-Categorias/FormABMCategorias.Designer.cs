@@ -38,25 +38,27 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(83, 41);
+            txtNombre.Location = new Point(95, 55);
+            txtNombre.Margin = new Padding(3, 4, 3, 4);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(149, 23);
+            txtNombre.Size = new Size(170, 27);
             txtNombre.TabIndex = 26;
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(23, 44);
+            lblNombre.Location = new Point(22, 55);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(54, 15);
+            lblNombre.Size = new Size(67, 20);
             lblNombre.TabIndex = 25;
             lblNombre.Text = "Nombre:";
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(23, 92);
+            btnGuardar.Location = new Point(22, 123);
+            btnGuardar.Margin = new Padding(3, 4, 3, 4);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(83, 38);
+            btnGuardar.Size = new Size(95, 51);
             btnGuardar.TabIndex = 31;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -64,9 +66,10 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(149, 92);
+            btnVolver.Location = new Point(170, 123);
+            btnVolver.Margin = new Padding(3, 4, 3, 4);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(83, 38);
+            btnVolver.Size = new Size(95, 51);
             btnVolver.TabIndex = 30;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -78,22 +81,25 @@
             grpAbm.Controls.Add(btnGuardar);
             grpAbm.Controls.Add(txtNombre);
             grpAbm.Controls.Add(btnVolver);
-            grpAbm.Location = new Point(10, 1);
+            grpAbm.Location = new Point(11, 1);
+            grpAbm.Margin = new Padding(3, 4, 3, 4);
             grpAbm.Name = "grpAbm";
-            grpAbm.Size = new Size(258, 145);
+            grpAbm.Padding = new Padding(3, 4, 3, 4);
+            grpAbm.Size = new Size(295, 193);
             grpAbm.TabIndex = 32;
             grpAbm.TabStop = false;
             // 
             // FormABMCategorias
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(280, 155);
+            ClientSize = new Size(320, 207);
             Controls.Add(grpAbm);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormABMCategorias";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ABMCategorias";
+            Text = "Categorias";
             grpAbm.ResumeLayout(false);
             grpAbm.PerformLayout();
             ResumeLayout(false);

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Vista.Gestion_de_Productos
 {
@@ -95,6 +96,30 @@ namespace Vista.Gestion_de_Productos
             this.Close();
             formGestionDeSucursales.ShowDialog();
         }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Solo permite dígitos y la tecla Backspace
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMail_Leave(object sender, EventArgs e)
+        {
+            string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+            if (!Regex.IsMatch(txtMail.Text, patron))
+            {
+                lblErrorMail.Text = "¡Mail inválido!";
+                lblErrorMail.Visible = true;
+            }
+            else
+            {
+                lblErrorMail.Visible = false;
+            }
+        }
     }
-    
+
 }

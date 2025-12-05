@@ -46,20 +46,17 @@
             gbVendedores.Controls.Add(txtNombre);
             gbVendedores.Controls.Add(lblDNI);
             gbVendedores.Controls.Add(lblNombre);
-            gbVendedores.Location = new Point(10, 9);
-            gbVendedores.Margin = new Padding(3, 2, 3, 2);
+            gbVendedores.Location = new Point(11, 12);
             gbVendedores.Name = "gbVendedores";
-            gbVendedores.Padding = new Padding(3, 2, 3, 2);
-            gbVendedores.Size = new Size(240, 170);
+            gbVendedores.Size = new Size(274, 227);
             gbVendedores.TabIndex = 0;
             gbVendedores.TabStop = false;
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(133, 126);
-            btnVolver.Margin = new Padding(3, 2, 3, 2);
+            btnVolver.Location = new Point(152, 168);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(87, 32);
+            btnVolver.Size = new Size(99, 43);
             btnVolver.TabIndex = 5;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -67,10 +64,9 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(15, 126);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
+            btnGuardar.Location = new Point(17, 168);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(88, 32);
+            btnGuardar.Size = new Size(101, 43);
             btnGuardar.TabIndex = 4;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -78,47 +74,48 @@
             // 
             // txtDNI
             // 
-            txtDNI.Location = new Point(53, 76);
-            txtDNI.Margin = new Padding(3, 2, 3, 2);
+            txtDNI.Location = new Point(61, 101);
+            txtDNI.MaxLength = 9;
             txtDNI.Name = "txtDNI";
-            txtDNI.Size = new Size(167, 23);
+            txtDNI.Size = new Size(190, 27);
             txtDNI.TabIndex = 3;
+            txtDNI.KeyPress += txtDNI_KeyPress;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(79, 41);
-            txtNombre.Margin = new Padding(3, 2, 3, 2);
+            txtNombre.Location = new Point(90, 55);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(141, 23);
+            txtNombre.Size = new Size(161, 27);
             txtNombre.TabIndex = 2;
+            txtNombre.KeyPress += txtNombre_KeyPress;
             // 
             // lblDNI
             // 
             lblDNI.AutoSize = true;
-            lblDNI.Location = new Point(15, 76);
+            lblDNI.Location = new Point(17, 101);
             lblDNI.Name = "lblDNI";
-            lblDNI.Size = new Size(30, 15);
+            lblDNI.Size = new Size(38, 20);
             lblDNI.TabIndex = 1;
             lblDNI.Text = "DNI:";
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(15, 41);
+            lblNombre.Location = new Point(17, 55);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(54, 15);
+            lblNombre.Size = new Size(67, 20);
             lblNombre.TabIndex = 0;
             lblNombre.Text = "Nombre:";
             // 
             // FormABMVendedores
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(260, 188);
+            ClientSize = new Size(297, 251);
             Controls.Add(gbVendedores);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormABMVendedores";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Vendedores";
             gbVendedores.ResumeLayout(false);
             gbVendedores.PerformLayout();

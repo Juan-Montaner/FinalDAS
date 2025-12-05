@@ -139,6 +139,8 @@
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(637, 772);
             Controls.Add(groupBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FormMenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu Principal";

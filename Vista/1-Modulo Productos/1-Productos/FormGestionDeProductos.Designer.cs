@@ -245,7 +245,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormGestionDeProductos";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormGestionDeProductos";
+            Text = "Gestion de Productos";
             ((System.ComponentModel.ISupportInitialize)dgvGestionProductos).EndInit();
             grpListaProductos.ResumeLayout(false);
             grpProductos.ResumeLayout(false);

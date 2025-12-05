@@ -43,17 +43,19 @@
             // dgvGestionCategorias
             // 
             dgvGestionCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvGestionCategorias.Location = new Point(21, 22);
+            dgvGestionCategorias.Location = new Point(24, 29);
+            dgvGestionCategorias.Margin = new Padding(3, 4, 3, 4);
             dgvGestionCategorias.Name = "dgvGestionCategorias";
             dgvGestionCategorias.RowHeadersWidth = 51;
-            dgvGestionCategorias.Size = new Size(746, 306);
+            dgvGestionCategorias.Size = new Size(853, 408);
             dgvGestionCategorias.TabIndex = 9;
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(702, 384);
+            btnVolver.Location = new Point(802, 512);
+            btnVolver.Margin = new Padding(3, 4, 3, 4);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(97, 41);
+            btnVolver.Size = new Size(111, 55);
             btnVolver.TabIndex = 8;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -61,9 +63,10 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(263, 384);
+            btnEliminar.Location = new Point(301, 512);
+            btnEliminar.Margin = new Padding(3, 4, 3, 4);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(100, 36);
+            btnEliminar.Size = new Size(114, 48);
             btnEliminar.TabIndex = 7;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -71,9 +74,10 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(141, 384);
+            btnModificar.Location = new Point(161, 512);
+            btnModificar.Margin = new Padding(3, 4, 3, 4);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(100, 36);
+            btnModificar.Size = new Size(114, 48);
             btnModificar.TabIndex = 6;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
@@ -86,9 +90,11 @@
             grpTodo.Controls.Add(btnModificar);
             grpTodo.Controls.Add(btnVolver);
             grpTodo.Controls.Add(btnEliminar);
-            grpTodo.Location = new Point(12, 1);
+            grpTodo.Location = new Point(14, 1);
+            grpTodo.Margin = new Padding(3, 4, 3, 4);
             grpTodo.Name = "grpTodo";
-            grpTodo.Size = new Size(809, 437);
+            grpTodo.Padding = new Padding(3, 4, 3, 4);
+            grpTodo.Size = new Size(925, 583);
             grpTodo.TabIndex = 11;
             grpTodo.TabStop = false;
             grpTodo.Text = "Categorias";
@@ -96,18 +102,21 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(dgvGestionCategorias);
-            groupBox1.Location = new Point(19, 22);
+            groupBox1.Location = new Point(22, 29);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(780, 345);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(891, 460);
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
             groupBox1.Text = "Lista de Categorias";
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(19, 384);
+            btnAgregar.Location = new Point(22, 512);
+            btnAgregar.Margin = new Padding(3, 4, 3, 4);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(100, 36);
+            btnAgregar.Size = new Size(114, 48);
             btnAgregar.TabIndex = 5;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -115,14 +124,15 @@
             // 
             // FormGestionDeCategorias
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(831, 446);
+            ClientSize = new Size(950, 595);
             Controls.Add(grpTodo);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormGestionDeCategorias";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormGestionDeCategorias";
+            Text = "Gestion de Categorias";
             ((System.ComponentModel.ISupportInitialize)dgvGestionCategorias).EndInit();
             grpTodo.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
