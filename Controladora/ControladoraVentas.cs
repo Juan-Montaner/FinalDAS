@@ -30,7 +30,7 @@ namespace Controladora
 
             if (string.IsNullOrWhiteSpace(RazonSocialCliente) || int.IsNegative(IdSucursal) || int.IsNegative(MetodoPago) || string.IsNullOrWhiteSpace(Vendedor))
             {
-                return "Error al AGREGAR Venta: Los campos no pueden estar vacios";
+                return "Error al AGREGAR la venta: Los campos no pueden estar vacios";
             }
 
             Venta nuevaVenta = new Venta();
@@ -52,7 +52,7 @@ namespace Controladora
 
             repositorioVentas.AgregarVenta(nuevaVenta);
 
-            return "VENTA agregada con exito";
+            return "Venta agregada con exito";
         }
 
         public string EliminarVenta(int id)
@@ -61,12 +61,12 @@ namespace Controladora
 
             if (venta == null)
             {
-                return "Error al ELIMINAR La VENTA: La venta no existe";
+                return "Error al ELIMINAR la venta: La venta no existe";
             }
 
             repositorioVentas.EliminarVentas(venta);
 
-            return "VENTA Eliminada con exito";
+            return "Venta eliminada con exito";
         }
         public Venta BuscarVentaId(int id)
         {
