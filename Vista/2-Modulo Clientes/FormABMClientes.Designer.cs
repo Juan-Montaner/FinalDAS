@@ -39,11 +39,13 @@
             lblMail = new Label();
             lblTelefono = new Label();
             lblRazon = new Label();
+            lblErrorMail = new Label();
             gbClientes.SuspendLayout();
             SuspendLayout();
             // 
             // gbClientes
             // 
+            gbClientes.Controls.Add(lblErrorMail);
             gbClientes.Controls.Add(rbnMayorista);
             gbClientes.Controls.Add(rbnMinorista);
             gbClientes.Controls.Add(btnVolver);
@@ -58,14 +60,14 @@
             gbClientes.Margin = new Padding(3, 2, 3, 2);
             gbClientes.Name = "gbClientes";
             gbClientes.Padding = new Padding(3, 2, 3, 2);
-            gbClientes.Size = new Size(232, 220);
+            gbClientes.Size = new Size(232, 249);
             gbClientes.TabIndex = 0;
             gbClientes.TabStop = false;
             // 
             // rbnMayorista
             // 
             rbnMayorista.AutoSize = true;
-            rbnMayorista.Location = new Point(133, 128);
+            rbnMayorista.Location = new Point(133, 152);
             rbnMayorista.Margin = new Padding(3, 2, 3, 2);
             rbnMayorista.Name = "rbnMayorista";
             rbnMayorista.Size = new Size(77, 19);
@@ -77,7 +79,7 @@
             // rbnMinorista
             // 
             rbnMinorista.AutoSize = true;
-            rbnMinorista.Location = new Point(23, 128);
+            rbnMinorista.Location = new Point(23, 152);
             rbnMinorista.Margin = new Padding(3, 2, 3, 2);
             rbnMinorista.Name = "rbnMinorista";
             rbnMinorista.Size = new Size(75, 19);
@@ -88,7 +90,7 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(133, 170);
+            btnVolver.Location = new Point(133, 195);
             btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(83, 34);
@@ -99,7 +101,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(16, 170);
+            btnGuardar.Location = new Point(16, 195);
             btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(82, 34);
@@ -115,11 +117,13 @@
             txtMail.Name = "txtMail";
             txtMail.Size = new Size(159, 23);
             txtMail.TabIndex = 5;
+            txtMail.Leave += txtMail_Leave;
             // 
             // txtTelefono
             // 
             txtTelefono.Location = new Point(82, 59);
             txtTelefono.Margin = new Padding(3, 2, 3, 2);
+            txtTelefono.MaxLength = 13;
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(133, 23);
             txtTelefono.TabIndex = 4;
@@ -160,12 +164,22 @@
             lblRazon.TabIndex = 0;
             lblRazon.Text = "Razon Social:";
             // 
+            // lblErrorMail
+            // 
+            lblErrorMail.AutoSize = true;
+            lblErrorMail.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblErrorMail.ForeColor = Color.Red;
+            lblErrorMail.Location = new Point(16, 126);
+            lblErrorMail.Name = "lblErrorMail";
+            lblErrorMail.Size = new Size(0, 15);
+            lblErrorMail.TabIndex = 41;
+            // 
             // FormABMClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(247, 231);
+            ClientSize = new Size(247, 262);
             Controls.Add(gbClientes);
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormABMClientes";
@@ -189,5 +203,6 @@
         private TextBox txtTelefono;
         private RadioButton rbnMayorista;
         private RadioButton rbnMinorista;
+        private Label lblErrorMail;
     }
 }

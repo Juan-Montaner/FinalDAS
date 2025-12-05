@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvGestionProductos = new DataGridView();
+            dgvGestionSucursales = new DataGridView();
             btnVolver = new Button();
             btnEliminar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
             grpSucursales = new GroupBox();
             grpListaSucursales = new GroupBox();
-            ((System.ComponentModel.ISupportInitialize)dgvGestionProductos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvGestionSucursales).BeginInit();
             grpSucursales.SuspendLayout();
             grpListaSucursales.SuspendLayout();
             SuspendLayout();
             // 
-            // dgvGestionProductos
+            // dgvGestionSucursales
             // 
-            dgvGestionProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvGestionProductos.Location = new Point(16, 22);
-            dgvGestionProductos.Name = "dgvGestionProductos";
-            dgvGestionProductos.RowHeadersWidth = 51;
-            dgvGestionProductos.Size = new Size(454, 261);
-            dgvGestionProductos.TabIndex = 14;
+            dgvGestionSucursales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvGestionSucursales.Location = new Point(16, 22);
+            dgvGestionSucursales.Name = "dgvGestionSucursales";
+            dgvGestionSucursales.RowHeadersWidth = 51;
+            dgvGestionSucursales.Size = new Size(454, 261);
+            dgvGestionSucursales.TabIndex = 14;
             // 
             // btnVolver
             // 
@@ -105,7 +105,7 @@
             // 
             // grpListaSucursales
             // 
-            grpListaSucursales.Controls.Add(dgvGestionProductos);
+            grpListaSucursales.Controls.Add(dgvGestionSucursales);
             grpListaSucursales.Location = new Point(6, 22);
             grpListaSucursales.Name = "grpListaSucursales";
             grpListaSucursales.Size = new Size(484, 298);
@@ -123,7 +123,7 @@
             Name = "FormGestionDeSucursales";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestion de Sucursales";
-            ((System.ComponentModel.ISupportInitialize)dgvGestionProductos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvGestionSucursales).EndInit();
             grpSucursales.ResumeLayout(false);
             grpListaSucursales.ResumeLayout(false);
             ResumeLayout(false);
@@ -131,7 +131,7 @@
 
         #endregion
 
-        private DataGridView dgvGestionProductos;
+        private DataGridView dgvGestionSucursales;
         private Button btnVolver;
         private Button btnEliminar;
         private Button btnModificar;

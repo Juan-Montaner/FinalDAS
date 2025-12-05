@@ -51,7 +51,6 @@ namespace Modelo
 
         public List<Producto> ProductosMasVendidos()
         {
-            // Agrupo por producto y sumo cantidades, luego hago join con Productos
             var grouped = context.DetallesVentas.GroupBy(d => d.IDProducto).Select(g => new
             {
                 IDProducto = g.Key,

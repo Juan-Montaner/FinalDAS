@@ -34,10 +34,16 @@ namespace Controladora
                 return "Error al AGREGAR Sucursal: La Sucursal ya existe";
             }
 
-            if (string.IsNullOrWhiteSpace(direccion))
+            if (string.IsNullOrWhiteSpace(direccion) || string.IsNullOrWhiteSpace(mail))
             {
                 return "Error al AGREGAR Sucursal: Los campos no pueden estar vacios";
             }
+
+            if (telefono < 0)
+            {
+                return "Error: El teléfono no puede ser negativo.";
+            }
+
 
             Sucursal nuevaSucursal = new Sucursal();
 
@@ -56,7 +62,7 @@ namespace Controladora
 
             if (sucursal == null)
             {
-                return "Error al ELIMINAR LA Sucursal: La categoria no existe";
+                return "Error al ELIMINAR LA Sucursal: La Sucursal no existe";
             }
 
             repositorioSucursal.EliminarSucursal(sucursal);
@@ -73,9 +79,14 @@ namespace Controladora
                 return "Error al MODIFICAR LA SUCURSAL: La sucursal NO existe";
             }
 
-            if (string.IsNullOrWhiteSpace(direccion))
+            if (string.IsNullOrWhiteSpace(direccion) || string.IsNullOrWhiteSpace(mail))
             {
-                return "Error al MODIFICAR LA SUCURSAL: Los campos no pueden estar vacios";
+                return "Error al AGREGAR Sucursal: Los campos no pueden estar vacios";
+            }
+
+            if (telefono < 0)
+            {
+                return "Error: El teléfono no puede ser negativo.";
             }
 
             sucursal.Direccion = direccion;

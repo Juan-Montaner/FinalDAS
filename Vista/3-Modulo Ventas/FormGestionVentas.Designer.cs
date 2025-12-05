@@ -47,11 +47,11 @@
             // 
             gbVentas.Controls.Add(cmbSucursales);
             gbVentas.Controls.Add(btnAgregar);
-            gbVentas.Location = new Point(6, 295);
+            gbVentas.Location = new Point(7, 403);
             gbVentas.Margin = new Padding(3, 2, 3, 2);
             gbVentas.Name = "gbVentas";
             gbVentas.Padding = new Padding(3, 2, 3, 2);
-            gbVentas.Size = new Size(166, 115);
+            gbVentas.Size = new Size(196, 115);
             gbVentas.TabIndex = 0;
             gbVentas.TabStop = false;
             gbVentas.Text = "Selecciona Sucursal";
@@ -62,24 +62,24 @@
             cmbSucursales.Location = new Point(15, 35);
             cmbSucursales.Margin = new Padding(3, 2, 3, 2);
             cmbSucursales.Name = "cmbSucursales";
-            cmbSucursales.Size = new Size(133, 23);
+            cmbSucursales.Size = new Size(158, 23);
             cmbSucursales.TabIndex = 5;
             cmbSucursales.SelectedIndexChanged += cmbSucursales_SelectedIndexChanged;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(66, 75);
+            btnAgregar.Location = new Point(15, 75);
             btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(82, 24);
+            btnAgregar.Size = new Size(158, 24);
             btnAgregar.TabIndex = 1;
-            btnAgregar.Text = "Agregar";
+            btnAgregar.Text = "Agregar Venta";
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(514, 371);
+            btnVolver.Location = new Point(705, 478);
             btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(82, 39);
@@ -90,7 +90,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(331, 371);
+            btnEliminar.Location = new Point(411, 478);
             btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(147, 39);
@@ -106,7 +106,7 @@
             gbModYEl.Margin = new Padding(3, 2, 3, 2);
             gbModYEl.Name = "gbModYEl";
             gbModYEl.Padding = new Padding(3, 2, 3, 2);
-            gbModYEl.Size = new Size(590, 270);
+            gbModYEl.Size = new Size(781, 378);
             gbModYEl.TabIndex = 4;
             gbModYEl.TabStop = false;
             gbModYEl.Text = "Lista de Ventas";
@@ -114,16 +114,16 @@
             // dgvVentas
             // 
             dgvVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVentas.Location = new Point(15, 24);
+            dgvVentas.Location = new Point(6, 20);
             dgvVentas.Margin = new Padding(3, 2, 3, 2);
             dgvVentas.Name = "dgvVentas";
             dgvVentas.RowHeadersWidth = 51;
-            dgvVentas.Size = new Size(565, 232);
+            dgvVentas.Size = new Size(760, 350);
             dgvVentas.TabIndex = 0;
             // 
             // btnFactura
             // 
-            btnFactura.Location = new Point(178, 371);
+            btnFactura.Location = new Point(235, 478);
             btnFactura.Margin = new Padding(3, 2, 3, 2);
             btnFactura.Name = "btnFactura";
             btnFactura.Size = new Size(147, 39);
@@ -141,7 +141,7 @@
             groupBox1.Controls.Add(gbVentas);
             groupBox1.Location = new Point(5, 1);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(609, 424);
+            groupBox1.Size = new Size(798, 523);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Ventas";
@@ -151,7 +151,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(622, 430);
+            ClientSize = new Size(815, 532);
             Controls.Add(groupBox1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormGestionVentas";

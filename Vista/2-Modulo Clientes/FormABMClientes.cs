@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -151,6 +152,23 @@ namespace Vista._2_Modulo_Clientes
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtMail_Leave(object sender, EventArgs e)
+        {
+            string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+            if (!Regex.IsMatch(txtMail.Text, patron))
+            {
+                lblErrorMail.Text = "¡Mail inválido!";
+                btnGuardar.Enabled = false;
+                lblErrorMail.Visible = true;
+            }
+            else
+            {
+                btnGuardar.Enabled = true;
+                lblErrorMail.Visible = false;
             }
         }
     }

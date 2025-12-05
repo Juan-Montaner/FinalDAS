@@ -17,14 +17,35 @@ namespace Vista._2_Modulo_Clientes
         {
             InitializeComponent();
             Refrescar();
-
+            dgvClientes.DataBindingComplete += (s, e) => PintarEncabezados();
         }
 
         private void Refrescar()
         {
             Controladora.ControladoraClientes controladora = Controladora.ControladoraClientes.Instancia;
             dgvClientes.DataSource = controladora.ListarClientes();
+            PintarEncabezados();
         }
+
+        private void PintarEncabezados()
+        {
+
+            dgvClientes.EnableHeadersVisualStyles = false;
+
+
+            foreach (DataGridViewColumn col in dgvClientes.Columns)
+            {
+
+                col.HeaderCell.Style.Font = new Font(dgvClientes.Font, FontStyle.Bold);
+                col.HeaderCell.Style.ForeColor = Color.White;
+                col.HeaderCell.Style.BackColor = Color.SteelBlue;
+
+
+            }
+            dgvClientes.Refresh();
+        }
+
+    
 
         private int? GetId()
         {
@@ -132,6 +153,25 @@ namespace Vista._2_Modulo_Clientes
             Refrescar();
         }
 
+        private void dgvClientes_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvClientes.Columns[e.ColumnIndex].Name == "CuentaCorriente" && e.Value != null)
+            {
+                if (decimal.TryParse(e.Value.ToString(), out var saldo))
+                {
+                    string texto = saldo < 0
+                        ? $"-{Math.Abs(saldo).ToString("C2")}"
+                        : saldo.ToString("C2");
+                    e.Value = texto;
 
+                    e.CellStyle.Font = new Font(dgvClientes.Font, FontStyle.Bold);
+                    e.CellStyle.ForeColor = saldo < 0 ? Color.Red
+                                         : saldo > 0 ? Color.Green
+                                         : Color.DimGray;
+
+                    e.FormattingApplied = true; 
+                }
+            }
+        }
     }
 }

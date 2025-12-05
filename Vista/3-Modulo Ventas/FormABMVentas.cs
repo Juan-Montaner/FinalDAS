@@ -41,12 +41,50 @@ namespace Vista._3_Modulo_Ventas
             CargarDgvSucursal();
             CargarCmbClientes();
             CargarCmbVendedores();
+            PintarEncabezadosSucursal();
+            PintarEncabezadosCompra();
 
             nudCantidad.Enabled = false;
             btnAgregarACarrito.Enabled = false;
 
             grpCarritoDeCompras.Enabled = false;
             grpProductos.Enabled = false;
+        }
+
+        private void PintarEncabezadosCompra()
+        {
+
+            dgvProductosCompra.EnableHeadersVisualStyles = false;
+
+
+            foreach (DataGridViewColumn col in dgvProductosCompra.Columns)
+            {
+
+                col.HeaderCell.Style.Font = new Font(dgvProductosCompra.Font, FontStyle.Bold);
+                col.HeaderCell.Style.ForeColor = Color.White;
+                col.HeaderCell.Style.BackColor = Color.SteelBlue;
+
+
+            }
+            dgvProductosCompra.Refresh();
+        }
+
+        private void PintarEncabezadosSucursal()
+        {
+
+            dgvProductosSucursal.EnableHeadersVisualStyles = false;
+
+
+            foreach (DataGridViewColumn col in dgvProductosSucursal.Columns)
+            {
+
+                col.HeaderCell.Style.Font = new Font(dgvProductosSucursal.Font, FontStyle.Bold);
+                col.HeaderCell.Style.ForeColor = Color.White;
+                col.HeaderCell.Style.BackColor = Color.SteelBlue;
+
+
+            }
+            dgvProductosSucursal.Refresh();
         }
 
         private void LimitarCantidad(int idProducto)
@@ -114,6 +152,8 @@ namespace Vista._3_Modulo_Ventas
                 MessageBox.Show("Seleccione una categoria para modificar");
             }
 
+            PintarEncabezadosSucursal();
+            PintarEncabezadosCompra();
             dgvProductosSucursal.Enabled = true;
             nudCantidad.Enabled = false;
             nudCantidad.Value = 0;
@@ -169,7 +209,7 @@ namespace Vista._3_Modulo_Ventas
                 }
             }
 
-            if (aptoParaComprar == true)
+            if (aptoParaComprar == true && productosVenta.Count > 0)
             {
                 controladoraVentas.AgregarVentas(razonSocial, Fecha, productosVenta, (int)iDSucursal, vendedor, MetodoDePago, Total);
 
@@ -194,7 +234,7 @@ namespace Vista._3_Modulo_Ventas
             }
             else
             {
-                MessageBox.Show("No cumple con los requisitos para realizar la compra y los clientes mayoristas deben comprar al menos 150 productos Los clientes minoristas no pueden comprar 150 o más productos.");
+                MessageBox.Show("No cumple con los requisitos para realizar la compra, los clientes mayoristas deben comprar al menos 150 productos, Los clientes minoristas no pueden comprar 150 o más productos, No se puede tener el carrito Vacio.");
             }
 
 
@@ -311,7 +351,7 @@ namespace Vista._3_Modulo_Ventas
 
         private void nudCantidad_ValueChanged(object sender, EventArgs e)
         {
-            if (nudCantidad != null || nudCantidad.Value == 0)
+            if (nudCantidad != null || nudCantidad.Value > 0)
             {
                 btnAgregarACarrito.Enabled = true;
             }
@@ -353,6 +393,8 @@ namespace Vista._3_Modulo_Ventas
                     }
                 }
 
+                PintarEncabezadosSucursal();
+                PintarEncabezadosCompra();
                 CalcularTotal(Total);
             }
 
@@ -375,9 +417,56 @@ namespace Vista._3_Modulo_Ventas
             }
         }
 
-        private void cmbVendedor_SelectedIndexChanged(object sender, EventArgs e)
+        private void dgvProductosSucursal_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            if (dgvProductosSucursal.Columns[e.ColumnIndex].Name == "Stock" && e.Value != null)
+            {
+                if (int.TryParse(e.Value.ToString(), out int stock))
+                {
+                    var cell = dgvProductosSucursal.Rows[e.RowIndex].Cells[e.ColumnIndex];
 
+                    cell.Style.Font = new Font(dgvProductosSucursal.Font, FontStyle.Bold);
+
+                    if (stock == 0)
+                    {
+                        cell.Style.ForeColor = Color.White;
+                        cell.Style.BackColor = Color.Red;
+                    }
+                    else if (stock > 0 && stock <= 20)
+                    {
+                        cell.Style.ForeColor = Color.White;
+                        cell.Style.BackColor = Color.Orange;
+                    }
+
+
+                }
+            }
+        }
+
+        private void dgvProductosCompra_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvProductosCompra.Columns[e.ColumnIndex].Name == "Stock" && e.Value != null)
+            {
+                if (int.TryParse(e.Value.ToString(), out int stock))
+                {
+                    var cell = dgvProductosCompra.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                    cell.Style.Font = new Font(dgvProductosCompra.Font, FontStyle.Bold);
+
+                    if (stock == 0)
+                    {
+                        cell.Style.ForeColor = Color.White;
+                        cell.Style.BackColor = Color.Red;
+                    }
+                    else if (stock > 0 && stock <= 20)
+                    {
+                        cell.Style.ForeColor = Color.White;
+                        cell.Style.BackColor = Color.Orange;
+                    }
+
+
+                }
+            }
         }
     }
 }

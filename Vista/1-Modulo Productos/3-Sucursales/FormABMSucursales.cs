@@ -62,11 +62,12 @@ namespace Vista.Gestion_de_Productos
                         string Mail = txtMail.Text;
                         double Telefono = double.Parse(txtTelefono.Text);
 
+
                         controladora.AgregarSucursal(Direccion, Mail, Telefono);
                     }
-                    catch
+                    catch (FormatException Ex)
                     {
-
+                        MessageBox.Show("Error en el Formato de los datos -- Intente NUEVAMENTE");
                     }
                 }
                 else
@@ -80,9 +81,9 @@ namespace Vista.Gestion_de_Productos
 
                         controladora.ModificarSucursal(id, Direccion, Mail, Telefono);
                     }
-                    catch
+                    catch (FormatException Ex)
                     {
-
+                        MessageBox.Show("Error en el Formato de los datos -- Intente NUEVAMENTE");
                     }
                 }
             }
@@ -113,10 +114,12 @@ namespace Vista.Gestion_de_Productos
             if (!Regex.IsMatch(txtMail.Text, patron))
             {
                 lblErrorMail.Text = "¡Mail inválido!";
+                btnGuardar.Enabled = false;
                 lblErrorMail.Visible = true;
             }
             else
             {
+                btnGuardar.Enabled = true; 
                 lblErrorMail.Visible = false;
             }
         }

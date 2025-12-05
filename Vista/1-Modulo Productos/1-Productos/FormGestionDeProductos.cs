@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,8 +26,68 @@ namespace Vista.Gestion_de_Productos
         {
             Controladora.ControladoraProductos controladora = Controladora.ControladoraProductos.Instancia;
             dgvGestionProductos.DataSource = controladora.ListarProductos();
+            PintarEncabezados();
+            AjustarColumnas();
+
         }
 
+        #region Dgv Detalles
+        private void PintarEncabezados()
+        {
+
+            dgvGestionProductos.EnableHeadersVisualStyles = false;
+
+
+            foreach (DataGridViewColumn col in dgvGestionProductos.Columns)
+            {
+
+                col.HeaderCell.Style.Font = new Font(dgvGestionProductos.Font, FontStyle.Bold);
+                col.HeaderCell.Style.ForeColor = Color.White;
+                col.HeaderCell.Style.BackColor = Color.SteelBlue;
+
+
+            }
+            dgvGestionProductos.Refresh();
+        }
+
+        private void AjustarColumnas()
+        {
+            if (dgvGestionProductos.Columns.Count == 0)
+                return;
+
+            dgvGestionProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvGestionProductos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvGestionProductos.AllowUserToResizeColumns = false;
+            dgvGestionProductos.AllowUserToResizeRows = false;
+
+            // Función local para evitar NRE
+            void SetWidth(string colName, int width)
+            {
+                var col = dgvGestionProductos.Columns[colName];
+                if (col != null)
+                    col.Width = width;
+            }
+
+            void AlignRight(string colName)
+            {
+                var col = dgvGestionProductos.Columns[colName];
+                if (col != null)
+                    col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            }
+
+            SetWidth("IDProducto", 80);
+            SetWidth("Nombre", 120);
+            SetWidth("Descripcion", 150);
+            SetWidth("Categoria", 80);
+            SetWidth("Precio", 80);
+            SetWidth("IDSucursal", 90);
+            SetWidth("Stock", 70);
+
+            AlignRight("Precio");
+            AlignRight("Stock");
+        }
+
+        #endregion
         private void CargarSucursales()
         {
             Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
@@ -183,6 +245,32 @@ namespace Vista.Gestion_de_Productos
             int cantidad = controladora.CantidadVendidaProducto((int)id);
 
             MessageBox.Show($"Cantidad vendida del producto seleccionado: {cantidad}");
+        }
+
+        private void dgvGestionProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvGestionProductos.Columns[e.ColumnIndex].Name == "Stock" && e.Value != null)
+            {
+                if (int.TryParse(e.Value.ToString(), out int stock))
+                {
+                    var cell = dgvGestionProductos.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                    cell.Style.Font = new Font(dgvGestionProductos.Font, FontStyle.Bold);
+
+                    if (stock == 0)
+                    {
+                        cell.Style.ForeColor = Color.White;
+                        cell.Style.BackColor = Color.Red;     
+                    }
+                    else if (stock > 0 && stock <= 20)
+                    {
+                        cell.Style.ForeColor = Color.White;
+                        cell.Style.BackColor = Color.Orange;     
+                    }
+                    
+           
+                }
+            }
         }
     }
 }

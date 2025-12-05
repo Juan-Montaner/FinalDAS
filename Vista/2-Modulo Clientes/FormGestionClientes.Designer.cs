@@ -79,6 +79,7 @@
             dgvClientes.RowHeadersWidth = 51;
             dgvClientes.Size = new Size(734, 272);
             dgvClientes.TabIndex = 0;
+            dgvClientes.CellFormatting += dgvClientes_CellFormatting;
             // 
             // btnSaldo
             // 

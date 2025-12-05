@@ -22,6 +22,25 @@ namespace Vista.Gestion_de_Productos
         {
             Controladora.ControladoraCategorias controladora = Controladora.ControladoraCategorias.Instancia;
             dgvGestionCategorias.DataSource = controladora.ListarCategorias();
+            PintarEncabezados();
+        }
+
+        private void PintarEncabezados()
+        {
+
+            dgvGestionCategorias.EnableHeadersVisualStyles = false;
+
+
+            foreach (DataGridViewColumn col in dgvGestionCategorias.Columns)
+            {
+
+                col.HeaderCell.Style.Font = new Font(dgvGestionCategorias.Font, FontStyle.Bold);
+                col.HeaderCell.Style.ForeColor = Color.White;
+                col.HeaderCell.Style.BackColor = Color.SteelBlue;
+
+
+            }
+            dgvGestionCategorias.Refresh();
         }
 
         private int? GetId()

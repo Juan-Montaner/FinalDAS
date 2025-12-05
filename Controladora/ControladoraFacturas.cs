@@ -44,7 +44,7 @@ namespace Controladora
 
             repositorioFactura.AgregarFactura(nuevaFactura);
 
-            return "Factura Nueva Agregada con Exito";
+            return "Factura agregada con Exito";
         }
 
         public string EliminarFactura(int id)
@@ -81,7 +81,7 @@ namespace Controladora
 
             repositorioFactura.ModificarFactura(factura);
 
-            return "Factura Modificado con Exito";
+            return "Factura Modificada con Exito";
         }
 
         public Factura BuscarFacturaId(int id)

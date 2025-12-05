@@ -47,7 +47,7 @@ namespace Controladora
 
             repositorioVendedores.AgregarVendedor(nuevoVendedor);
 
-            return "Vendedor agregar con exito";
+            return "Vendedor agregado con exito";
         }
 
         public string EliminarVendedor(int id)
@@ -56,7 +56,7 @@ namespace Controladora
 
             if (vendedor == null)
             {
-                return "Error al ELIMINAR el vendedor: no existe";
+                return "Error al ELIMINAR el vendedor: El Vendedor no existe";
             }
 
             repositorioVendedores.EliminarVendedor(vendedor);
@@ -70,7 +70,7 @@ namespace Controladora
 
             if (vendedor == null)
             {
-                return "Error al MODIFICAR EL VENDEDOR: La sucursal NO existe";
+                return "Error al MODIFICAR EL VENDEDOR: El Vendedor no existe";
             }
 
             if (string.IsNullOrWhiteSpace(nombre))

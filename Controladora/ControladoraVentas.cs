@@ -45,14 +45,14 @@ namespace Controladora
 
             foreach (var det in nuevaVenta.Detalles)
             {
-                det.Venta = nuevaVenta; // <-- CORRECCIÓN CLAVE
+                det.Venta = nuevaVenta; 
             }
 
             nuevaVenta.MetodoDePago = (Venta.MetodoPago)MetodoPago;
 
             repositorioVentas.AgregarVenta(nuevaVenta);
 
-            return "Nueva VENTA agregada con exito";
+            return "VENTA agregada con exito";
         }
 
         public string EliminarVenta(int id)
@@ -66,7 +66,7 @@ namespace Controladora
 
             repositorioVentas.EliminarVentas(venta);
 
-            return "VENTA eliminada con exito";
+            return "VENTA Eliminada con exito";
         }
         public Venta BuscarVentaId(int id)
         {
@@ -106,7 +106,7 @@ namespace Controladora
             return repositorioVentas.CantidadVendidaProducto(idProducto);
         }
 
-        public Venta BuscarVentaPorId(int idVenta)
+        public Venta BuscarVentaIDDetallesBuscarDatId(int idVenta)
         {
             return repositorioVentas.BuscarVentaIDDetalles(idVenta);
         }

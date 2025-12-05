@@ -15,7 +15,9 @@ using Vista._2_Modulo_Clientes;
 using Vista.Gestion_de_Productos;
 using ClosedXML.Excel;
 using System.IO;
-
+using DocumentFormat.OpenXml.Presentation;
+using WinColor = System.Drawing.Color;
+using WinFont = System.Drawing.Font;
 
 namespace Vista._3_Modulo_Ventas
 {
@@ -28,12 +30,30 @@ namespace Vista._3_Modulo_Ventas
             CargarComboBox();
             cmbSucursales.SelectedIndexChanged += cmbSucursales_SelectedIndexChanged;
             Refrescar();
+            PintarEncabezados(dgvVentas);
         }
 
         private void Refrescar()
         {
             Controladora.ControladoraVentas controladora = Controladora.ControladoraVentas.Instancia;
             dgvVentas.DataSource = controladora.ListarVentas();
+        }
+
+        private void PintarEncabezados(DataGridView dgv)
+        {
+            dgv.EnableHeadersVisualStyles = false;
+
+            foreach (DataGridViewColumn col in dgv.Columns)
+            {
+                col.HeaderCell.Style.Font = new WinFont(dgv.Font, System.Drawing.FontStyle.Bold);
+                col.HeaderCell.Style.ForeColor = WinColor.White;
+                col.HeaderCell.Style.BackColor = WinColor.FromArgb(60, 141, 188);
+                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+
+            dgv.GridColor = WinColor.Silver; // Líneas gris claro
+
+            dgv.Refresh();
         }
 
         private int? GetId()
@@ -103,6 +123,9 @@ namespace Vista._3_Modulo_Ventas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            Controladora.ControladoraSucursales controladoraSucursales = Controladora.ControladoraSucursales.Instancia;
+            Controladora.ControladoraProductos controladoraProductos = Controladora.ControladoraProductos.Instancia;
+
             int? idSucursal = IDSucursal();
 
             if (idSucursal == null)
@@ -111,8 +134,15 @@ namespace Vista._3_Modulo_Ventas
                 return;
             }
 
-            var controladora = Controladora.ControladoraSucursales.Instancia;
-            var sucursal = controladora.ListarSucursales().FirstOrDefault(s => s.IDSucursal == idSucursal);
+            var lista = controladoraProductos.FiltrarPorSucursales((int)idSucursal);
+
+            if (lista == null || lista.Count == 0)
+            {
+                MessageBox.Show("La sucursal NO tiene productos, seleccione otra.");
+                return;
+            }
+
+            var sucursal = controladoraSucursales.ListarSucursales().FirstOrDefault(s => s.IDSucursal == idSucursal);
 
             if (sucursal == null)
             {
@@ -158,22 +188,6 @@ namespace Vista._3_Modulo_Ventas
         }
 
 
-        // Método helper para crear filas
-        private Row CrearFila(params string[] valores)
-        {
-            Row fila = new Row();
-            foreach (string val in valores)
-            {
-                Cell celda = new Cell()
-                {
-                    DataType = CellValues.String,
-                    CellValue = new CellValue(val)
-                };
-                fila.Append(celda);
-            }
-            return fila;
-        }
-
         private void btnFactura_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -185,7 +199,7 @@ namespace Vista._3_Modulo_Ventas
             }
 
             var controladora = Controladora.ControladoraVentas.Instancia;
-            var venta = controladora.BuscarVentaPorId((int)id);  // ← con Include
+            var venta = controladora.BuscarVentaIDDetallesBuscarDatId((int)id); 
 
             if (venta == null)
             {

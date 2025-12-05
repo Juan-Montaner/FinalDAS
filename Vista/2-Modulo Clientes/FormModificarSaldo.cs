@@ -40,10 +40,19 @@ namespace Vista._2_Modulo_Clientes
             Controladora.ControladoraClientes controladora = Controladora.ControladoraClientes.Instancia;
 
             var cliente = controladora.BuscarClienteId((int)Id);
+            
+            if(txtSaldo.Text.Length > 0)
+            {
+                cliente.CuentaCorriente = cliente.CuentaCorriente + decimal.Parse(txtSaldo.Text);
 
-            cliente.CuentaCorriente = cliente.CuentaCorriente + decimal.Parse(txtSaldo.Text);
+                MessageBox.Show("Saldo Modificado con Exito");
+            }
+            else
+            {
+                MessageBox.Show("\"Error en el Formato de los datos -- Intente NUEVAMENTE\"");
+            }
 
-            controladora.ModificarCliente(cliente.IDCliente, cliente.RazonSocial, cliente.Telefono, cliente.Mail, cliente.TipoCliente, cliente.CuentaCorriente);
+                controladora.ModificarCliente(cliente.IDCliente, cliente.RazonSocial, cliente.Telefono, cliente.Mail, cliente.TipoCliente, cliente.CuentaCorriente);
 
             this.Hide();
             FormGestionClientes formGestionClientes = new FormGestionClientes();

@@ -21,17 +21,36 @@ namespace Vista.Gestion_de_Productos
         private void Refrescar()
         {
             Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
-            dgvGestionProductos.DataSource = controladora.ListarSucursales();
+            dgvGestionSucursales.DataSource = controladora.ListarSucursales();
+            PintarEncabezados();
         }
+        private void PintarEncabezados()
+        {
+
+            dgvGestionSucursales.EnableHeadersVisualStyles = false;
+
+
+            foreach (DataGridViewColumn col in dgvGestionSucursales.Columns)
+            {
+
+                col.HeaderCell.Style.Font = new Font(dgvGestionSucursales.Font, FontStyle.Bold);
+                col.HeaderCell.Style.ForeColor = Color.White;
+                col.HeaderCell.Style.BackColor = Color.SteelBlue;
+
+
+            }
+            dgvGestionSucursales.Refresh();
+        }
+
         private int? GetId()
         {
-            if (dgvGestionProductos.Rows.Count == 0)
+            if (dgvGestionSucursales.Rows.Count == 0)
                 return null;
 
-            if (dgvGestionProductos.CurrentRow == null)
+            if (dgvGestionSucursales.CurrentRow == null)
                 return null;
 
-            var valor = dgvGestionProductos.CurrentRow.Cells[0].Value;
+            var valor = dgvGestionSucursales.CurrentRow.Cells[0].Value;
 
             if (valor == null)
                 return null;

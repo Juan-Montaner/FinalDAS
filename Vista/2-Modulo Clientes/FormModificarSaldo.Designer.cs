@@ -100,6 +100,7 @@
             // 
             txtSaldo.Location = new Point(71, 69);
             txtSaldo.Margin = new Padding(3, 2, 3, 2);
+            txtSaldo.MaxLength = 15;
             txtSaldo.Name = "txtSaldo";
             txtSaldo.Size = new Size(153, 23);
             txtSaldo.TabIndex = 1;

@@ -23,6 +23,25 @@ namespace Vista._5_Modulo_Vendedores
         {
             Controladora.ControladoraVendedores controladora = Controladora.ControladoraVendedores.Instancia;
             dgvVendedores.DataSource = controladora.ListarVendedores();
+            PintarEncabezados();
+        }
+
+        private void PintarEncabezados()
+        {
+
+            dgvVendedores.EnableHeadersVisualStyles = false;
+
+
+            foreach (DataGridViewColumn col in dgvVendedores.Columns)
+            {
+
+                col.HeaderCell.Style.Font = new Font(dgvVendedores.Font, FontStyle.Bold);
+                col.HeaderCell.Style.ForeColor = Color.White;
+                col.HeaderCell.Style.BackColor = Color.SteelBlue;
+
+
+            }
+            dgvVendedores.Refresh();
         }
 
         private int? GetId()

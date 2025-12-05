@@ -67,7 +67,7 @@ namespace Controladora
 
             repositorioProductos.EliminarProducto(producto);
 
-            return "Producto ELIMINADO con Exito";
+            return "Producto Eliminado con Exito";
         }
 
         public string ModificarProducto(int id, string nombre, string descripcion, string categoria,int idsucursal, decimal precio, int stock)
@@ -76,12 +76,12 @@ namespace Controladora
 
             if (producto == null)
             {
-                return "Error al MODIFICAR EL PRODUCTO: El Producto NO existe";
+                return "Error al MODIFICAR EL PRODUCTO: El Producto no existe";
             }
 
             if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(descripcion) || decimal.IsNegative(precio) || int.IsNegative(stock))
             {
-                return "Error al Modificar El PRODUCTO: Los campos no pueden estar vacios";
+                return "Error al MODIFICAR El PRODUCTO: Los campos no pueden estar vacios";
             }
 
             producto.Nombre = nombre;
@@ -94,7 +94,7 @@ namespace Controladora
 
             repositorioProductos.ModificarProducto(producto);
 
-            return "Producto Modificada con Exito";
+            return "Producto Modificado con Exito";
         }
 
         public List<Producto> ListarProductos()

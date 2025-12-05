@@ -101,9 +101,9 @@ namespace Vista.Gestion_de_Productos
 
                         controladora.AgregarProducto(Nombre, Descripcion, Categoria, IDSucursal, Precio, Stock);
                     }
-                    catch
+                    catch (FormatException Ex)
                     {
-
+                        MessageBox.Show("Error en el Formato de los datos -- Intente NUEVAMENTE");
                     }
                 }
                 else
@@ -120,9 +120,9 @@ namespace Vista.Gestion_de_Productos
 
                         controladora.ModificarProducto(id, Nombre, Descripcion, Categoria, IDSucursal, Precio, Stock);
                     }
-                    catch
+                    catch (FormatException Ex)
                     {
-
+                        MessageBox.Show("Error en el Formato de los datos -- Intente NUEVAMENTE");
                     }
                 }
             }

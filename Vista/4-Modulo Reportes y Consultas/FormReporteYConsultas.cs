@@ -1,6 +1,7 @@
 ﻿using Controladora;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Presentation;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinColor = System.Drawing.Color;
+using WinFont = System.Drawing.Font;
 
 namespace Vista._4_Modulo_Reportes_y_Consultas
 {
@@ -29,7 +32,29 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
         {
             Controladora.ControladoraVentas controladora = Controladora.ControladoraVentas.Instancia;
             dgvReportesVentas.DataSource = controladora.ListarVentas();
+            PintarEncabezados(dgvReportesVentas);
         }
+
+        private void PintarEncabezados(DataGridView dgv)
+        {
+            dgv.EnableHeadersVisualStyles = false;
+
+            foreach (DataGridViewColumn col in dgv.Columns)
+            {
+                col.HeaderCell.Style.Font = new WinFont(dgv.Font, System.Drawing.FontStyle.Bold);
+                col.HeaderCell.Style.ForeColor = WinColor.White;
+
+                // Color azul como el de tu ejemplo
+                col.HeaderCell.Style.BackColor = WinColor.FromArgb(60, 141, 188);
+
+                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+
+            dgv.GridColor = WinColor.Silver; // Líneas gris claro
+
+            dgv.Refresh();
+        }
+
         private void btnFiltrarPeriodo_Click(object sender, EventArgs e)
         {
             btnGenerarReporte.Enabled = true;
@@ -155,7 +180,9 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormMenuPrincipal formMenuPrincipal = new FormMenuPrincipal();
+            this.Hide();
+            formMenuPrincipal.ShowDialog();
         }
 
         private void CargarCmbProductos()

@@ -110,7 +110,6 @@
             cmbVendedor.Name = "cmbVendedor";
             cmbVendedor.Size = new Size(180, 23);
             cmbVendedor.TabIndex = 17;
-            cmbVendedor.SelectedIndexChanged += cmbVendedor_SelectedIndexChanged;
             // 
             // rbCuentaCorriente
             // 
@@ -255,7 +254,7 @@
             // 
             // btnFinalizar
             // 
-            btnFinalizar.Location = new Point(465, 237);
+            btnFinalizar.Location = new Point(564, 237);
             btnFinalizar.Margin = new Padding(3, 2, 3, 2);
             btnFinalizar.Name = "btnFinalizar";
             btnFinalizar.Size = new Size(195, 28);
@@ -266,7 +265,7 @@
             // 
             // btnAgregarACarrito
             // 
-            btnAgregarACarrito.Location = new Point(465, 228);
+            btnAgregarACarrito.Location = new Point(564, 227);
             btnAgregarACarrito.Margin = new Padding(3, 2, 3, 2);
             btnAgregarACarrito.Name = "btnAgregarACarrito";
             btnAgregarACarrito.Size = new Size(195, 28);
@@ -282,8 +281,9 @@
             dgvProductosSucursal.Margin = new Padding(3, 2, 3, 2);
             dgvProductosSucursal.Name = "dgvProductosSucursal";
             dgvProductosSucursal.RowHeadersWidth = 51;
-            dgvProductosSucursal.Size = new Size(654, 201);
+            dgvProductosSucursal.Size = new Size(753, 201);
             dgvProductosSucursal.TabIndex = 1;
+            dgvProductosSucursal.CellFormatting += dgvProductosSucursal_CellFormatting;
             // 
             // dgvProductosCompra
             // 
@@ -292,8 +292,9 @@
             dgvProductosCompra.Margin = new Padding(3, 2, 3, 2);
             dgvProductosCompra.Name = "dgvProductosCompra";
             dgvProductosCompra.RowHeadersWidth = 51;
-            dgvProductosCompra.Size = new Size(654, 216);
+            dgvProductosCompra.Size = new Size(753, 216);
             dgvProductosCompra.TabIndex = 2;
+            dgvProductosCompra.CellFormatting += dgvProductosCompra_CellFormatting;
             // 
             // groupBox1
             // 
@@ -304,7 +305,7 @@
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(969, 560);
+            groupBox1.Size = new Size(1079, 560);
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
             // 
@@ -317,7 +318,7 @@
             grpCarritoDeCompras.Controls.Add(btnFinalizar);
             grpCarritoDeCompras.Location = new Point(297, 281);
             grpCarritoDeCompras.Name = "grpCarritoDeCompras";
-            grpCarritoDeCompras.Size = new Size(666, 270);
+            grpCarritoDeCompras.Size = new Size(772, 270);
             grpCarritoDeCompras.TabIndex = 6;
             grpCarritoDeCompras.TabStop = false;
             grpCarritoDeCompras.Text = "Carrito De Compras";
@@ -327,7 +328,7 @@
             lblTotal.AutoSize = true;
             lblTotal.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTotal.ImageAlign = ContentAlignment.MiddleLeft;
-            lblTotal.Location = new Point(280, 240);
+            lblTotal.Location = new Point(318, 240);
             lblTotal.Name = "lblTotal";
             lblTotal.RightToLeft = RightToLeft.No;
             lblTotal.Size = new Size(17, 20);
@@ -338,7 +339,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(238, 240);
+            label1.Location = new Point(276, 240);
             label1.Name = "label1";
             label1.Size = new Size(45, 20);
             label1.TabIndex = 12;
@@ -363,7 +364,7 @@
             grpProductos.Controls.Add(btnAgregarACarrito);
             grpProductos.Location = new Point(297, 16);
             grpProductos.Name = "grpProductos";
-            grpProductos.Size = new Size(666, 263);
+            grpProductos.Size = new Size(772, 263);
             grpProductos.TabIndex = 3;
             grpProductos.TabStop = false;
             grpProductos.Text = "Productos";
@@ -381,7 +382,7 @@
             // 
             // nudCantidad
             // 
-            nudCantidad.Location = new Point(339, 232);
+            nudCantidad.Location = new Point(438, 231);
             nudCantidad.Name = "nudCantidad";
             nudCantidad.Size = new Size(120, 23);
             nudCantidad.TabIndex = 12;
@@ -392,7 +393,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(986, 562);
+            ClientSize = new Size(1098, 569);
             Controls.Add(groupBox1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormABMVentas";

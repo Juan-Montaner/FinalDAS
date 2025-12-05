@@ -22,6 +22,25 @@ namespace Vista._2_Modulo_Clientes
             this.Id = id;
 
             CargarHistoral();
+            PintarEncabezados();
+        }
+
+        private void PintarEncabezados()
+        {
+
+            dgvHistorial.EnableHeadersVisualStyles = false;
+
+
+            foreach (DataGridViewColumn col in dgvHistorial.Columns)
+            {
+
+                col.HeaderCell.Style.Font = new Font(dgvHistorial.Font, FontStyle.Bold);
+                col.HeaderCell.Style.ForeColor = Color.White;
+                col.HeaderCell.Style.BackColor = Color.SteelBlue;
+
+
+            }
+            dgvHistorial.Refresh();
         }
 
         private void CargarHistoral()
