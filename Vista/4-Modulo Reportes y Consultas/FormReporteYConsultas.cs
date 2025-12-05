@@ -34,6 +34,13 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
         {
             btnGenerarReporte.Enabled = true;
             Controladora.ControladoraVentas controladora = Controladora.ControladoraVentas.Instancia;
+
+            if (DateTimeOffset.Compare(dtpTiempoInicio.Value, dtpTiempoHasta.Value) > 0)
+            {
+                MessageBox.Show("La fecha de inicio no puede ser mayor a la fecha de fin.");
+                return;
+            }
+
             dgvReportesVentas.DataSource = controladora.FiltrarVentasPorPeriodo(dtpTiempoInicio.Value, dtpTiempoHasta.Value);
         }
 
@@ -62,22 +69,6 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
 
             dgvReportesVentas.DataSource = controladoraVentas.FiltrarVentasPorVendedor(vendedor.Nombre);
         }
-
-        private List<object> ObtenerFilasDelDGV()
-        {
-            List<object> lista = new List<object>();
-
-            foreach (DataGridViewRow fila in dgvReportesVentas.Rows)
-            {
-                if (!fila.IsNewRow)
-                {
-                    lista.Add(fila.DataBoundItem);
-                }
-            }
-
-            return lista;
-        }
-
         private void GenerarReporteExcelDesdeDGV()
         {
             if (dgvReportesVentas.Rows.Count == 0)
