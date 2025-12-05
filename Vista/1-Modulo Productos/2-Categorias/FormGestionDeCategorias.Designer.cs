@@ -51,7 +51,7 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(702, 395);
+            btnVolver.Location = new Point(702, 384);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(97, 41);
             btnVolver.TabIndex = 8;
@@ -61,7 +61,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(263, 395);
+            btnEliminar.Location = new Point(263, 384);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(100, 36);
             btnEliminar.TabIndex = 7;
@@ -71,7 +71,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(141, 395);
+            btnModificar.Location = new Point(141, 384);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(100, 36);
             btnModificar.TabIndex = 6;
@@ -88,7 +88,7 @@
             grpTodo.Controls.Add(btnEliminar);
             grpTodo.Location = new Point(12, 1);
             grpTodo.Name = "grpTodo";
-            grpTodo.Size = new Size(809, 452);
+            grpTodo.Size = new Size(809, 437);
             grpTodo.TabIndex = 11;
             grpTodo.TabStop = false;
             grpTodo.Text = "Categorias";
@@ -105,7 +105,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(19, 395);
+            btnAgregar.Location = new Point(19, 384);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(100, 36);
             btnAgregar.TabIndex = 5;
@@ -118,7 +118,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(831, 465);
+            ClientSize = new Size(831, 446);
             Controls.Add(grpTodo);
             Name = "FormGestionDeCategorias";
             StartPosition = FormStartPosition.CenterScreen;

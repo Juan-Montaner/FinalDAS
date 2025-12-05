@@ -21,6 +21,11 @@ namespace Vista.Gestion_de_Productos
             if (id != null)
             {
                 CargarDatos();
+                gbSucursal.Text = "Modificar Sucursales";
+            }
+            else
+            {
+                gbSucursal.Text = "Agregar Sucursales";
             }
         }
 

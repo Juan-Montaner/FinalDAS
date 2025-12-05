@@ -26,6 +26,11 @@ namespace Vista._2_Modulo_Clientes
             if (id != null)
             {
                 CargarDatos();
+                gbClientes.Text = "Modificar Cliente";
+            }
+            else
+            {
+                gbClientes.Text = "Agregar Cliente";
             }
         }
 

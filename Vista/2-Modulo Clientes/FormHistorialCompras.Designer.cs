@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            gbGestionClientes = new GroupBox();
+            gbHistorialDeCompras = new GroupBox();
             btnVolver = new Button();
             dgvHistorial = new DataGridView();
-            gbGestionClientes.SuspendLayout();
+            gbHistorialDeCompras.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHistorial).BeginInit();
             SuspendLayout();
             // 
-            // gbGestionClientes
+            // gbHistorialDeCompras
             // 
-            gbGestionClientes.Controls.Add(btnVolver);
-            gbGestionClientes.Controls.Add(dgvHistorial);
-            gbGestionClientes.Location = new Point(10, 9);
-            gbGestionClientes.Margin = new Padding(3, 2, 3, 2);
-            gbGestionClientes.Name = "gbGestionClientes";
-            gbGestionClientes.Padding = new Padding(3, 2, 3, 2);
-            gbGestionClientes.Size = new Size(802, 340);
-            gbGestionClientes.TabIndex = 1;
-            gbGestionClientes.TabStop = false;
+            gbHistorialDeCompras.Controls.Add(dgvHistorial);
+            gbHistorialDeCompras.Location = new Point(10, 9);
+            gbHistorialDeCompras.Margin = new Padding(3, 2, 3, 2);
+            gbHistorialDeCompras.Name = "gbHistorialDeCompras";
+            gbHistorialDeCompras.Padding = new Padding(3, 2, 3, 2);
+            gbHistorialDeCompras.Size = new Size(802, 297);
+            gbHistorialDeCompras.TabIndex = 1;
+            gbHistorialDeCompras.TabStop = false;
+            gbHistorialDeCompras.Text = "Historial de Compras";
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(16, 308);
+            btnVolver.Location = new Point(726, 310);
             btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(86, 28);
@@ -61,7 +61,7 @@
             // dgvHistorial
             // 
             dgvHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHistorial.Location = new Point(16, 21);
+            dgvHistorial.Location = new Point(16, 20);
             dgvHistorial.Margin = new Padding(3, 2, 3, 2);
             dgvHistorial.Name = "dgvHistorial";
             dgvHistorial.RowHeadersWidth = 51;
@@ -73,20 +73,21 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(827, 353);
-            Controls.Add(gbGestionClientes);
+            ClientSize = new Size(822, 347);
+            Controls.Add(btnVolver);
+            Controls.Add(gbHistorialDeCompras);
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormHistorialCompras";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Historial de Compras";
-            gbGestionClientes.ResumeLayout(false);
+            gbHistorialDeCompras.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvHistorial).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private GroupBox gbGestionClientes;
+        private GroupBox gbHistorialDeCompras;
         private Button btnVolver;
         private DataGridView dgvHistorial;
     }

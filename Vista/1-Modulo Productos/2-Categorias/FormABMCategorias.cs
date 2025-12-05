@@ -52,6 +52,9 @@ namespace Vista.Gestion_de_Productos
                 {
                     try
                     {
+
+                        grpAbm.Text = "Agregar Categoria";
+
                         string Nombre = txtNombre.Text;
 
                         controladora.AgregarCategoria(Nombre);
@@ -66,6 +69,7 @@ namespace Vista.Gestion_de_Productos
                 {
                     try
                     {
+                        grpAbm.Text = "Modificar Categoria";
                         int id = Id.Value;
                         string Nombre = txtNombre.Text;
 

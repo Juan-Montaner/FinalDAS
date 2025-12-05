@@ -23,6 +23,11 @@ namespace Vista._5_Modulo_Vendedores
             if (id != null)
             {
                 CargarDatos();
+                gbVendedores.Text = "Modificar Vendedor";
+            }
+            else
+            {
+                gbVendedores.Text = "Agregar Vendedor";
             }
         }
 

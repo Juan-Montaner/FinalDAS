@@ -47,11 +47,9 @@
             grpTodo.Controls.Add(btnModificar);
             grpTodo.Controls.Add(btnVolver);
             grpTodo.Controls.Add(btnEliminar);
-            grpTodo.Location = new Point(12, 13);
-            grpTodo.Margin = new Padding(3, 4, 3, 4);
+            grpTodo.Location = new Point(10, 10);
             grpTodo.Name = "grpTodo";
-            grpTodo.Padding = new Padding(3, 4, 3, 4);
-            grpTodo.Size = new Size(925, 593);
+            grpTodo.Size = new Size(809, 445);
             grpTodo.TabIndex = 12;
             grpTodo.TabStop = false;
             grpTodo.Text = "Vendedores";
@@ -59,11 +57,9 @@
             // gbListaVendedores
             // 
             gbListaVendedores.Controls.Add(dgvVendedores);
-            gbListaVendedores.Location = new Point(22, 29);
-            gbListaVendedores.Margin = new Padding(3, 4, 3, 4);
+            gbListaVendedores.Location = new Point(19, 22);
             gbListaVendedores.Name = "gbListaVendedores";
-            gbListaVendedores.Padding = new Padding(3, 4, 3, 4);
-            gbListaVendedores.Size = new Size(891, 460);
+            gbListaVendedores.Size = new Size(780, 345);
             gbListaVendedores.TabIndex = 11;
             gbListaVendedores.TabStop = false;
             gbListaVendedores.Text = "Lista de Vendedores";
@@ -71,19 +67,17 @@
             // dgvVendedores
             // 
             dgvVendedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVendedores.Location = new Point(24, 29);
-            dgvVendedores.Margin = new Padding(3, 4, 3, 4);
+            dgvVendedores.Location = new Point(21, 22);
             dgvVendedores.Name = "dgvVendedores";
             dgvVendedores.RowHeadersWidth = 51;
-            dgvVendedores.Size = new Size(853, 408);
+            dgvVendedores.Size = new Size(746, 306);
             dgvVendedores.TabIndex = 9;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(22, 527);
-            btnAgregar.Margin = new Padding(3, 4, 3, 4);
+            btnAgregar.Location = new Point(19, 395);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(114, 48);
+            btnAgregar.Size = new Size(100, 36);
             btnAgregar.TabIndex = 5;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -91,10 +85,9 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(161, 527);
-            btnModificar.Margin = new Padding(3, 4, 3, 4);
+            btnModificar.Location = new Point(141, 395);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(114, 48);
+            btnModificar.Size = new Size(100, 36);
             btnModificar.TabIndex = 6;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
@@ -102,10 +95,9 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(802, 527);
-            btnVolver.Margin = new Padding(3, 4, 3, 4);
+            btnVolver.Location = new Point(702, 395);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(111, 55);
+            btnVolver.Size = new Size(97, 41);
             btnVolver.TabIndex = 8;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -113,10 +105,9 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(301, 527);
-            btnEliminar.Margin = new Padding(3, 4, 3, 4);
+            btnEliminar.Location = new Point(263, 395);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(114, 48);
+            btnEliminar.Size = new Size(100, 36);
             btnEliminar.TabIndex = 7;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -124,13 +115,14 @@
             // 
             // FormGestionVendedores
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(948, 610);
+            ClientSize = new Size(830, 458);
             Controls.Add(grpTodo);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormGestionVendedores";
-            Text = "FormGestionVendedores";
+            Text = "Gestion de Vendedores";
             grpTodo.ResumeLayout(false);
             gbListaVendedores.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvVendedores).EndInit();

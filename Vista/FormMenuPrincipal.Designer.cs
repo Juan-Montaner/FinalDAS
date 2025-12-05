@@ -35,15 +35,15 @@
             btnGestionProductos = new Button();
             groupBox1 = new GroupBox();
             btnVendedores = new Button();
+            lblMenuPrincipal = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(46, 493);
-            btnSalir.Margin = new Padding(3, 4, 3, 4);
+            btnSalir.Location = new Point(66, 494);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(162, 71);
+            btnSalir.Size = new Size(142, 53);
             btnSalir.TabIndex = 9;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -51,20 +51,18 @@
             // 
             // btnRepYCons
             // 
-            btnRepYCons.Location = new Point(46, 397);
-            btnRepYCons.Margin = new Padding(3, 4, 3, 4);
+            btnRepYCons.Location = new Point(66, 422);
             btnRepYCons.Name = "btnRepYCons";
-            btnRepYCons.Size = new Size(162, 71);
+            btnRepYCons.Size = new Size(142, 53);
             btnRepYCons.TabIndex = 8;
             btnRepYCons.Text = "Reportes y Consultas";
             btnRepYCons.UseVisualStyleBackColor = true;
             // 
             // btnGestionVentas
             // 
-            btnGestionVentas.Location = new Point(46, 205);
-            btnGestionVentas.Margin = new Padding(3, 4, 3, 4);
+            btnGestionVentas.Location = new Point(66, 278);
             btnGestionVentas.Name = "btnGestionVentas";
-            btnGestionVentas.Size = new Size(162, 71);
+            btnGestionVentas.Size = new Size(142, 53);
             btnGestionVentas.TabIndex = 7;
             btnGestionVentas.Text = "Gestion de Ventas";
             btnGestionVentas.UseVisualStyleBackColor = true;
@@ -72,10 +70,9 @@
             // 
             // btnGestionClientes
             // 
-            btnGestionClientes.Location = new Point(46, 109);
-            btnGestionClientes.Margin = new Padding(3, 4, 3, 4);
+            btnGestionClientes.Location = new Point(66, 206);
             btnGestionClientes.Name = "btnGestionClientes";
-            btnGestionClientes.Size = new Size(162, 71);
+            btnGestionClientes.Size = new Size(142, 53);
             btnGestionClientes.TabIndex = 6;
             btnGestionClientes.Text = "Gestion de Clientes";
             btnGestionClientes.UseVisualStyleBackColor = true;
@@ -83,10 +80,9 @@
             // 
             // btnGestionProductos
             // 
-            btnGestionProductos.Location = new Point(46, 13);
-            btnGestionProductos.Margin = new Padding(3, 4, 3, 4);
+            btnGestionProductos.Location = new Point(66, 134);
             btnGestionProductos.Name = "btnGestionProductos";
-            btnGestionProductos.Size = new Size(162, 71);
+            btnGestionProductos.Size = new Size(142, 53);
             btnGestionProductos.TabIndex = 5;
             btnGestionProductos.Text = "Gestion de Productos y Sucursales";
             btnGestionProductos.UseVisualStyleBackColor = true;
@@ -94,42 +90,52 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(lblMenuPrincipal);
             groupBox1.Controls.Add(btnVendedores);
             groupBox1.Controls.Add(btnGestionProductos);
             groupBox1.Controls.Add(btnSalir);
             groupBox1.Controls.Add(btnGestionClientes);
             groupBox1.Controls.Add(btnRepYCons);
             groupBox1.Controls.Add(btnGestionVentas);
-            groupBox1.Location = new Point(12, 0);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
+            groupBox1.Location = new Point(10, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(263, 573);
+            groupBox1.Size = new Size(533, 567);
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
             // 
             // btnVendedores
             // 
-            btnVendedores.Location = new Point(46, 301);
-            btnVendedores.Margin = new Padding(3, 4, 3, 4);
+            btnVendedores.Location = new Point(66, 350);
             btnVendedores.Name = "btnVendedores";
-            btnVendedores.Size = new Size(162, 71);
+            btnVendedores.Size = new Size(142, 53);
             btnVendedores.TabIndex = 10;
             btnVendedores.Text = "Gestion de Vendedores";
             btnVendedores.UseVisualStyleBackColor = true;
             btnVendedores.Click += btnVendedores_Click;
             // 
+            // lblMenuPrincipal
+            // 
+            lblMenuPrincipal.AutoSize = true;
+            lblMenuPrincipal.Font = new Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMenuPrincipal.Location = new Point(43, 28);
+            lblMenuPrincipal.Name = "lblMenuPrincipal";
+            lblMenuPrincipal.Size = new Size(460, 86);
+            lblMenuPrincipal.TabIndex = 11;
+            lblMenuPrincipal.Text = "Menu Principal";
+            // 
             // FormMenuPrincipal
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(285, 586);
+            ClientSize = new Size(557, 579);
             Controls.Add(groupBox1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormMenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "MenuPrincipal";
+            Text = "Menu Principal";
             groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -142,5 +148,6 @@
         private Button btnGestionProductos;
         private GroupBox groupBox1;
         private Button btnVendedores;
+        private Label lblMenuPrincipal;
     }
 }

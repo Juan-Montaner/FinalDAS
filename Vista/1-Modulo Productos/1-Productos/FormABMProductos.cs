@@ -23,6 +23,11 @@ namespace Vista.Gestion_de_Productos
             if (id != null)
             {
                 CargarDatos();
+                grpAgregarMod.Text = "Modificar Producto";
+            }
+            else
+            {
+                grpAgregarMod.Text = "Agregar Producto";
             }
         }
 
@@ -86,7 +91,7 @@ namespace Vista.Gestion_de_Productos
                 if (Id == null)
                 {
                     try
-                    {
+                    {                
                         string Nombre = txtNombre.Text;
                         string Descripcion = txtDescripcion.Text;
                         decimal Precio = decimal.Parse(txtPrecio.Text);

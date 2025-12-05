@@ -42,7 +42,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(16, 148);
+            btnGuardar.Location = new Point(13, 148);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(83, 38);
             btnGuardar.TabIndex = 35;
@@ -52,7 +52,7 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(142, 148);
+            btnVolver.Location = new Point(132, 148);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(83, 38);
             btnVolver.TabIndex = 34;
@@ -62,15 +62,15 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(87, 24);
+            txtDireccion.Location = new Point(79, 45);
             txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(149, 23);
+            txtDireccion.Size = new Size(131, 23);
             txtDireccion.TabIndex = 33;
             // 
             // lblDireccion
             // 
             lblDireccion.AutoSize = true;
-            lblDireccion.Location = new Point(16, 26);
+            lblDireccion.Location = new Point(13, 48);
             lblDireccion.Name = "lblDireccion";
             lblDireccion.Size = new Size(60, 15);
             lblDireccion.TabIndex = 32;
@@ -79,7 +79,7 @@
             // lblMail
             // 
             lblMail.AutoSize = true;
-            lblMail.Location = new Point(9, 47);
+            lblMail.Location = new Point(13, 84);
             lblMail.Name = "lblMail";
             lblMail.Size = new Size(33, 15);
             lblMail.TabIndex = 36;
@@ -88,7 +88,7 @@
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Location = new Point(5, 76);
+            lblTelefono.Location = new Point(13, 120);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(56, 15);
             lblTelefono.TabIndex = 37;
@@ -96,29 +96,35 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(87, 85);
+            txtTelefono.Location = new Point(79, 117);
             txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(155, 23);
+            txtTelefono.Size = new Size(131, 23);
             txtTelefono.TabIndex = 38;
             // 
             // txtMail
             // 
-            txtMail.Location = new Point(87, 54);
+            txtMail.Location = new Point(52, 81);
             txtMail.Margin = new Padding(3, 2, 3, 2);
             txtMail.Name = "txtMail";
-            txtMail.Size = new Size(149, 23);
+            txtMail.Size = new Size(158, 23);
             txtMail.TabIndex = 39;
             // 
             // gbSucursal
             // 
+            gbSucursal.Controls.Add(btnVolver);
+            gbSucursal.Controls.Add(btnGuardar);
+            gbSucursal.Controls.Add(txtMail);
             gbSucursal.Controls.Add(lblMail);
+            gbSucursal.Controls.Add(txtDireccion);
+            gbSucursal.Controls.Add(txtTelefono);
             gbSucursal.Controls.Add(lblTelefono);
-            gbSucursal.Location = new Point(10, 9);
+            gbSucursal.Controls.Add(lblDireccion);
+            gbSucursal.Location = new Point(7, 3);
             gbSucursal.Margin = new Padding(3, 2, 3, 2);
             gbSucursal.Name = "gbSucursal";
             gbSucursal.Padding = new Padding(3, 2, 3, 2);
-            gbSucursal.Size = new Size(250, 197);
+            gbSucursal.Size = new Size(226, 205);
             gbSucursal.TabIndex = 40;
             gbSucursal.TabStop = false;
             // 
@@ -127,21 +133,14 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(800, 450);
-            Controls.Add(txtMail);
-            Controls.Add(txtTelefono);
-            Controls.Add(btnGuardar);
-            Controls.Add(btnVolver);
-            Controls.Add(txtDireccion);
-            Controls.Add(lblDireccion);
+            ClientSize = new Size(240, 212);
             Controls.Add(gbSucursal);
             Name = "FormABMSucursales";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormABMSucursales";
+            Text = "Sucursales";
             gbSucursal.ResumeLayout(false);
             gbSucursal.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

@@ -38,7 +38,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(94, 54);
+            txtNombre.Location = new Point(83, 41);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(149, 23);
             txtNombre.TabIndex = 26;
@@ -46,7 +46,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(34, 57);
+            lblNombre.Location = new Point(23, 44);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(54, 15);
             lblNombre.TabIndex = 25;
@@ -54,7 +54,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(34, 105);
+            btnGuardar.Location = new Point(23, 92);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(83, 38);
             btnGuardar.TabIndex = 31;
@@ -64,7 +64,7 @@
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(160, 105);
+            btnVolver.Location = new Point(149, 92);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(83, 38);
             btnVolver.TabIndex = 30;
@@ -80,7 +80,7 @@
             grpAbm.Controls.Add(btnVolver);
             grpAbm.Location = new Point(10, 1);
             grpAbm.Name = "grpAbm";
-            grpAbm.Size = new Size(286, 180);
+            grpAbm.Size = new Size(258, 145);
             grpAbm.TabIndex = 32;
             grpAbm.TabStop = false;
             // 
@@ -89,7 +89,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(306, 190);
+            ClientSize = new Size(280, 155);
             Controls.Add(grpAbm);
             Name = "FormABMCategorias";
             StartPosition = FormStartPosition.CenterScreen;

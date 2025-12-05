@@ -33,21 +33,25 @@
             btnEliminar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
+            grpSucursales = new GroupBox();
+            grpListaSucursales = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)dgvGestionProductos).BeginInit();
+            grpSucursales.SuspendLayout();
+            grpListaSucursales.SuspendLayout();
             SuspendLayout();
             // 
             // dgvGestionProductos
             // 
             dgvGestionProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvGestionProductos.Location = new Point(12, 12);
+            dgvGestionProductos.Location = new Point(16, 22);
             dgvGestionProductos.Name = "dgvGestionProductos";
             dgvGestionProductos.RowHeadersWidth = 51;
-            dgvGestionProductos.Size = new Size(776, 276);
+            dgvGestionProductos.Size = new Size(454, 261);
             dgvGestionProductos.TabIndex = 14;
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(691, 305);
+            btnVolver.Location = new Point(379, 326);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(97, 41);
             btnVolver.TabIndex = 13;
@@ -57,9 +61,9 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(256, 305);
+            btnEliminar.Location = new Point(260, 326);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(100, 36);
+            btnEliminar.Size = new Size(97, 41);
             btnEliminar.TabIndex = 12;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -67,9 +71,9 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(134, 305);
+            btnModificar.Location = new Point(141, 326);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(100, 36);
+            btnModificar.Size = new Size(97, 41);
             btnModificar.TabIndex = 11;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
@@ -77,29 +81,51 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(12, 305);
+            btnAgregar.Location = new Point(22, 326);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(100, 36);
+            btnAgregar.Size = new Size(97, 41);
             btnAgregar.TabIndex = 10;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
+            // 
+            // grpSucursales
+            // 
+            grpSucursales.Controls.Add(grpListaSucursales);
+            grpSucursales.Controls.Add(btnVolver);
+            grpSucursales.Controls.Add(btnAgregar);
+            grpSucursales.Controls.Add(btnEliminar);
+            grpSucursales.Controls.Add(btnModificar);
+            grpSucursales.Location = new Point(10, -2);
+            grpSucursales.Name = "grpSucursales";
+            grpSucursales.Size = new Size(502, 378);
+            grpSucursales.TabIndex = 15;
+            grpSucursales.TabStop = false;
+            grpSucursales.Text = "Sucursales";
+            // 
+            // grpListaSucursales
+            // 
+            grpListaSucursales.Controls.Add(dgvGestionProductos);
+            grpListaSucursales.Location = new Point(6, 22);
+            grpListaSucursales.Name = "grpListaSucursales";
+            grpListaSucursales.Size = new Size(484, 298);
+            grpListaSucursales.TabIndex = 15;
+            grpListaSucursales.TabStop = false;
+            grpListaSucursales.Text = "Lista de Sucursales";
             // 
             // FormGestionDeSucursales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(800, 357);
-            Controls.Add(dgvGestionProductos);
-            Controls.Add(btnVolver);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnModificar);
-            Controls.Add(btnAgregar);
+            ClientSize = new Size(521, 385);
+            Controls.Add(grpSucursales);
             Name = "FormGestionDeSucursales";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormGestionDeSucursales";
+            Text = "Gestion de Sucursales";
             ((System.ComponentModel.ISupportInitialize)dgvGestionProductos).EndInit();
+            grpSucursales.ResumeLayout(false);
+            grpListaSucursales.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -110,5 +136,7 @@
         private Button btnEliminar;
         private Button btnModificar;
         private Button btnAgregar;
+        private GroupBox grpSucursales;
+        private GroupBox grpListaSucursales;
     }
 }

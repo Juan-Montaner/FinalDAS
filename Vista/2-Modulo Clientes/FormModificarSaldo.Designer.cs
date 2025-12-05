@@ -46,18 +46,18 @@
             gbSaldo.Controls.Add(btnGuardar);
             gbSaldo.Controls.Add(txtSaldo);
             gbSaldo.Controls.Add(lblSaldo);
-            gbSaldo.Location = new Point(10, 9);
+            gbSaldo.Location = new Point(5, 7);
             gbSaldo.Margin = new Padding(3, 2, 3, 2);
             gbSaldo.Name = "gbSaldo";
             gbSaldo.Padding = new Padding(3, 2, 3, 2);
-            gbSaldo.Size = new Size(236, 134);
+            gbSaldo.Size = new Size(236, 153);
             gbSaldo.TabIndex = 0;
             gbSaldo.TabStop = false;
             // 
             // lblImporte
             // 
             lblImporte.AutoSize = true;
-            lblImporte.Location = new Point(13, 53);
+            lblImporte.Location = new Point(13, 72);
             lblImporte.Name = "lblImporte";
             lblImporte.Size = new Size(52, 15);
             lblImporte.TabIndex = 5;
@@ -66,16 +66,17 @@
             // lblSaldoActual
             // 
             lblSaldoActual.AutoSize = true;
-            lblSaldoActual.Location = new Point(122, 17);
+            lblSaldoActual.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSaldoActual.Location = new Point(121, 27);
             lblSaldoActual.Name = "lblSaldoActual";
-            lblSaldoActual.Size = new Size(44, 15);
+            lblSaldoActual.Size = new Size(60, 21);
             lblSaldoActual.TabIndex = 4;
             lblSaldoActual.Text = "SALDO";
             lblSaldoActual.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(137, 96);
+            btnVolver.Location = new Point(137, 114);
             btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(87, 26);
@@ -86,7 +87,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(13, 96);
+            btnGuardar.Location = new Point(13, 114);
             btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(87, 26);
@@ -97,19 +98,20 @@
             // 
             // txtSaldo
             // 
-            txtSaldo.Location = new Point(84, 53);
+            txtSaldo.Location = new Point(71, 69);
             txtSaldo.Margin = new Padding(3, 2, 3, 2);
             txtSaldo.Name = "txtSaldo";
-            txtSaldo.Size = new Size(140, 23);
+            txtSaldo.Size = new Size(153, 23);
             txtSaldo.TabIndex = 1;
             txtSaldo.KeyPress += txtSaldo_KeyPress;
             // 
             // lblSaldo
             // 
             lblSaldo.AutoSize = true;
-            lblSaldo.Location = new Point(13, 17);
+            lblSaldo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSaldo.Location = new Point(28, 27);
             lblSaldo.Name = "lblSaldo";
-            lblSaldo.Size = new Size(74, 15);
+            lblSaldo.Size = new Size(97, 21);
             lblSaldo.TabIndex = 0;
             lblSaldo.Text = "Saldo actual:";
             // 
@@ -118,12 +120,12 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(288, 152);
+            ClientSize = new Size(247, 171);
             Controls.Add(gbSaldo);
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormModificarSaldo";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormModificarSaldo";
+            Text = "Modificar Saldo";
             gbSaldo.ResumeLayout(false);
             gbSaldo.PerformLayout();
             ResumeLayout(false);
