@@ -11,12 +11,16 @@ namespace Modelo
 {
     public class Context : DbContext
     {
+        // Conexion a la base de datos
         public string conexion = "Data Source=MAXI\\SQLEXPRESS;Initial Catalog=TrabajoFinalADS;Integrated Security=True;Persist Security Info=False;Pooling=False;Encrypt=False;";
+
+        // Cadenas de conexion de los chads que hicieron esto posible <3
 
         // CADENA DE FRANCIS: Data Source=LAPTOP-RHFQ1TRV\\SQLEXPRESS;Initial Catalog=\"BD Final DAS\";Integrated Security=True;Persist Security Info=False;Pooling=False;Encrypt=False;
         // CADENA DE MAXI: Data Source=MAXI\\SQLEXPRESS;Initial Catalog=TrabajoFinalADS;Integrated Security=True;Persist Security Info=False;Pooling=False;Encrypt=False;
         // CADENA DE MONTAÑA: Data Source=JUANMONTANER\\SQLEXPRESS;Initial Catalog=FinalDAS;Integrated Security=True;Persist Security Info=False;Pooling=False;Encrypt=False;
 
+        // DbSets de cada entidad para crear las tablas 
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Sucursal> Sucursales { get; set; }
@@ -26,19 +30,18 @@ namespace Modelo
         public DbSet<Vendedor> Vendedores { get; set; }
         public DbSet<DetalleVenta> DetallesVentas { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-          => options.UseSqlServer(conexion);
+        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlServer(conexion);
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DetalleVenta>()
                 .HasOne(d => d.Venta)
-                .WithMany() // o .WithMany(v => v.Detalles) si agregas la colección en Venta
+                .WithMany() 
                 .HasForeignKey(d => d.IDVenta);
 
             modelBuilder.Entity<DetalleVenta>()
                 .HasOne(d => d.Producto)
-                .WithMany() // o .WithMany(p => p.DetalleVentas) si agregas la colección en Producto
+                .WithMany() 
                 .HasForeignKey(d => d.IDProducto);
         }
     }
