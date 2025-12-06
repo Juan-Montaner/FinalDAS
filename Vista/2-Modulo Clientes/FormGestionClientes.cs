@@ -20,6 +20,7 @@ namespace Vista._2_Modulo_Clientes
             dgvClientes.DataBindingComplete += (s, e) => PintarEncabezados();
         }
 
+        // Metodo que refresca el Data Grid View
         private void Refrescar()
         {
             Controladora.ControladoraClientes controladora = Controladora.ControladoraClientes.Instancia;
@@ -27,6 +28,7 @@ namespace Vista._2_Modulo_Clientes
             PintarEncabezados();
         }
 
+        // Detalles visuales Data Grid View
         private void PintarEncabezados()
         {
 
@@ -45,8 +47,7 @@ namespace Vista._2_Modulo_Clientes
             dgvClientes.Refresh();
         }
 
-    
-
+        // Metodo que obtiene el ID de el cliente seleccionado en el Data Grid View
         private int? GetId()
         {
             if (dgvClientes.Rows.Count == 0)
@@ -66,6 +67,7 @@ namespace Vista._2_Modulo_Clientes
             return null;
         }
 
+        // Boton que permite agregar un cliente 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -76,6 +78,7 @@ namespace Vista._2_Modulo_Clientes
             Refrescar();
         }
 
+        // Boton que permite modificar un cliente 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -95,6 +98,7 @@ namespace Vista._2_Modulo_Clientes
             Refrescar();
         }
 
+        // Boton que permite eliminar un cliente 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -111,6 +115,7 @@ namespace Vista._2_Modulo_Clientes
             Refrescar();
         }
 
+        // Boton que permite volver al menu principal 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             FormMenuPrincipal formMenuPrincipal = new FormMenuPrincipal();
@@ -118,6 +123,7 @@ namespace Vista._2_Modulo_Clientes
             formMenuPrincipal.ShowDialog();
         }
 
+        // Boton que permite ir al formulario de historial de compras
         private void btnHistorial_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -135,6 +141,8 @@ namespace Vista._2_Modulo_Clientes
             Refrescar();
 
         }
+
+        // Boton que permite modificar el saldo de la cuenta de un cliente seleccionado en el Data Grid View
         private void btnSaldo_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -153,6 +161,7 @@ namespace Vista._2_Modulo_Clientes
             Refrescar();
         }
 
+        // Semaforizacion de celdas del Data Grid View segun saldo del cliente 
         private void dgvClientes_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvClientes.Columns[e.ColumnIndex].Name == "CuentaCorriente" && e.Value != null)

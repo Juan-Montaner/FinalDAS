@@ -35,6 +35,7 @@ namespace Vista._2_Modulo_Clientes
             }
         }
 
+        // Metodo que carga los datos para modificarlos
         private void CargarDatos()
         {
             Controladora.ControladoraClientes controladora = Controladora.ControladoraClientes.Instancia;
@@ -57,6 +58,8 @@ namespace Vista._2_Modulo_Clientes
                 }
             }
         }
+
+        // Boton que agrega o modifica un cliente
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Controladora.ControladoraClientes controladora = Controladora.ControladoraClientes.Instancia;
@@ -141,12 +144,13 @@ namespace Vista._2_Modulo_Clientes
             formGestionClientes.ShowDialog();
         }
 
-
+        // Boton que permite volver al menu de gestion de clientes 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // No permite poner caracteres en el control del telefono
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
@@ -155,6 +159,7 @@ namespace Vista._2_Modulo_Clientes
             }
         }
 
+        // Obliga a poner @ y .com en el mail
         private void txtMail_Leave(object sender, EventArgs e)
         {
             string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";

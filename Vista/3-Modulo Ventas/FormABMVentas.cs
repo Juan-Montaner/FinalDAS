@@ -16,12 +16,14 @@ namespace Vista._3_Modulo_Ventas
 {
     public partial class FormABMVentas : Form
     {
+        // Delcaracion de controladoras en uso
         private int? iDSucursal;
         Controladora.ControladoraVentas controladoraVentas = Controladora.ControladoraVentas.Instancia;
         Controladora.ControladoraProductos controladoraProductos = Controladora.ControladoraProductos.Instancia;
         Controladora.ControladoraClientes controladoraClientes = Controladora.ControladoraClientes.Instancia;
         Controladora.ControladoraFacturas controladoraFacturas = Controladora.ControladoraFacturas.Instancia;
 
+        // Declaracion de listas en uso
         private List<Producto> productosCarrito = new List<Producto>();
         private List<Producto> ProductoDisponibles = new List<Producto>();
         private List<DetalleVenta> productosVenta = new List<DetalleVenta>();
@@ -36,7 +38,6 @@ namespace Vista._3_Modulo_Ventas
             this.iDSucursal = iDSucursal;
             this.Total = Total;
 
-
             lblSucursalID.Text = iDSucursal.ToString();
             CargarDgvSucursal();
             CargarCmbClientes();
@@ -44,13 +45,14 @@ namespace Vista._3_Modulo_Ventas
             PintarEncabezadosSucursal();
             PintarEncabezadosCompra();
 
+            // Inhabilitacion de botones para reducir errores en el uso del programa
             nudCantidad.Enabled = false;
             btnAgregarACarrito.Enabled = false;
-
             grpCarritoDeCompras.Enabled = false;
             grpProductos.Enabled = false;
         }
 
+        // Detalles visuales Data Grid View
         private void PintarEncabezadosCompra()
         {
 
@@ -69,6 +71,7 @@ namespace Vista._3_Modulo_Ventas
             dgvProductosCompra.Refresh();
         }
 
+        // Detalles visuales Data Grid View
         private void PintarEncabezadosSucursal()
         {
 
@@ -87,6 +90,7 @@ namespace Vista._3_Modulo_Ventas
             dgvProductosSucursal.Refresh();
         }
 
+        // Se limita la cantidad maxima de stock que se puede solicitar para comprar segun el stock del producto
         private void LimitarCantidad(int idProducto)
         {
             var producto = controladoraProductos.BuscarProductoId(idProducto);
@@ -94,6 +98,7 @@ namespace Vista._3_Modulo_Ventas
             nudCantidad.Maximum = producto.Stock;
         }
 
+        // Botn que permite volver al formulario de gestion de ventas
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -102,6 +107,7 @@ namespace Vista._3_Modulo_Ventas
             formGestionVentas.ShowDialog();
         }
 
+        // Metodo que carga el Data Grid View con los products de la sucursal
         private void CargarDgvSucursal()
         {
             Controladora.ControladoraProductos controladora = Controladora.ControladoraProductos.Instancia;
@@ -109,6 +115,7 @@ namespace Vista._3_Modulo_Ventas
             ProductoDisponibles = controladora.FiltrarPorSucursales(iDSucursal);
         }
 
+        // Boton que agrega un producto seleccionado en el carrito
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             int? idProducto = GetId();
@@ -144,7 +151,6 @@ namespace Vista._3_Modulo_Ventas
                     dgvProductosSucursal.DataSource = ProductoDisponibles;
 
                     CalcularTotal(Total);
-
                 }
             }
             else
@@ -160,6 +166,7 @@ namespace Vista._3_Modulo_Ventas
             btnAgregarACarrito.Enabled = false;
         }
 
+        // Boton que finaliza la compra
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
             string razonSocial = cmbRazonSocial.Text;
@@ -240,6 +247,7 @@ namespace Vista._3_Modulo_Ventas
 
         }
 
+        // Metodo que calcula el total de la venta teniendo en cuenta el descuento por tipo de cliente
         private void CalcularTotal(decimal Total)
         {
             var cliente = controladoraClientes.BuscarCliente(cmbRazonSocial.Text);
@@ -264,6 +272,7 @@ namespace Vista._3_Modulo_Ventas
 
         }
 
+        // Metodo que obtiene el ID de el producto seleccionado en el Data Grid View de sucursal
         private int? GetId()
         {
             if (dgvProductosSucursal.Rows.Count == 0)
@@ -283,6 +292,7 @@ namespace Vista._3_Modulo_Ventas
             return null;
         }
 
+        // Metodo que obtiene el ID de el producto seleccionado en el Data Grid View de carrito
         private int? GetIdCarritoDeCompras()
         {
             if (dgvProductosCompra.Rows.Count == 0)
@@ -302,6 +312,7 @@ namespace Vista._3_Modulo_Ventas
             return null;
         }
 
+        // Metodo que carga el Combo Box de clientes
         private void CargarCmbClientes()
         {
             Controladora.ControladoraClientes controladoraClientes = Controladora.ControladoraClientes.Instancia;
@@ -316,6 +327,7 @@ namespace Vista._3_Modulo_Ventas
             }
         }
 
+        // Metodo que carga el Combo Box de vendedores
         private void CargarCmbVendedores()
         {
             Controladora.ControladoraVendedores controladoraVendedores = Controladora.ControladoraVendedores.Instancia;
@@ -330,6 +342,7 @@ namespace Vista._3_Modulo_Ventas
             }
         }
 
+        // Boton que fija el producto seleccionado en el Data Grid View de productos de la sucursal
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
             int? idProducto = GetId();
@@ -349,6 +362,7 @@ namespace Vista._3_Modulo_Ventas
 
         }
 
+        // Control que permite poner la cantidad deseada de un producto para comprar
         private void nudCantidad_ValueChanged(object sender, EventArgs e)
         {
             if (nudCantidad != null || nudCantidad.Value > 0)
@@ -361,6 +375,7 @@ namespace Vista._3_Modulo_Ventas
             }
         }
 
+        // Boton que elimina un producto seleccionado
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             if (dgvProductosCompra.CurrentRow == null)
@@ -400,6 +415,7 @@ namespace Vista._3_Modulo_Ventas
 
         }
 
+        // Boton que permite comenzar una venta
         private void btnComenzar_Click(object sender, EventArgs e)
         {
             if (rbEfectivo.Checked || rbTarjeta.Checked || rbTransferencia.Checked || rbCuentaCorriente.Checked)
@@ -417,6 +433,7 @@ namespace Vista._3_Modulo_Ventas
             }
         }
 
+        // Metodo que formatea el Data Grid View de los productos de la sucursal
         private void dgvProductosSucursal_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvProductosSucursal.Columns[e.ColumnIndex].Name == "Stock" && e.Value != null)
@@ -443,6 +460,7 @@ namespace Vista._3_Modulo_Ventas
             }
         }
 
+        // Metodo que formatea el Data Grid View de los productos de el carrito de compras
         private void dgvProductosCompra_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvProductosCompra.Columns[e.ColumnIndex].Name == "Stock" && e.Value != null)

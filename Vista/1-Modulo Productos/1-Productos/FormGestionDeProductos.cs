@@ -59,32 +59,6 @@ namespace Vista.Gestion_de_Productos
             dgvGestionProductos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvGestionProductos.AllowUserToResizeColumns = false;
             dgvGestionProductos.AllowUserToResizeRows = false;
-
-            // Función local para evitar NRE
-            void SetWidth(string colName, int width)
-            {
-                var col = dgvGestionProductos.Columns[colName];
-                if (col != null)
-                    col.Width = width;
-            }
-
-            void AlignRight(string colName)
-            {
-                var col = dgvGestionProductos.Columns[colName];
-                if (col != null)
-                    col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            }
-
-            SetWidth("IDProducto", 80);
-            SetWidth("Nombre", 120);
-            SetWidth("Descripcion", 150);
-            SetWidth("Categoria", 80);
-            SetWidth("Precio", 80);
-            SetWidth("IDSucursal", 90);
-            SetWidth("Stock", 70);
-
-            AlignRight("Precio");
-            AlignRight("Stock");
         }
 
         #endregion

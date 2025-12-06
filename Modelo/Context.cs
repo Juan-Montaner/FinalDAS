@@ -12,7 +12,7 @@ namespace Modelo
     public class Context : DbContext
     {
         // Conexion a la base de datos
-        public string conexion = "Data Source=MAXI\\SQLEXPRESS;Initial Catalog=TrabajoFinalADS;Integrated Security=True;Persist Security Info=False;Pooling=False;Encrypt=False;";
+        public string conexion = "Data Source=JUANMONTANER\\SQLEXPRESS;Initial Catalog=FinalDAS;Integrated Security=True;Persist Security Info=False;Pooling=False;Encrypt=False;";
 
         // Cadenas de conexion de los chads que hicieron esto posible <3
 

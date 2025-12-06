@@ -19,6 +19,7 @@ namespace Vista._5_Modulo_Vendedores
             Refrescar();
         }
 
+        // Metodo que refresca el Data Grid View
         private void Refrescar()
         {
             Controladora.ControladoraVendedores controladora = Controladora.ControladoraVendedores.Instancia;
@@ -26,6 +27,7 @@ namespace Vista._5_Modulo_Vendedores
             PintarEncabezados();
         }
 
+        // Detalles visuales Data Grid View
         private void PintarEncabezados()
         {
 
@@ -44,6 +46,7 @@ namespace Vista._5_Modulo_Vendedores
             dgvVendedores.Refresh();
         }
 
+        // Metodo que obtiene el ID de el vendedor seleccionada en el Data Grid View
         private int? GetId()
         {
             if (dgvVendedores.Rows.Count == 0)
@@ -62,6 +65,8 @@ namespace Vista._5_Modulo_Vendedores
 
             return null;
         }
+
+        // Boton que permite agregar un vendedor 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -72,6 +77,7 @@ namespace Vista._5_Modulo_Vendedores
             Refrescar();
         }
 
+        // Boton que permite modificar un vendedor 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -91,6 +97,7 @@ namespace Vista._5_Modulo_Vendedores
             Refrescar();
         }
 
+        // Boton que permite eliminar un vendedor 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -107,6 +114,7 @@ namespace Vista._5_Modulo_Vendedores
             Refrescar();
         }
 
+        // Boton que permite volver al menu principal
         private void btnVolver_Click(object sender, EventArgs e)
         {
             FormMenuPrincipal formMenuPrincipal = new FormMenuPrincipal();

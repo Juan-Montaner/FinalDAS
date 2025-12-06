@@ -35,6 +35,7 @@ namespace Vista
             InitializeComponent();
         }
 
+        // Boton que lleva al formulario de gestion de productos
         private void btnGestionarProductos_Click(object sender, EventArgs e)
         {
             FormGestionDeProductos formGestionDeProductos = new FormGestionDeProductos();
@@ -42,13 +43,7 @@ namespace Vista
             formGestionDeProductos.ShowDialog();
         }
 
-        private void btnVolver_Click_1(object sender, EventArgs e)
-        {
-            FormMenuPrincipal formMenuPrincipal = new FormMenuPrincipal();
-            this.Hide();
-            formMenuPrincipal.ShowDialog();
-        }
-
+        // Boton que lleva al formulario de gestion de categorias
         private void btnGestionarCategorias_Click(object sender, EventArgs e)
         {
             FormGestionDeCategorias formGestionDeCategorias = new FormGestionDeCategorias();
@@ -56,11 +51,20 @@ namespace Vista
             formGestionDeCategorias.ShowDialog();
         }
 
+        // Boton que lleva al formulario de gestion de sucursales
         private void btnGestionarSucursales_Click(object sender, EventArgs e)
         {
             FormGestionDeSucursales formGestionDeSucursales = new FormGestionDeSucursales();
             this.Hide();
             formGestionDeSucursales.ShowDialog();
+        }
+
+        // Boton que lleva al menu principal
+        private void btnVolver_Click_1(object sender, EventArgs e)
+        {
+            FormMenuPrincipal formMenuPrincipal = new FormMenuPrincipal();
+            this.Hide();
+            formMenuPrincipal.ShowDialog();
         }
     }
 }

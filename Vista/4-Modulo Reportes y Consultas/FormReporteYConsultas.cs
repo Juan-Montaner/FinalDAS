@@ -28,6 +28,8 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
             CargarCmbSucursales();
             CargarCmbVendedores();
         }
+
+        // Metodo que refresca el Data Grid View
         private void Refrescar()
         {
             Controladora.ControladoraVentas controladora = Controladora.ControladoraVentas.Instancia;
@@ -35,6 +37,7 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
             PintarEncabezados(dgvReportesVentas);
         }
 
+        // Detalles visuales Data Grid View
         private void PintarEncabezados(DataGridView dgv)
         {
             dgv.EnableHeadersVisualStyles = false;
@@ -55,6 +58,7 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
             dgv.Refresh();
         }
 
+        // Boton que filtra segun fechas 
         private void btnFiltrarPeriodo_Click(object sender, EventArgs e)
         {
             btnGenerarReporte.Enabled = true;
@@ -69,6 +73,7 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
             dgvReportesVentas.DataSource = controladora.FiltrarVentasPorPeriodo(dtpTiempoInicio.Value, dtpTiempoHasta.Value);
         }
 
+        // Boton que filtra segun producto 
         private void btnFiltrarProducto_Click(object sender, EventArgs e)
         {
             btnGenerarReporte.Enabled = true;
@@ -77,6 +82,7 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
             dgvReportesVentas.DataSource = controladora.FiltrarVentasPorProducto(Convert.ToInt32(cmbProductos.SelectedValue));
         }
 
+        // Boton que filtra segun sucursal 
         private void btnFiltrarSucursal_Click(object sender, EventArgs e)
         {
             btnGenerarReporte.Enabled = true;
@@ -84,6 +90,7 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
             dgvReportesVentas.DataSource = controladora.FiltrarVentasPorSucursal(Convert.ToInt32(cmbSucursal.SelectedValue));
         }
 
+        // Boton que filtra segun vendedor 
         private void btnVendedor_Click(object sender, EventArgs e)
         {
             btnGenerarReporte.Enabled = true;
@@ -94,6 +101,8 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
 
             dgvReportesVentas.DataSource = controladoraVentas.FiltrarVentasPorVendedor(vendedor.Nombre);
         }
+
+        // Metodo que genera el reporte como excel y lo almacena en el dispositivo
         private void GenerarReporteExcelDesdeDGV()
         {
             if (dgvReportesVentas.Rows.Count == 0)
@@ -166,18 +175,21 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
             MessageBox.Show("Reporte generado correctamente.");
         }
 
-
+        // Boton que genera el reporte
         private void btnGenerarReporte_Click(object sender, EventArgs e)
         {
             GenerarReporteExcelDesdeDGV();
         }
 
+        // Boton que refresca el filtro
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             btnGenerarReporte.Enabled = false;
             Refrescar();
 
         }
+
+        // Boton que permite volver al menu principal
         private void btnVolver_Click(object sender, EventArgs e)
         {
             FormMenuPrincipal formMenuPrincipal = new FormMenuPrincipal();
@@ -185,6 +197,7 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
             formMenuPrincipal.ShowDialog();
         }
 
+        // Metodo que carga el Combo Box de productos
         private void CargarCmbProductos()
         {
             Controladora.ControladoraProductos controladoraProductos = Controladora.ControladoraProductos.Instancia;
@@ -199,6 +212,7 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
             }
         }
 
+        // Metodo que carga el Combo Box de sucursales
         private void CargarCmbSucursales()
         {
             Controladora.ControladoraSucursales controladoraSucursales = Controladora.ControladoraSucursales.Instancia;
@@ -213,6 +227,7 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
             }
         }
 
+        // Metodo que carga el Combo Box de vendedores
         private void CargarCmbVendedores()
         {
             Controladora.ControladoraVendedores controladoraVendedores = Controladora.ControladoraVendedores.Instancia;

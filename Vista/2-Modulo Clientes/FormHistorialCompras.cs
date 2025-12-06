@@ -12,9 +12,11 @@ namespace Vista._2_Modulo_Clientes
 {
     public partial class FormHistorialCompras : Form
     {
+        // Declaracion de controladoras en uso 
         private int? Id;
         Controladora.ControladoraVentas controladoraVentas = Controladora.ControladoraVentas.Instancia;
         Controladora.ControladoraClientes controladoraClientes = Controladora.ControladoraClientes.Instancia;
+
         public FormHistorialCompras(int? id = null)
         {
             InitializeComponent();
@@ -25,6 +27,7 @@ namespace Vista._2_Modulo_Clientes
             PintarEncabezados();
         }
 
+        // Detalles visuales Data Grid View
         private void PintarEncabezados()
         {
 
@@ -43,6 +46,7 @@ namespace Vista._2_Modulo_Clientes
             dgvHistorial.Refresh();
         }
 
+        // Metodo que carga el historial de compras el cliente en un Data Grid View
         private void CargarHistoral()
         {
             if (Id != null)
@@ -52,6 +56,8 @@ namespace Vista._2_Modulo_Clientes
                 dgvHistorial.DataSource = controladoraVentas.FiltrarVentasRazonSocial(cliente.RazonSocial);
             }
         }
+
+        // Boton que permite volver al formulario de ABM clientes
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Hide();

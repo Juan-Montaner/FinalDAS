@@ -26,6 +26,7 @@ namespace Vista._2_Modulo_Clientes
             }
         }
 
+        // Metodo que carga el saldo en el label de saldo
         private void CargarSaldo()
         {
             Controladora.ControladoraClientes controladora = Controladora.ControladoraClientes.Instancia;
@@ -35,6 +36,8 @@ namespace Vista._2_Modulo_Clientes
             lblSaldoActual.Text = "$ " + cliente.CuentaCorriente.ToString();
 
         }
+
+        // Boton que modifica el saldo del cliente seleccionado
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Controladora.ControladoraClientes controladora = Controladora.ControladoraClientes.Instancia;
@@ -60,11 +63,13 @@ namespace Vista._2_Modulo_Clientes
             formGestionClientes.ShowDialog();
         }
 
+        // Boton que permite volver al menu de ABM de clientes
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Validacion de entradas en el control de saldo
         private void txtSaldo_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Permitir borrar

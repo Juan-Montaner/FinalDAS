@@ -36,8 +36,6 @@ namespace Vista
         public FormMenuPrincipal()
         {
             InitializeComponent();
-
-            btnGestionClientes.Enabled = false;
         }
 
         // Boton que lleva al formulario de gestion de productos

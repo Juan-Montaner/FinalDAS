@@ -31,6 +31,7 @@ namespace Vista._5_Modulo_Vendedores
             }
         }
 
+        // Metodo que carga los datos para modificarlos
         private void CargarDatos()
         {
             Controladora.ControladoraVendedores controladora = Controladora.ControladoraVendedores.Instancia;
@@ -44,6 +45,7 @@ namespace Vista._5_Modulo_Vendedores
             }
         }
 
+        // Boton que agrega o modifica un vendedor
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Controladora.ControladoraVendedores controladora = Controladora.ControladoraVendedores.Instancia;
@@ -105,6 +107,7 @@ namespace Vista._5_Modulo_Vendedores
             formGestionVendedores.ShowDialog();
         }
 
+        // Boton que permite volver al menu de gestion de vendedores 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             FormGestionVendedores formGestionVendedores = new FormGestionVendedores();
@@ -112,6 +115,7 @@ namespace Vista._5_Modulo_Vendedores
             formGestionVendedores.ShowDialog();
         }
 
+        // Validacion de entrada al control de DNI
         private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Solo permite dígitos y la tecla Backspace
@@ -121,6 +125,7 @@ namespace Vista._5_Modulo_Vendedores
             }
         }
 
+        // Validacion de entrada al control de nombre
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Permite letras, espacio y Backspace

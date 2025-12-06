@@ -33,12 +33,14 @@ namespace Vista._3_Modulo_Ventas
             PintarEncabezados(dgvVentas);
         }
 
+        // Metodo que refresca el Data Grid View
         private void Refrescar()
         {
             Controladora.ControladoraVentas controladora = Controladora.ControladoraVentas.Instancia;
             dgvVentas.DataSource = controladora.ListarVentas();
         }
 
+        // Detalles visuales Data Grid View
         private void PintarEncabezados(DataGridView dgv)
         {
             dgv.EnableHeadersVisualStyles = false;
@@ -56,6 +58,7 @@ namespace Vista._3_Modulo_Ventas
             dgv.Refresh();
         }
 
+        // Metodo que obtiene el ID de la venta seleccionada en el Data Grid View
         private int? GetId()
         {
             if (Controladora.ControladoraVentas.Instancia.ListarVentas().Count != 0)
@@ -75,6 +78,7 @@ namespace Vista._3_Modulo_Ventas
             }
         }
 
+        // Metodo que carga el Combo Box con las sucursales
         private void CargarComboBox()
         {
             Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
@@ -89,6 +93,7 @@ namespace Vista._3_Modulo_Ventas
             }
         }
 
+        // Metodo que filtra las ventas segun la sucursal seleccionada en el Combo Box
         private void FiltrarVentas()
         {
             if (cmbSucursales.SelectedValue == null)
@@ -105,6 +110,7 @@ namespace Vista._3_Modulo_Ventas
             dgvVentas.DataSource = ventas;
         }
 
+        // Metodo que obtiene el ID de la sucursal seleccionada
         private int? IDSucursal()
         {
             if (cmbSucursales.SelectedItem == null)
@@ -121,6 +127,7 @@ namespace Vista._3_Modulo_Ventas
             return null;
         }
 
+        // Boton que permite agregar una venta 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Controladora.ControladoraSucursales controladoraSucursales = Controladora.ControladoraSucursales.Instancia;
@@ -158,6 +165,7 @@ namespace Vista._3_Modulo_Ventas
             Refrescar();
         }
 
+        // Boton que permite eliminar una venta 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -174,6 +182,7 @@ namespace Vista._3_Modulo_Ventas
             Refrescar();
         }
 
+        // Boton que permite volver al menu principal
         private void btnVolver_Click(object sender, EventArgs e)
         {
             FormMenuPrincipal FormMenuPrincipal = new FormMenuPrincipal();
@@ -181,13 +190,13 @@ namespace Vista._3_Modulo_Ventas
             FormMenuPrincipal.ShowDialog();
         }
 
+        // Evento que detecta que cambio el indice seleccionado en el Combo Box
         private void cmbSucursales_SelectedIndexChanged(object sender, EventArgs e)
         {
             FiltrarVentas();
-
         }
 
-
+        // Boton que genera una factura en formato excel
         private void btnFactura_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -224,7 +233,7 @@ namespace Vista._3_Modulo_Ventas
             }
         }
 
-
+        // Metodo que genera la factura en excel
         private void GenerarFacturaExcel(Venta venta, string rutaArchivo)
         {
             var wb = new XLWorkbook();
