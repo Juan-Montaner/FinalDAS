@@ -10,9 +10,11 @@ namespace Controladora
 {
     public class ControladoraClientes
     {
+        // Declaracion repositorios  y controladoras en uso 
         private RepositorioClientes repositorioCliente = new RepositorioClientes();
         private static ControladoraClientes instancia;
 
+        #region Patron Singleton
         public static ControladoraClientes Instancia
         {
             get
@@ -24,12 +26,13 @@ namespace Controladora
                 return instancia;
             }
         }
+        #endregion
 
+        // Metodo que valida y llama al repositorio para agregar un cliente
         public string AgregarCliente(string RazonSocial, string mail, double telefono, bool tipo)
         {
             // Validación de campos vacíos
-            if (string.IsNullOrWhiteSpace(RazonSocial) ||
-                string.IsNullOrWhiteSpace(mail))
+            if (string.IsNullOrWhiteSpace(RazonSocial) || string.IsNullOrWhiteSpace(mail))
             {
                 return "Error: Los campos no pueden estar vacíos.";
             }
@@ -78,10 +81,12 @@ namespace Controladora
             return "Cliente agregado con éxito.";
         }
 
+        // Metodo que valida y llama al repositorio para eliminar un cliente
         public string EliminarCliente(int id)
         {
             Cliente cliente = repositorioCliente.BuscarClienteID(id);
 
+            // Validacion de que exista el cliente que se quiere eliminar
             if (cliente == null)
             {
                 return "Error al ELIMINAR el Cliente: El ID de cliente no existe";
@@ -92,10 +97,9 @@ namespace Controladora
             return "Cliente Eliminado con Exito";
         }
 
+        // Metodo que valida y llama al repositorio para modificar un cliente
         public string ModificarCliente(int id, string razonSocial, double telefono, string mail, bool tipo, decimal cuentaCorriente)
         {
-            
-
             // Validación de campos vacíos
             if (string.IsNullOrWhiteSpace(razonSocial) ||
                 string.IsNullOrWhiteSpace(mail))
@@ -126,17 +130,20 @@ namespace Controladora
 
             return "Cliente Modificado con Exito";
         }
-        
+
+        // Metodo que permite buscar los clientes mediante un ID 
         public Cliente BuscarClienteId(int id)
         {
             return repositorioCliente.BuscarClienteID(id);
         }
 
+        // Metodo que permite buscar los clientes mediante su Razon Social
         public Cliente BuscarCliente(string RazonSocial)
         {
             return repositorioCliente.BuscarCliente(RazonSocial);
         }
 
+        // Metodo que devuelve una lista de los clientes disponibles 
         public List<Cliente> ListarClientes()
         {
             return repositorioCliente.ListarCLiente().ToList();

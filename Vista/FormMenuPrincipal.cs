@@ -36,6 +36,9 @@ namespace Vista
         public FormMenuPrincipal()
         {
             InitializeComponent();
+            
+            btnGestionClientes.Enabled = false;
+
         }
         private void btnGestionProductos_Click_1(object sender, EventArgs e)
         {

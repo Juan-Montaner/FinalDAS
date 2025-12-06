@@ -10,9 +10,11 @@ namespace Controladora
 {
     public class ControladoraFacturas
     {
+        // Declaracion repositorios  y controladoras en uso 
         private RepositorioFacturas repositorioFactura = new RepositorioFacturas();
         private static ControladoraFacturas instancia;
 
+        #region Patron Singleton
         public static ControladoraFacturas Instancia
         {
             get
@@ -24,11 +26,12 @@ namespace Controladora
                 return instancia;
             }
         }
+        #endregion
 
+        // Metodo que valida y llama al repositorio para agregar una factura
         public string AgregarFacturas(string RazonSocialCliente, DateTime Fecha, int MetodoPago, decimal Total, int IDVenta)
         {
-
-
+            // Validacion de que los campos de la factura esten completados
             if (string.IsNullOrWhiteSpace(RazonSocialCliente) || int.IsNegative(MetodoPago))
             {
                 return "Error al AGREGAR FACTURAS: Los campos no pueden estar vacios";
@@ -47,10 +50,12 @@ namespace Controladora
             return "Factura agregada con Exito";
         }
 
+        // Metodo que valida y llama al repositorio para eliminar una factura
         public string EliminarFactura(int id)
         {
             Factura factura = repositorioFactura.BuscarFacturaID(id);
 
+            // Validacion de que exista la factura que se quiere eliminar
             if (factura == null)
             {
                 return "Error al ELIMINAR la Factura: El ID de factura no existe";
@@ -61,15 +66,18 @@ namespace Controladora
             return "Factura Eliminada con Exito";
         }
 
+        // Metodo que valida y llama al repositorio para eliminar una factura
         public string ModificarFactura(int id, string RazonSocialCliente, DateTime Fecha, List<Producto> ListaProductos, int MetodoPago, long Total)
         {
             Factura factura = repositorioFactura.BuscarFacturaID(id);
 
+            // Validacion de que exista la factura que se quiere modificar
             if (factura == null)
             {
                 return "Error al MODIFICAR la Factura: La Factura NO existe";
             }
 
+            // Validacion de que los campos de la factura esten completados
             if (string.IsNullOrWhiteSpace(RazonSocialCliente) || int.IsNegative(MetodoPago))
             {
                 return "Error al MODIFICAR la Factura: Los campos no pueden estar vacios";
@@ -84,11 +92,10 @@ namespace Controladora
             return "Factura Modificada con Exito";
         }
 
+        // Metodo que permite buscar una factura mediante un ID
         public Factura BuscarFacturaId(int id)
         {
             return repositorioFactura.BuscarFacturaID(id);
         }
-
-
     }
 }
