@@ -22,16 +22,16 @@ namespace Vista.Gestion_de_Productos
             CargarSucursales();
         }
 
+        // Metodo que refresca el Data Grid View
         private void Refrescar()
         {
             Controladora.ControladoraProductos controladora = Controladora.ControladoraProductos.Instancia;
             dgvGestionProductos.DataSource = controladora.ListarProductos();
             PintarEncabezados();
             AjustarColumnas();
-
         }
 
-        #region Dgv Detalles
+        #region Detalles visuales dgv
         private void PintarEncabezados()
         {
 
@@ -88,6 +88,8 @@ namespace Vista.Gestion_de_Productos
         }
 
         #endregion
+
+        // Metodo que carga las sucursales en el Combo Box 
         private void CargarSucursales()
         {
             Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
@@ -103,6 +105,7 @@ namespace Vista.Gestion_de_Productos
 
         }
 
+        // Metodo que carga las categorias en el Combo Box 
         private void CargarCategorias()
         {
             Controladora.ControladoraCategorias controladora = Controladora.ControladoraCategorias.Instancia;
@@ -118,6 +121,7 @@ namespace Vista.Gestion_de_Productos
 
         }
 
+        // Metodo que obtiene el ID de el producto seleccionado en el Data Grid View
         private int? GetId()
         {
             if (dgvGestionProductos.Rows.Count == 0)
@@ -137,11 +141,10 @@ namespace Vista.Gestion_de_Productos
             return null;
         }
 
-
+        // Boton que permite agregar un producto 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             var controladoraCate = Controladora.ControladoraCategorias.Instancia;
-
 
             if (!controladoraCate.ContadorDeCategorias())
             {
@@ -165,6 +168,7 @@ namespace Vista.Gestion_de_Productos
             Refrescar();
         }
 
+        // Boton que permite modificar un producto 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -183,6 +187,8 @@ namespace Vista.Gestion_de_Productos
             }
             Refrescar();
         }
+
+        // Boton que permite eliminar un producto 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -199,6 +205,7 @@ namespace Vista.Gestion_de_Productos
             Refrescar();
         }
 
+        // Boton que permite volver al menu principal 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             FormModuloProductos formModuloProductos = new FormModuloProductos();
@@ -206,30 +213,34 @@ namespace Vista.Gestion_de_Productos
             formModuloProductos.ShowDialog();
         }
 
+        // Boton que permite filtrar los productos por categoria
         private void btnFiltrarCategoria_Click(object sender, EventArgs e)
         {
             Controladora.ControladoraProductos controladora = Controladora.ControladoraProductos.Instancia;
             dgvGestionProductos.DataSource = controladora.FiltrarPorCategoria(cmbCategorias.Text);
-
         }
 
+        // Boton que permite filtrar los productos por sucursal
         private void btnFiltrarSucursal_Click(object sender, EventArgs e)
         {
             Controladora.ControladoraProductos controladora = Controladora.ControladoraProductos.Instancia;
             dgvGestionProductos.DataSource = controladora.FiltrarPorSucursales(Convert.ToInt32(cmbSucursales.SelectedValue));
         }
 
+        // Boton que elimina el filtro seleccionado
         private void btnDesfiltrar_Click(object sender, EventArgs e)
         {
             Refrescar();
         }
 
+        // Boton que filtra segun los productos mas vendidos
         private void btnMasVendidos_Click(object sender, EventArgs e)
         {
             Controladora.ControladoraVentas controladora = Controladora.ControladoraVentas.Instancia;
             dgvGestionProductos.DataSource = controladora.ProductosMasVendidos();
         }
 
+        // Boton que muestra la cantidad vendida de un producto seleccionado
         private void btnCantidadVendida_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -247,6 +258,7 @@ namespace Vista.Gestion_de_Productos
             MessageBox.Show($"Cantidad vendida del producto seleccionado: {cantidad}");
         }
 
+        // Colores Data Grid View
         private void dgvGestionProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvGestionProductos.Columns[e.ColumnIndex].Name == "Stock" && e.Value != null)
@@ -267,8 +279,6 @@ namespace Vista.Gestion_de_Productos
                         cell.Style.ForeColor = Color.White;
                         cell.Style.BackColor = Color.Orange;     
                     }
-                    
-           
                 }
             }
         }

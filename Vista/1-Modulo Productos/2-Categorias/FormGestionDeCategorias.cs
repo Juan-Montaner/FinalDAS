@@ -18,6 +18,7 @@ namespace Vista.Gestion_de_Productos
             Refrescar();
         }
 
+        // Metodo que refresca el Data Grid View
         private void Refrescar()
         {
             Controladora.ControladoraCategorias controladora = Controladora.ControladoraCategorias.Instancia;
@@ -25,6 +26,7 @@ namespace Vista.Gestion_de_Productos
             PintarEncabezados();
         }
 
+        // Detalles visuales Data Grid View
         private void PintarEncabezados()
         {
 
@@ -43,6 +45,7 @@ namespace Vista.Gestion_de_Productos
             dgvGestionCategorias.Refresh();
         }
 
+        // Metodo que obtiene el ID de la categoria seleccionada en el Data Grid View
         private int? GetId()
         {
             if (Controladora.ControladoraCategorias.Instancia.ListarCategorias().Count != 0)
@@ -62,6 +65,7 @@ namespace Vista.Gestion_de_Productos
             }
         }
 
+        // Boton que permite agregar una categoria 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -72,6 +76,7 @@ namespace Vista.Gestion_de_Productos
             Refrescar();
         }
 
+        // Boton que permite modificar una categoria 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -91,6 +96,7 @@ namespace Vista.Gestion_de_Productos
             Refrescar();
         }
 
+        // Boton que permite eliminar una categoria 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -108,6 +114,7 @@ namespace Vista.Gestion_de_Productos
             Refrescar();
         }
 
+        // Boton que permite volver al menu principal 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             FormModuloProductos formModuloProductos = new FormModuloProductos();

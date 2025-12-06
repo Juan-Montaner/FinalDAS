@@ -36,10 +36,11 @@ namespace Vista
         public FormMenuPrincipal()
         {
             InitializeComponent();
-            
-            btnGestionClientes.Enabled = false;
 
+            btnGestionClientes.Enabled = false;
         }
+
+        // Boton que lleva al formulario de gestion de productos
         private void btnGestionProductos_Click_1(object sender, EventArgs e)
         {
             FormModuloProductos formGestionProductos = new FormModuloProductos();
@@ -47,11 +48,7 @@ namespace Vista
             formGestionProductos.ShowDialog();
         }
 
-        private void btnSalir_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
+        // Boton que lleva al formulario de gestion de clientes
         private void btnGestionClientes_Click(object sender, EventArgs e)
         {
             FormGestionClientes formGestionClientes = new FormGestionClientes();
@@ -59,6 +56,7 @@ namespace Vista
             formGestionClientes.ShowDialog();
         }
 
+        // Boton que lleva al formulario de gestion de ventas
         private void btnGestionVentas_Click(object sender, EventArgs e)
         {
             FormGestionVentas formGestionVentas = new FormGestionVentas();
@@ -66,6 +64,7 @@ namespace Vista
             formGestionVentas.ShowDialog();
         }
 
+        // Boton que lleva al formulario de gestion de vendedores
         private void btnVendedores_Click(object sender, EventArgs e)
         {
             FormGestionVendedores formGestionVendedores = new FormGestionVendedores();
@@ -73,11 +72,18 @@ namespace Vista
             formGestionVendedores.ShowDialog();
         }
 
+        // Boton que lleva al formulario de reportes y consultas
         private void btnRepYCons_Click(object sender, EventArgs e)
         {
             FormReporteYConsultas formReporteYConsultas = new FormReporteYConsultas();
             this.Hide();
             formReporteYConsultas.ShowDialog();
+        }
+
+        // Boton que termina la ejecucion del programa
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

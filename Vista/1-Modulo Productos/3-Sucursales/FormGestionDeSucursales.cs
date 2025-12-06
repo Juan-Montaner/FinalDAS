@@ -18,12 +18,15 @@ namespace Vista.Gestion_de_Productos
             Refrescar();
         }
 
+        // Metodo que refresca el Data Grid View
         private void Refrescar()
         {
             Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
             dgvGestionSucursales.DataSource = controladora.ListarSucursales();
             PintarEncabezados();
         }
+
+        // Detalles visuales Data Grid View
         private void PintarEncabezados()
         {
 
@@ -42,6 +45,7 @@ namespace Vista.Gestion_de_Productos
             dgvGestionSucursales.Refresh();
         }
 
+        // Metodo que obtiene el ID de la sucursal seleccionada en el Data Grid View
         private int? GetId()
         {
             if (dgvGestionSucursales.Rows.Count == 0)
@@ -60,6 +64,8 @@ namespace Vista.Gestion_de_Productos
 
             return null;
         }
+
+        // Boton que permite agregar una sucursal
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -70,6 +76,7 @@ namespace Vista.Gestion_de_Productos
             Refrescar();
         }
 
+        // Boton que permite modificar una sucursal
         private void btnModificar_Click(object sender, EventArgs e)
         {
             int? id = GetId();
@@ -89,6 +96,7 @@ namespace Vista.Gestion_de_Productos
             Refrescar();
         }
 
+        // Boton que permite volver al menu principal 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             FormModuloProductos formModuloProductos = new FormModuloProductos();
@@ -96,6 +104,7 @@ namespace Vista.Gestion_de_Productos
             formModuloProductos.ShowDialog();
         }
 
+        // Boton que permite eliminar una sucursal
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             int? id = GetId();

@@ -31,6 +31,7 @@ namespace Vista.Gestion_de_Productos
             }
         }
 
+        // Metodo que carga los datos para modificarlos
         private void CargarDatos() 
         { 
             Controladora.ControladoraCategorias controladora = Controladora.ControladoraCategorias.Instancia;
@@ -43,11 +44,13 @@ namespace Vista.Gestion_de_Productos
             }
         }
 
+        // Boton que permite volver al menu de gestion de categorias 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Boton que agrega o modifica una categoria
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Controladora.ControladoraCategorias controladora = Controladora.ControladoraCategorias.Instancia;

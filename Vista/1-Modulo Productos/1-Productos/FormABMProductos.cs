@@ -31,6 +31,7 @@ namespace Vista.Gestion_de_Productos
             }
         }
 
+        // Metodo que carga los datos para modificarlos
         private void CargarDatos()
         {
             Controladora.ControladoraProductos controladora = Controladora.ControladoraProductos.Instancia;
@@ -48,6 +49,7 @@ namespace Vista.Gestion_de_Productos
             }
         }
 
+        // Metodo que carga las sucursales en el Combo Box 
         private void CargarSucursales()
         {
             Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
@@ -63,6 +65,7 @@ namespace Vista.Gestion_de_Productos
 
         }
 
+        // Metodo que carga las categorias en el Combo Box 
         private void CargarCategorias()
         {
             Controladora.ControladoraCategorias controladora = Controladora.ControladoraCategorias.Instancia;
@@ -77,11 +80,14 @@ namespace Vista.Gestion_de_Productos
             }
 
         }
+
+        // Boton que permite volver al menu de gestion de productos 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Boton que agrega o modifica un producto
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Controladora.ControladoraProductos controladora = Controladora.ControladoraProductos.Instancia;
@@ -137,9 +143,9 @@ namespace Vista.Gestion_de_Productos
             formGestionDeProductos.ShowDialog();
         }
 
+        // Solo permite dígitos y la tecla Backspace
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Solo permite dígitos y la tecla Backspace
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;

@@ -30,6 +30,7 @@ namespace Vista.Gestion_de_Productos
             }
         }
 
+        // Metodo que carga los datos para modificarlos
         private void CargarDatos()
         {
             Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
@@ -43,11 +44,14 @@ namespace Vista.Gestion_de_Productos
                 txtTelefono.Text = sucursal.Telefono.ToString();
             }
         }
+
+        // Boton que permite volver al menu de gestion de sucursales 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Boton que agrega o modifica una sucursal
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Controladora.ControladoraSucursales controladora = Controladora.ControladoraSucursales.Instancia;
@@ -98,15 +102,16 @@ namespace Vista.Gestion_de_Productos
             formGestionDeSucursales.ShowDialog();
         }
 
+        // Solo permite dígitos y la tecla Backspace
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Solo permite dígitos y la tecla Backspace
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
         }
 
+        // Obliga a poner @ y .com
         private void txtMail_Leave(object sender, EventArgs e)
         {
             string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
