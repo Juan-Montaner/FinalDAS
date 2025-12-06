@@ -8,9 +8,10 @@ namespace Entidades
 {
     public class ClienteMinorista : Cliente
     {
+        // Propiedades de la entidad
         public ClienteMinorista()
         {
-            Descuento = 0.025m;
+            Descuento = 0.025m; // Descuento aplicado a clientes minoristas
             TipoCliente = false;
         }
 

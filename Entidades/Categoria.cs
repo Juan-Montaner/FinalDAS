@@ -10,10 +10,12 @@ namespace Entidades
 {
     public class Categoria
     {
+        // Clave primaria autoincremental
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IDCategoria { get; set; }
 
+        // Propiedades de la entidad
         public string Nombre { get; set; }
     }
 }

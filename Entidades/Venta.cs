@@ -11,9 +11,12 @@ namespace Entidades
 {
     public class Venta
     {
+        // Clave primaria autoincremental
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IDVenta { get; set; }
+
+        // Propiedades de la entidad
         public string RazonSocialCliente { get; set; }
         public DateTime Fecha { get; set; }
         public List<DetalleVenta> Detalles { get; set; }         
@@ -28,6 +31,5 @@ namespace Entidades
             CuentaCorriente = 4
         }
         public decimal Total { get; set; }
-
     }
 }

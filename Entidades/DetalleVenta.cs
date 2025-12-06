@@ -10,14 +10,19 @@ namespace Entidades
 {
     public class DetalleVenta
     {
+        // Clave primaria autoincremental
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IDDetalleVenta { get; set; }
 
+        // Propiedades de la entidad
+
+        // Clave foranea 
         [ForeignKey("Venta")]
         public int IDVenta { get; set; }
         public Venta Venta { get; set; }
 
+        // Clave foranea 
         [ForeignKey("Producto")]
         public int IDProducto { get; set; }
         public Producto Producto { get; set; }

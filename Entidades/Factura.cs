@@ -10,10 +10,14 @@ namespace Entidades
 {
     public class Factura
     {
+        // Clave primaria autoincremental
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IDFactura { get; set; }
 
+        // Propiedades de la entidad
+        
+        // Clave foranea
         [ForeignKey("Venta")]
         public int IDVenta { get; set; }
         public string RazonSocialCliente { get; set; }
