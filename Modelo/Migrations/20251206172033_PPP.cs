@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Modelo.Migrations
 {
     /// <inheritdoc />
-    public partial class Juan : Migration
+    public partial class PPP : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

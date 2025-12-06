@@ -92,7 +92,7 @@ namespace Vista._5_Modulo_Vendedores
             }
             else
             {
-                MessageBox.Show("Seleccione un cliente para modificar");
+                MessageBox.Show("Seleccione un vendedor para modificar");
             }
             Refrescar();
         }
@@ -109,7 +109,7 @@ namespace Vista._5_Modulo_Vendedores
             }
             else
             {
-                MessageBox.Show("Seleccione un cliente para eliminar");
+                MessageBox.Show("Seleccione un vendedor para eliminar");
             }
             Refrescar();
         }

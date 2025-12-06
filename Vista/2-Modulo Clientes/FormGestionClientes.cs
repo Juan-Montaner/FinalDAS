@@ -136,7 +136,7 @@ namespace Vista._2_Modulo_Clientes
             }
             else
             {
-                MessageBox.Show("Seleccione un cliente para modificar");
+                MessageBox.Show("Seleccione un cliente para ver su historial");
             }
             Refrescar();
 

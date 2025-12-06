@@ -157,7 +157,7 @@ namespace Vista.Gestion_de_Productos
             }
             else
             {
-                MessageBox.Show("Seleccione una categoria para modificar");
+                MessageBox.Show("Seleccione un producto para modificar");
             }
             Refrescar();
         }

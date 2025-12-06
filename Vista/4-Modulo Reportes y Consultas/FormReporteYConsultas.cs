@@ -99,6 +99,13 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
 
             var vendedor = controladoraVendedores.BuscarVendedorID(Convert.ToInt32(cmbVendedor.SelectedValue));
 
+            if (vendedor == null)
+            {
+                MessageBox.Show("No se encontró el vendedor seleccionado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             dgvReportesVentas.DataSource = controladoraVentas.FiltrarVentasPorVendedor(vendedor.Nombre);
         }
 
