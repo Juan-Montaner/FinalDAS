@@ -28,15 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuPrincipal));
             btnSalir = new Button();
             btnRepYCons = new Button();
             btnGestionVentas = new Button();
             btnGestionClientes = new Button();
             btnGestionProductos = new Button();
             groupBox1 = new GroupBox();
+            pictureBox1 = new PictureBox();
             lblMenuPrincipal = new Label();
             btnVendedores = new Button();
+            label1 = new Label();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnSalir
@@ -91,6 +95,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(pictureBox1);
             groupBox1.Controls.Add(lblMenuPrincipal);
             groupBox1.Controls.Add(btnVendedores);
             groupBox1.Controls.Add(btnGestionProductos);
@@ -103,6 +109,17 @@
             groupBox1.Size = new Size(533, 550);
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(263, 171);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(211, 234);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
             // 
             // lblMenuPrincipal
             // 
@@ -124,6 +141,16 @@
             btnVendedores.UseVisualStyleBackColor = true;
             btnVendedores.Click += btnVendedores_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(277, 408);
+            label1.Name = "label1";
+            label1.Size = new Size(178, 50);
+            label1.TabIndex = 13;
+            label1.Text = "Manual de Usuario \r\nDiagrama de Clases";
+            // 
             // FormMenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -139,6 +166,7 @@
             Text = "Menu Principal";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -152,5 +180,7 @@
         private GroupBox groupBox1;
         private Button btnVendedores;
         private Label lblMenuPrincipal;
+        private PictureBox pictureBox1;
+        private Label label1;
     }
 }
