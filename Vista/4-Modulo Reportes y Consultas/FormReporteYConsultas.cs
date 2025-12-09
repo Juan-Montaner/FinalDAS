@@ -3,6 +3,7 @@ using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Presentation;
 using DocumentFormat.OpenXml.Spreadsheet;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista._3_Modulo_Ventas;
 using WinColor = System.Drawing.Color;
 using WinFont = System.Drawing.Font;
 
@@ -110,6 +112,7 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
         }
 
         // Metodo que genera el reporte como excel y lo almacena en el dispositivo
+
         private void GenerarReporteExcelDesdeDGV()
         {
             if (dgvReportesVentas.Rows.Count == 0)
@@ -247,6 +250,14 @@ namespace Vista._4_Modulo_Reportes_y_Consultas
                 cmbVendedor.DisplayMember = "Nombre";
                 cmbVendedor.ValueMember = "IDVendedor";
             }
+        }
+
+        private void btnEstadisticas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormEstadisticasDeProductos formEstadisticasDeProductos = new FormEstadisticasDeProductos();
+            formEstadisticasDeProductos.ShowDialog();
+            this.Show();
         }
     }
 }

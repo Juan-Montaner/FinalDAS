@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             grpProductos = new GroupBox();
+            btnEstadisticas = new Button();
             btnRefrescar = new Button();
             grpVendedor = new GroupBox();
             btnVendedor = new Button();
@@ -60,6 +61,7 @@
             // 
             // grpProductos
             // 
+            grpProductos.Controls.Add(btnEstadisticas);
             grpProductos.Controls.Add(btnRefrescar);
             grpProductos.Controls.Add(grpVendedor);
             grpProductos.Controls.Add(grpSucursal);
@@ -68,20 +70,27 @@
             grpProductos.Controls.Add(grpFiltrarCategoria);
             grpProductos.Controls.Add(grpListaProductos);
             grpProductos.Controls.Add(btnVolver);
-            grpProductos.Location = new Point(14, 4);
-            grpProductos.Margin = new Padding(3, 4, 3, 4);
+            grpProductos.Location = new Point(12, 3);
             grpProductos.Name = "grpProductos";
-            grpProductos.Padding = new Padding(3, 4, 3, 4);
-            grpProductos.Size = new Size(987, 689);
+            grpProductos.Size = new Size(813, 554);
             grpProductos.TabIndex = 7;
             grpProductos.TabStop = false;
             // 
+            // btnEstadisticas
+            // 
+            btnEstadisticas.Location = new Point(15, 508);
+            btnEstadisticas.Name = "btnEstadisticas";
+            btnEstadisticas.Size = new Size(226, 36);
+            btnEstadisticas.TabIndex = 12;
+            btnEstadisticas.Text = "Estadisticas De Productos";
+            btnEstadisticas.UseVisualStyleBackColor = true;
+            btnEstadisticas.Click += btnEstadisticas_Click;
+            // 
             // btnRefrescar
             // 
-            btnRefrescar.Location = new Point(848, 519);
-            btnRefrescar.Margin = new Padding(3, 4, 3, 4);
+            btnRefrescar.Location = new Point(273, 508);
             btnRefrescar.Name = "btnRefrescar";
-            btnRefrescar.Size = new Size(123, 48);
+            btnRefrescar.Size = new Size(155, 36);
             btnRefrescar.TabIndex = 11;
             btnRefrescar.Text = "Refrescar Lista";
             btnRefrescar.UseVisualStyleBackColor = true;
@@ -91,21 +100,18 @@
             // 
             grpVendedor.Controls.Add(btnVendedor);
             grpVendedor.Controls.Add(cmbVendedor);
-            grpVendedor.Location = new Point(650, 519);
-            grpVendedor.Margin = new Padding(3, 4, 3, 4);
+            grpVendedor.Location = new Point(647, 389);
             grpVendedor.Name = "grpVendedor";
-            grpVendedor.Padding = new Padding(3, 4, 3, 4);
-            grpVendedor.Size = new Size(177, 151);
+            grpVendedor.Size = new Size(155, 113);
             grpVendedor.TabIndex = 10;
             grpVendedor.TabStop = false;
             grpVendedor.Text = "Filtrar Por Vendedor";
             // 
             // btnVendedor
             // 
-            btnVendedor.Location = new Point(72, 108);
-            btnVendedor.Margin = new Padding(3, 4, 3, 4);
+            btnVendedor.Location = new Point(63, 81);
             btnVendedor.Name = "btnVendedor";
-            btnVendedor.Size = new Size(86, 31);
+            btnVendedor.Size = new Size(75, 23);
             btnVendedor.TabIndex = 3;
             btnVendedor.Text = "Filtrar";
             btnVendedor.UseVisualStyleBackColor = true;
@@ -114,31 +120,27 @@
             // cmbVendedor
             // 
             cmbVendedor.FormattingEnabled = true;
-            cmbVendedor.Location = new Point(19, 49);
-            cmbVendedor.Margin = new Padding(3, 4, 3, 4);
+            cmbVendedor.Location = new Point(17, 37);
             cmbVendedor.Name = "cmbVendedor";
-            cmbVendedor.Size = new Size(138, 28);
+            cmbVendedor.Size = new Size(121, 23);
             cmbVendedor.TabIndex = 0;
             // 
             // grpSucursal
             // 
             grpSucursal.Controls.Add(btnFiltrarSucursal);
             grpSucursal.Controls.Add(cmbSucursal);
-            grpSucursal.Location = new Point(466, 519);
-            grpSucursal.Margin = new Padding(3, 4, 3, 4);
+            grpSucursal.Location = new Point(460, 389);
             grpSucursal.Name = "grpSucursal";
-            grpSucursal.Padding = new Padding(3, 4, 3, 4);
-            grpSucursal.Size = new Size(177, 151);
+            grpSucursal.Size = new Size(155, 113);
             grpSucursal.TabIndex = 9;
             grpSucursal.TabStop = false;
             grpSucursal.Text = "Filtrar Por Sucursal";
             // 
             // btnFiltrarSucursal
             // 
-            btnFiltrarSucursal.Location = new Point(72, 108);
-            btnFiltrarSucursal.Margin = new Padding(3, 4, 3, 4);
+            btnFiltrarSucursal.Location = new Point(63, 81);
             btnFiltrarSucursal.Name = "btnFiltrarSucursal";
-            btnFiltrarSucursal.Size = new Size(86, 31);
+            btnFiltrarSucursal.Size = new Size(75, 23);
             btnFiltrarSucursal.TabIndex = 2;
             btnFiltrarSucursal.Text = "Filtrar";
             btnFiltrarSucursal.UseVisualStyleBackColor = true;
@@ -147,18 +149,16 @@
             // cmbSucursal
             // 
             cmbSucursal.FormattingEnabled = true;
-            cmbSucursal.Location = new Point(19, 49);
-            cmbSucursal.Margin = new Padding(3, 4, 3, 4);
+            cmbSucursal.Location = new Point(17, 37);
             cmbSucursal.Name = "cmbSucursal";
-            cmbSucursal.Size = new Size(138, 28);
+            cmbSucursal.Size = new Size(121, 23);
             cmbSucursal.TabIndex = 0;
             // 
             // btnGenerarReporte
             // 
-            btnGenerarReporte.Location = new Point(848, 571);
-            btnGenerarReporte.Margin = new Padding(3, 4, 3, 4);
+            btnGenerarReporte.Location = new Point(460, 508);
             btnGenerarReporte.Name = "btnGenerarReporte";
-            btnGenerarReporte.Size = new Size(123, 48);
+            btnGenerarReporte.Size = new Size(155, 36);
             btnGenerarReporte.TabIndex = 9;
             btnGenerarReporte.Text = "Generar Reporte";
             btnGenerarReporte.UseVisualStyleBackColor = true;
@@ -168,21 +168,18 @@
             // 
             grpFiltrarProducto.Controls.Add(btnFiltrarProducto);
             grpFiltrarProducto.Controls.Add(cmbProductos);
-            grpFiltrarProducto.Location = new Point(282, 519);
-            grpFiltrarProducto.Margin = new Padding(3, 4, 3, 4);
+            grpFiltrarProducto.Location = new Point(273, 389);
             grpFiltrarProducto.Name = "grpFiltrarProducto";
-            grpFiltrarProducto.Padding = new Padding(3, 4, 3, 4);
-            grpFiltrarProducto.Size = new Size(177, 151);
+            grpFiltrarProducto.Size = new Size(155, 113);
             grpFiltrarProducto.TabIndex = 8;
             grpFiltrarProducto.TabStop = false;
             grpFiltrarProducto.Text = "Filtrar Por Producto";
             // 
             // btnFiltrarProducto
             // 
-            btnFiltrarProducto.Location = new Point(73, 108);
-            btnFiltrarProducto.Margin = new Padding(3, 4, 3, 4);
+            btnFiltrarProducto.Location = new Point(64, 81);
             btnFiltrarProducto.Name = "btnFiltrarProducto";
-            btnFiltrarProducto.Size = new Size(86, 31);
+            btnFiltrarProducto.Size = new Size(75, 23);
             btnFiltrarProducto.TabIndex = 1;
             btnFiltrarProducto.Text = "Filtrar";
             btnFiltrarProducto.UseVisualStyleBackColor = true;
@@ -191,10 +188,9 @@
             // cmbProductos
             // 
             cmbProductos.FormattingEnabled = true;
-            cmbProductos.Location = new Point(19, 49);
-            cmbProductos.Margin = new Padding(3, 4, 3, 4);
+            cmbProductos.Location = new Point(17, 37);
             cmbProductos.Name = "cmbProductos";
-            cmbProductos.Size = new Size(139, 28);
+            cmbProductos.Size = new Size(122, 23);
             cmbProductos.TabIndex = 0;
             // 
             // grpFiltrarCategoria
@@ -204,11 +200,9 @@
             grpFiltrarCategoria.Controls.Add(btnFiltrarPeriodo);
             grpFiltrarCategoria.Controls.Add(dtpTiempoHasta);
             grpFiltrarCategoria.Controls.Add(dtpTiempoInicio);
-            grpFiltrarCategoria.Location = new Point(17, 519);
-            grpFiltrarCategoria.Margin = new Padding(3, 4, 3, 4);
+            grpFiltrarCategoria.Location = new Point(15, 389);
             grpFiltrarCategoria.Name = "grpFiltrarCategoria";
-            grpFiltrarCategoria.Padding = new Padding(3, 4, 3, 4);
-            grpFiltrarCategoria.Size = new Size(258, 151);
+            grpFiltrarCategoria.Size = new Size(226, 113);
             grpFiltrarCategoria.TabIndex = 6;
             grpFiltrarCategoria.TabStop = false;
             grpFiltrarCategoria.Text = "Filtrar Por Periodo";
@@ -217,9 +211,9 @@
             // 
             lblHasta.AutoSize = true;
             lblHasta.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblHasta.Location = new Point(15, 72);
+            lblHasta.Location = new Point(13, 54);
             lblHasta.Name = "lblHasta";
-            lblHasta.Size = new Size(61, 28);
+            lblHasta.Size = new Size(49, 21);
             lblHasta.TabIndex = 4;
             lblHasta.Text = "Hasta";
             // 
@@ -227,18 +221,17 @@
             // 
             lblDesde.AutoSize = true;
             lblDesde.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDesde.Location = new Point(15, 33);
+            lblDesde.Location = new Point(13, 25);
             lblDesde.Name = "lblDesde";
-            lblDesde.Size = new Size(66, 28);
+            lblDesde.Size = new Size(53, 21);
             lblDesde.TabIndex = 3;
             lblDesde.Text = "Desde";
             // 
             // btnFiltrarPeriodo
             // 
-            btnFiltrarPeriodo.Location = new Point(158, 108);
-            btnFiltrarPeriodo.Margin = new Padding(3, 4, 3, 4);
+            btnFiltrarPeriodo.Location = new Point(138, 81);
             btnFiltrarPeriodo.Name = "btnFiltrarPeriodo";
-            btnFiltrarPeriodo.Size = new Size(86, 31);
+            btnFiltrarPeriodo.Size = new Size(75, 23);
             btnFiltrarPeriodo.TabIndex = 2;
             btnFiltrarPeriodo.Text = "Filtrar";
             btnFiltrarPeriodo.UseVisualStyleBackColor = true;
@@ -247,29 +240,25 @@
             // dtpTiempoHasta
             // 
             dtpTiempoHasta.Format = DateTimePickerFormat.Short;
-            dtpTiempoHasta.Location = new Point(82, 69);
-            dtpTiempoHasta.Margin = new Padding(3, 4, 3, 4);
+            dtpTiempoHasta.Location = new Point(72, 52);
             dtpTiempoHasta.Name = "dtpTiempoHasta";
-            dtpTiempoHasta.Size = new Size(161, 27);
+            dtpTiempoHasta.Size = new Size(141, 23);
             dtpTiempoHasta.TabIndex = 1;
             // 
             // dtpTiempoInicio
             // 
             dtpTiempoInicio.Format = DateTimePickerFormat.Short;
-            dtpTiempoInicio.Location = new Point(82, 31);
-            dtpTiempoInicio.Margin = new Padding(3, 4, 3, 4);
+            dtpTiempoInicio.Location = new Point(72, 23);
             dtpTiempoInicio.Name = "dtpTiempoInicio";
-            dtpTiempoInicio.Size = new Size(161, 27);
+            dtpTiempoInicio.Size = new Size(141, 23);
             dtpTiempoInicio.TabIndex = 0;
             // 
             // grpListaProductos
             // 
             grpListaProductos.Controls.Add(dgvReportesVentas);
-            grpListaProductos.Location = new Point(17, 29);
-            grpListaProductos.Margin = new Padding(3, 4, 3, 4);
+            grpListaProductos.Location = new Point(15, 22);
             grpListaProductos.Name = "grpListaProductos";
-            grpListaProductos.Padding = new Padding(3, 4, 3, 4);
-            grpListaProductos.Size = new Size(954, 481);
+            grpListaProductos.Size = new Size(789, 361);
             grpListaProductos.TabIndex = 5;
             grpListaProductos.TabStop = false;
             grpListaProductos.Text = "Consultas";
@@ -277,19 +266,17 @@
             // dgvReportesVentas
             // 
             dgvReportesVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvReportesVentas.Location = new Point(15, 29);
-            dgvReportesVentas.Margin = new Padding(3, 4, 3, 4);
+            dgvReportesVentas.Location = new Point(13, 22);
             dgvReportesVentas.Name = "dgvReportesVentas";
             dgvReportesVentas.RowHeadersWidth = 51;
-            dgvReportesVentas.Size = new Size(926, 428);
+            dgvReportesVentas.Size = new Size(763, 321);
             dgvReportesVentas.TabIndex = 4;
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(848, 621);
-            btnVolver.Margin = new Padding(3, 4, 3, 4);
+            btnVolver.Location = new Point(647, 508);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(123, 48);
+            btnVolver.Size = new Size(157, 36);
             btnVolver.TabIndex = 3;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -297,12 +284,11 @@
             // 
             // FormReporteYConsultas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(1015, 704);
+            ClientSize = new Size(832, 562);
             Controls.Add(grpProductos);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FormReporteYConsultas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Reporte Y Consultas";
@@ -340,5 +326,6 @@
         private Label lblDesde;
         private Button btnFiltrarPeriodo;
         private Button btnRefrescar;
+        private Button btnEstadisticas;
     }
 }
